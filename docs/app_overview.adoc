@@ -13,7 +13,34 @@ Die App besteht aus mehreren fachlichen Modulen (Komponenten), die jeweils mit e
 Der Versicherte interagiert ausschließlich über die Smartphone App, die intern die Anfragen an die jeweiligen Backend-Dienste weiterleitet.
 
 .Architektur: Smartphone App mit Backend Services
-image::../images/app_with_modules.png[Architektur: Smartphone App mit Backend Services]
+
+```mermaid
+graph LR
+    v[🧑 Versicherter] --- app
+
+    subgraph app["Smartphone App"]
+        direction TB
+        zc["ZETA Client"]
+        gia["Gesundheits-ID Authenticator"]
+        dpc["DiPag Client"]
+        fxc["Fachmodul X Client"]
+    end
+
+    subgraph backend["Backend Services"]
+        direction TB
+        zeta_backend["ZETA Backend"]
+        gid_backend["Gesundheits-ID Backend"]
+        dipag_backend["DiPag Backend"]
+        fx_backend["Fachmodul X Backend"]
+    end
+
+    zc --- zeta_backend
+    gia --- gid_backend
+    dpc --- dipag_backend
+    fxc --- fx_backend
+```
+
+
 
 == Registrierungsprozess
 
