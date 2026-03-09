@@ -1,0 +1,96 @@
+name: Deploy to GitHub Pages
+
+# Trigger on pushes to main branch, or manually via workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Allow only one concurrent deployment
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+# Grant GITHUB_TOKEN the permissions required for Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # --- Checkout the repository ---
+      - uses: actions/checkout@v4
+
+      # --- Install Asciidoctor for AsciiDoc -> HTML conversion ---
+      - name: Install Asciidoctor
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y asciidoctor
+
+      # --- Build the site into _site/ ---
+      - name: Build HTML pages
+        run: |
+          mkdir -p _site
+
+          # --- Convert the root Readme ---
+          asciidoctor -o _site/index.html Readme.adoc
+
+          # --- Convert docs/ ---
+          mkdir -p _site/docs
+          for f in docs/*.adoc; do
+            [ -f "$f" ] || continue
+            asciidoctor -o "_site/docs/$(basename "${f%.adoc}.html")" "$f"
+          done
+
+          # --- Convert module docs (generic for all modules) ---
+          find modules -name "*.adoc" -path "*/docs/*" | while read f; do
+            # Derive the output path preserving the module directory structure
+            relpath="${f}"
+            outpath="_site/${relpath%.adoc}.html"
+            mkdir -p "$(dirname "$outpath")"
+            asciidoctor -o "$outpath" "$f"
+          done
+
+          # --- Copy generated images ---
+          # Root-level images
+          if [ -d "images" ]; then
+            cp -r images _site/images
+          fi
+
+          # Module-level images (preserve directory structure)
+          find modules -type d -name "images" | while read imgdir; do
+            mkdir -p "_site/$imgdir"
+            cp -r "$imgdir"/* "_site/$imgdir"/ 2>/dev/null || true
+          done
+
+      # --- Fix internal links (.adoc -> .html) in generated HTML ---
+      - name: Fix internal links
+        run: |
+          find _site -name "*.html" -exec sed -i 's/\.adoc"/\.html"/g' {} +
+          find _site -name "*.html" -exec sed -i "s/\.adoc'/\.html'/g" {} +
+
+      # --- Upload the built site as a Pages artifact ---
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  # --- Deploy the artifact to GitHub Pages ---
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

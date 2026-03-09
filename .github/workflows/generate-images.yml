@@ -8,7 +8,6 @@ on:
     paths:
       - '**.drawio'
       - '**.puml'
-      - '**.mmd'
   workflow_dispatch:
 
 # Prevent concurrent runs on the same branch to avoid commit conflicts
@@ -37,20 +36,16 @@ jobs:
         id: discover
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            # Manual trigger: find ALL image_src dirs that contain .puml / .drawio / .mmd files
+            # Manual trigger: find ALL image_src dirs that contain .puml / .drawio files
             puml_dirs=$(find . -name "*.puml" -path "*/image_src/*" \
               | xargs -I{} dirname {} | sed 's|^\./||' | sort -u)
             drawio_dirs=$(find . -name "*.drawio" -path "*/image_src/*" \
-              | xargs -I{} dirname {} | sed 's|^\./||' | sort -u)
-            mmd_dirs=$(find . -name "*.mmd" -path "*/image_src/*" \
               | xargs -I{} dirname {} | sed 's|^\./||' | sort -u)
           else
             # Push trigger: only pick image_src dirs where files actually changed
             puml_dirs=$(git diff --name-only HEAD~1 HEAD -- '*.puml' \
               | xargs -I{} dirname {} | sort -u | grep 'image_src' || true)
             drawio_dirs=$(git diff --name-only HEAD~1 HEAD -- '*.drawio' \
-              | xargs -I{} dirname {} | sort -u | grep 'image_src' || true)
-            mmd_dirs=$(git diff --name-only HEAD~1 HEAD -- '*.mmd' \
               | xargs -I{} dirname {} | sort -u | grep 'image_src' || true)
           fi
 
@@ -63,11 +58,6 @@ jobs:
           {
             echo "drawio_dirs<<EOF"
             echo "$drawio_dirs"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-          {
-            echo "mmd_dirs<<EOF"
-            echo "$mmd_dirs"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
@@ -103,34 +93,6 @@ jobs:
         uses: holowinski/plantuml-github-action@1.2025.4
         with:
           args: -v -tpng -o ../images **/image_src/*.puml
-
-      # --- Generate Mermaid images for each affected directory ---
-      - name: Install Mermaid CLI
-        if: steps.discover.outputs.mmd_dirs != ''
-        run: npm install -g @mermaid-js/mermaid-cli
-
-      - name: Generate Mermaid diagrams
-        if: steps.discover.outputs.mmd_dirs != ''
-        run: |
-          echo "${{ steps.discover.outputs.mmd_dirs }}" | while read srcdir; do
-            [ -z "$srcdir" ] && continue
-
-            # Derive the sibling images/ folder from the image_src/ folder
-            outdir=$(echo "$srcdir" | sed 's|image_src$|images|')
-            mkdir -p "$outdir"
-
-            echo "::group::Processing Mermaid in $srcdir -> $outdir"
-
-            # Render each .mmd file to PNG
-            for mmd_file in "$srcdir"/*.mmd; do
-              [ -f "$mmd_file" ] || continue
-              basename=$(basename "$mmd_file" .mmd)
-              echo "Rendering $mmd_file -> $outdir/$basename.png"
-              mmdc -i "$mmd_file" -o "$outdir/$basename.png" -b transparent
-            done
-
-            echo "::endgroup::"
-          done
 
       # --- Export Draw.io images for each affected directory ---
       # The drawio-export-action must be called per directory since
