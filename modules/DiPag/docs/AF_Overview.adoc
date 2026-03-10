@@ -10,7 +10,13 @@ Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechn
 link:https://www.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-Wireframes?page-id=3188%3A16435&node-id=3188-22914&p=f&viewport=266%2C-40147%2C0.73&t=IgyynotY8O8F2TVI-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3188%3A22947&show-proto-sidebar=1[Figma Prototyp in neuem Tab öffnen ^]
 
 ++++
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-Wireframes?page-id=3188%3A16435&node-id=3188-22914&p=f&viewport=266%2C-40147%2C0.73&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3188%3A22947&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
+        width="400"
+        height="800"
+        src="https://embed.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-Wireframes?page-id=3188%3A16435&node-id=3188-22914&p=f&viewport=266%2C-40147%2C0.73&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3188%3A22947&show-proto-sidebar=1&embed-host=share"
+        allowfullscreen>
+
+</iframe>
 ++++
 
 == Übermittlung von Rechnungen
