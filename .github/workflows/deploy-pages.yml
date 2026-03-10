@@ -36,42 +36,54 @@ jobs:
         run: |
           mkdir -p _site
 
-          # --- Convert the root Readme ---
-          asciidoctor -o _site/index.html Readme.adoc
+          # --- Convert the root Readme to index.html ---
+          # Use -a imagesdir to help Asciidoctor resolve image paths
+          asciidoctor -b html5 -o _site/index.html Readme.adoc
 
           # --- Convert docs/ ---
           mkdir -p _site/docs
           for f in docs/*.adoc; do
             [ -f "$f" ] || continue
-            asciidoctor -o "_site/docs/$(basename "${f%.adoc}.html")" "$f"
+            asciidoctor -b html5 -a imagesdir=../images \
+              -o "_site/docs/$(basename "${f%.adoc}.html")" "$f"
           done
 
           # --- Convert module docs (generic for all modules) ---
           find modules -name "*.adoc" -path "*/docs/*" | while read f; do
-            # Derive the output path preserving the module directory structure
             relpath="${f}"
             outpath="_site/${relpath%.adoc}.html"
             mkdir -p "$(dirname "$outpath")"
-            asciidoctor -o "$outpath" "$f"
+            asciidoctor -b html5 -o "$outpath" "$f"
           done
 
-          # --- Copy generated images ---
+          # --- Copy all images directories (preserve full directory structure) ---
           # Root-level images
           if [ -d "images" ]; then
-            cp -r images _site/images
+            mkdir -p _site/images
+            cp -r images/* _site/images/ 2>/dev/null || true
           fi
 
-          # Module-level images (preserve directory structure)
+          # Module-level images
           find modules -type d -name "images" | while read imgdir; do
             mkdir -p "_site/$imgdir"
             cp -r "$imgdir"/* "_site/$imgdir"/ 2>/dev/null || true
           done
 
+          # --- List generated site for debugging ---
+          echo "::group::Generated site contents"
+          find _site -type f | sort
+          echo "::endgroup::"
+
       # --- Fix internal links (.adoc -> .html) in generated HTML ---
       - name: Fix internal links
         run: |
-          find _site -name "*.html" -exec sed -i 's/\.adoc"/\.html"/g' {} +
-          find _site -name "*.html" -exec sed -i "s/\.adoc'/\.html'/g" {} +
+          # Replace .adoc references with .html in all generated HTML files
+          find _site -name "*.html" -exec sed -i \
+            -e 's/\.adoc"/\.html"/g' \
+            -e "s/\.adoc'/\.html'/g" \
+            -e 's/\.adoc#/\.html#/g' \
+            -e 's/\.adoc<\/a>/\.html<\/a>/g' \
+            {} +
 
       # --- Upload the built site as a Pages artifact ---
       - name: Setup Pages
