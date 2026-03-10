@@ -1,4 +1,4 @@
-= DiPag – Digitale Patientenrechnung
+= App des Versicherten
 
 [IMPORTANT]
 ====
