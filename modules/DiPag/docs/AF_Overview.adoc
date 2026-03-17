@@ -1,4 +1,6 @@
 = Übersicht der Anwendungsfälle (DiPag)
+:sectlinks:
+:sectanchors:
 
 Diese Übersicht listet alle Anwendungsfälle der Digitalen Patientenrechnung (DiPag) gemäß gemF_DiPag V1.1.1, Kapitel 6,
 die den Versicherten und sein FDV involvieren, auf. Sie ist in die folgenden Bereiche unterteilt:
