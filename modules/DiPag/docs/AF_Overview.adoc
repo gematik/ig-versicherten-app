@@ -21,21 +21,6 @@ link:https://www.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-
 </iframe>
 ++++
 
-== Übermittlung von Rechnungen
-
-[cols="1,3,3"]
-|===
-| ID | Anwendungsfall | Beschreibung
-
-| AF_10138
-| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.adoc[Abruf von Rechnungen (Rechnungsempfänger)]
-| Beschreibt den Abruf einer Liste von Rechnungen und zugehörigen Dokumenten durch den Rechnungsempfänger mittels Suchabfrage aus dem DiPag FdV.
-
-| AF_10271
-| link:AF_10271_Abfrage_von_angereicherten_PDF_per_Token_Rechnungsersteller.adoc[Abfrage von angereicherten PDF per Token (Rechnungsersteller)]
-| Beschreibt den Abruf eines angereicherten PDF aus dem Fachdienst seitens des Rechnungserstellers mittels eines Tokens.
-|===
-
 == Empfang von Rechnungen
 
 === Abruf von Rechnungen und Dokumenten
@@ -43,25 +28,10 @@ link:https://www.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-
 [cols="1,3,3"]
 |===
 | ID | Anwendungsfall | Beschreibung
+| AF_10138
+| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.adoc[Abruf von Rechnungen (Rechnungsempfänger)]
+| Beschreibt den Abruf einer Liste von Rechnungen und zugehörigen Dokumenten durch den Rechnungsempfänger mittels Suchabfrage aus dem DiPag FdV.
 
-| AF_10180
-| link:AF_10180_Abfrage_von_Daten_zu_Rechnungen_und_Dokumenten_per_Token_Kostenträger.adoc[Abfrage von Daten zu Rechnungen und Dokumenten per Token (Kostenträger)]
-| Beschreibt den Abruf von Daten aus dem Fachdienst seitens des Kostenträgers mittels Token zu eingereichten Rechnungen und/oder Dokumenten.
-|===
-
-=== Berechtigung zum Rechnungsversand
-
-[cols="1,3,3"]
-|===
-| ID | Anwendungsfall | Beschreibung
-
-| AF_10140
-| link:AF_10140_Automatische_Anlage_der_individuellen_Berechtigung_zum_Rechnungsversand.adoc[Automatische Anlage der individuellen Berechtigung zum Rechnungsversand]
-| Beschreibt den Vorgang, ausgehend vom Versand von Rechnungen die individuelle Berechtigung zum Rechnungsversand für einzelne Rechnungsersteller sichtbar zu machen und deren Widerruf zu ermöglichen.
-
-| AF_10265
-| link:AF_10265_Bearbeitung_von_Berechtigungen.adoc[Bearbeitung von Berechtigungen]
-| Beschreibt die Bearbeitung der Berechtigungen durch einen Rechnungsempfänger in seinem Nutzerkonto.
 |===
 
 === Benachrichtigung empfangen
@@ -139,6 +109,10 @@ link:https://www.figma.com/proto/QWrHjzUp12Vvza7b3ni4mZ/Digitale-Patien.-Rechn.-
 | AF_10269
 | link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.adoc[Nutzerkonto eines Versicherten löschen bei Inaktivität]
 | Beschreibt die automatische Löschung eines Nutzerkontos für einen Versicherten im Falle von langer Inaktivität, nach vorherigem Hinweis.
+
+| AF_10265
+| link:AF_10265_Bearbeitung_von_Berechtigungen.adoc[Bearbeitung von Berechtigungen]
+| Beschreibt die Bearbeitung der Berechtigungen durch einen Rechnungsempfänger in seinem Nutzerkonto.
 |===
 
 == Nutzerprotokolle
