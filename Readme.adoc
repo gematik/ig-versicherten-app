@@ -20,7 +20,7 @@ Da die App sich aus verschiedenen Modulen zusammensetzt, die jeweils mit eigenen
 
 Beschreibt die grundlegende Architektur der App und Basisanwendungsfälle, wie das initiale Anlegen einer GesundheitsID oder die von den Zeta Clients verwendeten Parameter des Devices.
 
-=== link:modules/DiPag/docs/AF_Overview.adoc[Übersicht der DiPag-Anwendungsfälle]
+=== link:modules/DiPag/docs/overview.adoc[Übersicht der DiPag-Anwendungsfälle]
 
 Listet alle fachlichen Anwendungsfälle der DiPag auf, gegliedert nach den Bereichen Übermittlung, Empfang und Verwaltung von Rechnungen, Einreichung beim Kostenträger, Einrichtung von Nutzerkonten sowie Nutzerprotokolle. Jeder Anwendungsfall ist einzeln als AsciiDoc-Datei dokumentiert und aus der Übersicht heraus verlinkt.
 

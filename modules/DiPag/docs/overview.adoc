@@ -1,0 +1,62 @@
+= Modul DiPag
+:sectlinks:
+:sectanchors:
+:toc: left
+
+Diese Übersicht listet alle Anwendungsfälle der Digitalen Patientenrechnung (DiPag) gemäß gemF_DiPag V1.1.1, Kapitel 6,
+die den Versicherten und sein FDV involvieren, auf. Sie ist in die folgenden Bereiche unterteilt:
+
+== App Prototype
+
+Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechnung.
+
+link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?content-scaling=fixed&kind=proto&node-id=8355-6094&page-id=8355%3A5569&scaling=min-zoom&starting-point-node-id=8355%3A6094[Figma Prototyp in neuem Tab öffnen]
+
+++++
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
+        width="100%"
+        height="1000"
+        src=https://embed.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8355-6094&viewport=404%2C431%2C0.16&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=8355%3A6094&page-id=8355%3A5569&show-proto-sidebar=0&embed-host=share%22
+        allowfullscreen>
+</iframe>
+++++
+
+== Empfang von Rechnungen
+
+include::AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.adoc[leveloffset=+2]
+
+include::AF_10186_Benachrichtigung_empfangen.adoc[leveloffset=+2]
+
+== Verwaltung von empfangenen Rechnungen
+
+include::AF_10245_Manuelles_Ändern_des_Bearbeitungsstatus_von_Rechnungen.adoc[leveloffset=+2]
+
+include::AF_10160_Manuelles_Markieren_von_Rechnungen_und_Dokumenten.adoc[leveloffset=+2]
+
+include::AF_10261_Automatisches_Markieren_als_gelesen.adoc[leveloffset=+2]
+
+== Einreichung von Rechnungen
+
+include::AF_10260_Einreichung_per_Frontend.adoc[leveloffset=+2]
+
+== Einrichtung und Verwaltung von Versicherten-Nutzerkonten
+
+include::AF_10187_Einrichten_eines_Kontos_für_Versicherte.adoc[leveloffset=+2]
+
+include::AF_10263_Bearbeitung_von_Einstellungen_des_Nutzerkontos.adoc[leveloffset=+2]
+
+include::AF_10267_Bearbeitung_von_Identitätsdaten_des_Nutzerkontos_Namensänderung.adoc[leveloffset=+2]
+
+include::AF_10191_Löschen_seines_Nutzerkontos_durch_den_Versicherten.adoc[leveloffset=+2]
+
+include::AF_10270_Hinweis_auf_anstehende_Konto-Löschung_bei_Inaktivität.adoc[leveloffset=+2]
+
+include::AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.adoc[leveloffset=+2]
+
+include::AF_10265_Bearbeitung_von_Berechtigungen.adoc[leveloffset=+2]
+
+== Nutzerprotokolle
+
+include::AF_10203_Nutzerprotokoll_einsehen.adoc[leveloffset=+2]
+
+include::AF_10194_Nutzerprotokoll_exportieren.adoc[leveloffset=+2]

@@ -36,9 +36,40 @@ jobs:
         run: |
           mkdir -p _site
 
-          # --- Convert the root Readme to index.html ---
-          # Use -a imagesdir to help Asciidoctor resolve image paths
-          asciidoctor -b html5 -o _site/index.html Readme.adoc
+          # --- Generate a dynamic index.adoc that lists all modules ---
+          printf '%s\n' \
+            '= App des Versicherten – Module' \
+            '' \
+            ':imagesdir: images' \
+            '' \
+            'include::docs/app_overview.adoc[leveloffset=+1]' \
+            '' \
+            '== Module' \
+            > _generated_index.adoc
+
+          # --- Dynamically append one entry per module found under modules/ ---
+          for module_dir in modules/*/; do
+            module_name="$(basename "$module_dir")"
+            overview_file="${module_dir}docs/overview.adoc"
+            if [ -f "$overview_file" ]; then
+              # --- Generate SVG icon for the module ---
+              icon_file="_site/images/module_${module_name}.svg"
+              mkdir -p _site/images
+              text_len=${#module_name}
+              width=$(( text_len * 10 + 24 ))
+              half=$(( width / 2 ))
+              printf '<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="28" viewBox="0 0 %d 28">\n' "$width" "$width" > "$icon_file"
+              printf '  <rect width="%d" height="28" rx="6" fill="#0b6abf"/>\n' "$width" >> "$icon_file"
+              printf '  <text x="%d" y="18" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">%s</text>\n' "$half" "$module_name" >> "$icon_file"
+              printf '</svg>\n' >> "$icon_file"
+
+              echo "" >> _generated_index.adoc
+              echo "* image:module_${module_name}.svg[${module_name},24] link:modules/${module_name}/docs/overview.html[${module_name}]" >> _generated_index.adoc
+            fi
+          done
+
+          # --- Convert the generated index to index.html ---
+          asciidoctor -b html5 -o _site/index.html _generated_index.adoc
 
           # --- Convert docs/ ---
           mkdir -p _site/docs
