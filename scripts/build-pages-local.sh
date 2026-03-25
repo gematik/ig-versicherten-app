@@ -52,7 +52,7 @@ for module_dir in modules/*/; do
     } > "$icon_file"
 
     echo "" >> _generated_index.adoc
-    echo "* image:module_${module_name}.svg[${module_name},24] link:modules/${module_name}/docs/overview.html[${module_name}]" >> _generated_index.adoc
+    echo "image:module_${module_name}.svg[link=modules/${module_name}/docs/overview.html,title=${module_name}]" >> _generated_index.adoc
   fi
 done
 
