@@ -24,8 +24,9 @@ echo "📄 Generiere dynamische index.adoc..."
 mkdir -p _site
 
 printf '%s\n' \
-  '= App des Versicherten – Module' \
-  '' \
+  '= App des Versicherten' \
+  ':toc: left' \
+  ':toclevels: 3' \
   ':imagesdir: images' \
   '' \
   'include::docs/app_overview.adoc[leveloffset=+1]' \

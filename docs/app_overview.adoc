@@ -1,5 +1,6 @@
 = Anwendungsübersicht App des Versicherten
 ifndef::imagesdir[:imagesdir: ../images]
+:toc: left
 
 == Architekturübersicht: Smartphone App mit Backend Services
 
