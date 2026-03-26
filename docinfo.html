@@ -1,10 +1,42 @@
 <style>
-h1, h2, h3, h4, h5, h6 {
+/*
+ * Hinweis: Diese Datei wird in generierte Asciidoctor-HTML-Seiten injiziert.
+ * Die Selektoren sind dort vorhanden. IDE-Warnungen "Selector never used"
+ * können für diese Datei ignoriert werden.
+ */
+
+/* ── Überschriften ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+#header h1,
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
   color: #000E52 !important;
 }
 #toctitle {
   color: #000E52 !important;
 }
+
+/* Asciidoctor rendert Abschnittstitel als <a class="link"> – Farbe angleichen */
+#content h1 a.link, #content h2 a.link, #content h3 a.link,
+#content h4 a.link, #content h5 a.link, #content h6 a.link {
+  color: #000E52 !important;
+  text-decoration: none;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────────── */
+/* Body-Inhalt und fixiertes TOC-Panel unter den fixen Breadcrumb-Header schieben */
+body {
+  padding-top: 36px !important;
+}
+#toc.toc2 {
+  top: 36px !important;
+  height: calc(100% - 36px) !important;
+}
+/* Anker-Sprünge berücksichtigen den fixen Header */
+html {
+  scroll-padding-top: 44px;
+}
+
+/* ── Breadcrumb-Bar ────────────────────────────────────────────────────────── */
 #breadcrumb-bar {
   background: #000E52;
   padding: 8px 16px;
@@ -30,34 +62,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 #breadcrumb-bar .current {
   color: rgba(255,255,255,.85);
-}
-/* Schiebt den Body-Inhalt unter den fixed Header */
-body {
-  padding-top: 36px !important;
-}
-/* Schiebt das fixierte TOC-Panel ebenfalls nach unten */
-#toc.toc2 {
-  top: 36px !important;
-  height: calc(100% - 36px) !important;
-}
-
-/* Einheitliche Überschriftenfarbe auch bei Asciidoctor-Überschriftenlinks */
-h1, h2, h3, h4, h5, h6,
-#header h1,
-#content h1, #content h2, #content h3, #content h4, #content h5, #content h6,
-#content h1 a.link, #content h2 a.link, #content h3 a.link,
-#content h4 a.link, #content h5 a.link, #content h6 a.link {
-  color: #000E52 !important;
-}
-
-/* Link-Farbe in Überschriften nicht von globalen Link-Styles überschreiben lassen */
-#content h1 a.link,
-#content h2 a.link,
-#content h3 a.link,
-#content h4 a.link,
-#content h5 a.link,
-#content h6 a.link {
-  text-decoration: none;
 }
 </style>
 <script>
