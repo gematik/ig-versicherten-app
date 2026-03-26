@@ -54,7 +54,7 @@ image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 
 === Testinhalte und -abdeckung
 
-* Die Usertests müssen den vollständigen Prozess des INHALT einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps.
+* Die Usertests müssen den vollständigen Prozess der implementieren Use Cases einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps abdecken.
 
 === Dokumentation und Nachweisführung
 
@@ -63,7 +63,7 @@ image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 
 == Barrierefreiheit
 
-Die Entwicklung einer barrierearmen Anwendung unterliegt einem sich fortlaufend weiterentwickelnden Prozess. Die Umsetzung aller Anforderungen kann nicht mit der Ersteinführung der Anwendung sichergestellt werden.
+Die Entwicklung einer barrierefreien Anwendung unterliegt einem sich fortlaufend weiterentwickelnden Prozess. Die Umsetzung der Anforderungen sollte in der Weiterentwicklung der App stets beachtet werden. Dafür sollte die Barrierefreiheitserklärung mindestens einmal pro Jahr auf Richtigkeit geprüft werden und ggf. angepasst werden.
 
 Zusätzlich zu den in diesem Kapitel aufgeführten Anforderungen zur Benutzerführung sollen auch die in der ISO 9241 aufgeführten Qualitätsrichtlinien zur Sicherstellung der Ergonomie interaktiver Systeme und Anforderungen aus der Verordnung zur Schaffung barrierefreier Informationstechnik nach dem Behindertengleichstellungsgesetz (Barrierefreie-Informationstechnik-Verordnung – BITV 2.0) beachtet werden.
 
