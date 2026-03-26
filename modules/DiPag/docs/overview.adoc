@@ -26,13 +26,13 @@ link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnu
 
 Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und ist in der initialen App und der Versicherungsapp bereits angemeldet.
 
-[cols="2,3,4",options="header"]
+[cols="2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen
+| Use Case | Beschreibung | Anforderungen | weitere Quellen
 
 | DiPAG Fachdienst berechtigen
 | In der Versicherungsapp erscheint eine Abfrage
-a|
+ a|
 * In der initialen App wird ein Absprung in die Versicherungsapp angeboten
 * Der Versicherte ist in der Versicherungsapp mit GesundheitsID angemeldet
 * Übertragende Inhalte werden angezeigt:
@@ -40,43 +40,47 @@ a|
 ** KVNR
 ** Geburtsdatum
 ** E-Mail Adresse
+| link:AF_10187_Einrichten_eines_Kontos_für_Versicherte.html[AF_10187 - Einrichten eines Kontos für Versicherte]
 
 | Rechnungen digital empfangen
 | In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen
-a|
+ a|
 * Die Entscheidung muss zu einem späteren Zeitpunkt geändert werden können
-
+| link
 | E-Mail verifizieren
 | In der initialen App erscheint eine E-Mail-Abfrage
-a|
+ a|
 * Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus
-
+| link:
 |
 | In der initialen App erscheint eine Eingabemaske für das OTP
-a|
+ a|
 * Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden
+| link:
 
 | Abschluss
 | Der Versicherte sieht die Übersicht seiner Rechnungen
-a|
+ a|
 * Siehe Rechnungsübersicht
+| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 |===
 
 
 === 1. Rechnungsübersicht
 
-[cols="2,3,4",options="header"]
+[cols="2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen
+| Use Case | Beschreibung | Anforderungen | weitere Quellen
 
 | Rechnungen empfangen
 | Rechnungen werden automatisch in das Frontend geladen
-a|
+ a|
 * Rechnungen werden mit einer Push-Nachricht angekündigt
+| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
 | Rechnungen anzeigen
 | Liste aller Rechnungen
-a| Die Liste muss je Rechnung mindestens enthalten:
+ a| Die Liste muss je Rechnung mindestens enthalten:
 
 * Ausstellende LEI
 * Status der Rechnung, falls dieser bezahlt oder eingereicht ist
@@ -85,60 +89,67 @@ a| Die Liste muss je Rechnung mindestens enthalten:
 Rechnungen können sich auch im Archiv befinden.
 
 Lade-States und verständliche Fehlermeldungen implementieren.
+| link:
 
 | Suchfunktion
 | Rechnungen nach Kriterien durchsuchen
-a| Suchleiste muss mindestens nach folgenden Kriterien suchen können:
+ a| Suchleiste muss mindestens nach folgenden Kriterien suchen können:
 
 * Rechnungsnummer
 * Leistungserbringer
 
 Ideal: Volltextsuche
+| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
 | Sortierfunktion
 | Rechnungsliste sortieren
-a| Mindestens:
+ a| Mindestens:
 
 * Rechnungsdatum
 * Zahlungszieldatum
 * Gesamtbetrag
+| link:
 
 | Filterfunktion
 | Rechnungen nach Status filtern
-a| Mindestens:
+ a| Mindestens:
 
 * Eingereicht
 * Nicht eingereicht
 * Bezahlt
 * Nicht bezahlt
+| link:
 
 | Auswahlfunktion mit Aktion
 | Mehrere Rechnungen gleichzeitig auswählen und verwalten
-a| Mindestens:
+ a| Mindestens:
 
 * Einreichen
 * Löschen
+| link:
 
 | Rechnungsdetails anzeigen
 | Klick auf eine Rechnung zeigt mehr Details
-a|
+ a|
 * Siehe Rechnungsdetails
+| link:
 
 | Optional: Statistiken/Übersicht
 | Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres
+| keine
 | keine
 |===
 
 
 === 2. Rechnungsdetails
 
-[cols="2,3,4",options="header"]
+[cols="2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen
+| Use Case | Beschreibung | Anforderungen | weitere Quellen
 
 | Detail-Ansicht öffnen
 | Detailinformationen durch Klick auf eine Rechnung anzeigen
-a| Mindestens:
+ a| Mindestens:
 
 * Rechnungsnummer
 * Leistungsdatum
@@ -149,68 +160,78 @@ a| Mindestens:
 * Zahlungsdaten, falls die Rechnung noch nicht bezahlt ist
 * Mögliche Aktionen wie einreichen, als bezahlt markieren, als eingereicht markieren, archivieren, löschen
 * Eine Rechnung soll auch nach einer Einreichung erneut eingereicht werden können
+| link:
 
 | PDF-Download
 | Rechnung als PDF herunterladen
-a|
+ a|
 * PDF enthält alle Rechnungsdetails
+| link:
 
 | Zahlungsunterstützung
 | Rechnung digital bezahlen
-a|
+ a|
 * Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können
+| link:
 
 |
 | Möglichkeit die Rechnung als bezahlt zu markieren
-a|
+ a|
 * Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen
+| link:
 |===
 
 
 === 3. Rechnungen einreichen
 
-[cols="2,3,4",options="header"]
+[cols="2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen
+| Use Case | Beschreibung | Anforderungen | weitere Quellen
 
 | Rechnung auswählen
 | Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können
 |
+| link
 
 | Rechnung teilen
 | Sharesheet mit Rechnung als Anhang
-a|
+ a|
 * Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
 * Das Format der Rechnung soll PDF/strukturiert sein
+| link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
 |===
 
 
 === 4. Push-Benachrichtigungen
 
-[cols="2,3,4",options="header"]
+[cols="2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen
+| Use Case | Beschreibung | Anforderungen | weitere Quellen
 
 | Neue Rechnung
 | Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist
-a| Leistungserbringer und Use Case
+ a| Leistungserbringer und Use Case
 
 Beispiel: _„[Leistungserbringer] hat Ihnen eine Rechnung zugestellt."_
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Erinnerung an baldiges Fälligkeitsdatum
 | Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit
-a| Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum
+ a| Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum
 
 Beispiel: _„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."_
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Überfällige Rechnung
 | Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde
-a| Leistungserbringer und Use Case
+ a| Leistungserbringer und Use Case
 
 Beispiel: _„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begleichen Sie diese zeitnah."_
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Anstehende Löschung
 | Erinnerung, wenn eine Rechnung gelöscht wird
-a|
+ a|
 * Gilt nur, wenn es keine automatische Speicherung im App-Speicher gibt
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 |===
