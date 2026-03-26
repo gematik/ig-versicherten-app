@@ -40,6 +40,25 @@ body {
   top: 36px !important;
   height: calc(100% - 36px) !important;
 }
+
+/* Einheitliche Überschriftenfarbe auch bei Asciidoctor-Überschriftenlinks */
+h1, h2, h3, h4, h5, h6,
+#header h1,
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6,
+#content h1 a.link, #content h2 a.link, #content h3 a.link,
+#content h4 a.link, #content h5 a.link, #content h6 a.link {
+  color: #000E52 !important;
+}
+
+/* Link-Farbe in Überschriften nicht von globalen Link-Styles überschreiben lassen */
+#content h1 a.link,
+#content h2 a.link,
+#content h3 a.link,
+#content h4 a.link,
+#content h5 a.link,
+#content h6 a.link {
+  text-decoration: none;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -77,6 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var relSegments = segments.slice(siteStart);
 
+  // Modul-Overview: /modules/<modul>/docs/overview.html
+  var isModuleOverview = (
+    relSegments.length === 4 &&
+    relSegments[0] === 'modules' &&
+    relSegments[2] === 'docs' &&
+    relSegments[3] === 'overview.html'
+  );
+
   // Tiefe berechnen für relative Links
   var depth = relSegments.length - 1;
   var prefix = '';
@@ -100,16 +127,22 @@ document.addEventListener('DOMContentLoaded', function() {
       var prev = j > 0 ? relSegments[j - 1] : '';
 
       if (seg === 'docs') {
-        // docs-Verzeichnis hat keinen eigenen Index, nur Label anzeigen
-        crumbs.push('<span class="current">' + (defined[seg] || seg) + '</span>');
+        // Auf Modul-Overview docs/overview ausblenden (Variante 1)
+        if (!isModuleOverview) {
+          crumbs.push('<span class="current">' + (defined[seg] || seg) + '</span>');
+        }
         accumPath += seg + '/';
       } else if (seg === 'modules') {
         // modules überspringen, da redundant mit Modulname
         accumPath += seg + '/';
       } else if (prev === 'modules') {
-        // Nur direkt unter /modules/<modul>/... auf die Modul-Overview verlinken
-        var overviewHref = accumPath + seg + '/docs/overview.html';
-        crumbs.push('<a href="' + overviewHref + '">' + seg + '</a>');
+        // Auf Modul-Overview ist der Modulname das aktuelle Element
+        if (isModuleOverview) {
+          crumbs.push('<span class="current">' + seg + '</span>');
+        } else {
+          var overviewHref = accumPath + seg + '/docs/overview.html';
+          crumbs.push('<a href="' + overviewHref + '">' + seg + '</a>');
+        }
         accumPath += seg + '/';
       } else {
         // Sonstige Segmente (z.B. Repo-Präfix) nicht als Modul behandeln
@@ -117,9 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Letztes Segment = aktuelle Seite
-    var lastSeg = relSegments[relSegments.length - 1];
-    crumbs.push('<span class="current">' + labelFromFilename(lastSeg) + '</span>');
+    // Letztes Segment = aktuelle Seite (außer bei Modul-Overview in Variante 1)
+    if (!isModuleOverview) {
+      var lastSeg = relSegments[relSegments.length - 1];
+      crumbs.push('<span class="current">' + labelFromFilename(lastSeg) + '</span>');
+    }
   }
 
   var sep = '<span class="separator">\u203A</span>';
