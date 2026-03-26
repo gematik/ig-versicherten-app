@@ -101,6 +101,21 @@ find _site -name "*.html" -exec sed -i '' \
   -e 's/\.adoc<\/a>/\.html<\/a>/g' \
   {} +
 
+# --- Docinfo (CSS/JS) in alle HTML-Dateien injizieren ---
+echo "🎨 Injiziere docinfo.html in alle HTML-Dateien..."
+DOCINFO_FILE="$PROJECT_ROOT/docinfo.html"
+if [ -f "$DOCINFO_FILE" ]; then
+  for htmlfile in $(find _site -name "*.html"); do
+    awk -v docinfo="$DOCINFO_FILE" '
+      /<\/head>/ {
+        while ((getline line < docinfo) > 0) print line
+        close(docinfo)
+      }
+      { print }
+    ' "$htmlfile" > "${htmlfile}.tmp" && mv "${htmlfile}.tmp" "$htmlfile"
+  done
+fi
+
 # --- Aufräumen ---
 rm -f _generated_index.adoc
 

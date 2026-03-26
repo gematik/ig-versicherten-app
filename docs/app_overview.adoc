@@ -32,3 +32,107 @@ Der Prozess umfasst die Authentifizierung über den sektoralen Identity Provider
 .Sequenzdiagramm: Registrierung eines Versicherten
 image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 
+
+== User Tests
+
+=== Anforderungen an Usertests
+
+* Der Anbieter muss Usertests in mindestens zwei unterschiedlichen Entwicklungsphasen durchführen (z. B. frühe Prototyp-/Beta-Phase und Pre-Release-/Release-Candidate-Phase).
+* Mindestens einer der zwei Usertests (idealerweise der zweite) muss in einer Realnutzungsumgebung stattfinden, d. h. auf realen Endgeräten. Falls für die Nutzung mehrere Endgeräte oder mehrere Apps erforderlich sind, ist ein vollständiger Ende-zu-Ende-Test über alle benötigten Komponenten hinweg durchzuführen.
+* Je Usertest sind mindestens 5 Testpersonen einzubeziehen.
+
+=== Anforderungen an Testpersonen (Zielgruppe)
+
+* Testpersonen dürfen nicht dem Unternehmen des Anbieters angehören (keine Mitarbeitenden, keine Werkstudierenden, keine abhängigen Beschäftigungsverhältnisse).
+* Testpersonen müssen in Deutschland krankenversichert sein.
+* Testpersonen sollen bereits Erfahrung mit Apps haben bzw. regelmäßig Apps nutzen.
+* In mindestens einem Usertest ist mindestens eine blinde Person als Testteilnehmende einzubeziehen. Dieser Usertest muss auf einem realen Endgerät stattfinden, damit das Betriebssystem (inkl. Assistive Technologien wie Screenreader) im Zusammenspiel mit der App realitätsnah geprüft werden kann.
+
+=== Durchführungs- und Qualifikationsanforderungen
+
+* Planung, Moderation und Auswertung der Usertests erfolgen durch fachlich qualifizierte Personen; dies kann intern oder durch entsprechend qualifizierte externe Dienstleister erfolgen.
+
+=== Testinhalte und -abdeckung
+
+* Die Usertests müssen den vollständigen Prozess des INHALT einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps.
+
+=== Dokumentation und Nachweisführung
+
+* Für jeden Usertest sind die durch den Test veranlassten und tatsächlich umgesetzten Verbesserungen nachvollziehbar zu dokumentieren (inkl. Bezug zum jeweiligen Finding aus dem Usertest). Ebenfalls sollen die Findings der Usertests dokumentiert und ausgewertet werden, auch wenn diese nicht umgesetzt werden.
+
+
+== Barrierefreiheit
+
+Die Entwicklung einer barrierearmen Anwendung unterliegt einem sich fortlaufend weiterentwickelnden Prozess. Die Umsetzung aller Anforderungen kann nicht mit der Ersteinführung der Anwendung sichergestellt werden.
+
+Zusätzlich zu den in diesem Kapitel aufgeführten Anforderungen zur Benutzerführung sollen auch die in der ISO 9241 aufgeführten Qualitätsrichtlinien zur Sicherstellung der Ergonomie interaktiver Systeme und Anforderungen aus der Verordnung zur Schaffung barrierefreier Informationstechnik nach dem Behindertengleichstellungsgesetz (Barrierefreie-Informationstechnik-Verordnung – BITV 2.0) beachtet werden.
+
+=== DIN EN ISO 9241 – Teile mit Bezug zur Software-Ergonomie
+
+Insbesondere sollen die nachfolgend aufgeführten Teile der ISO 9241 berücksichtigt werden:
+
+[cols="1,3",options="header"]
+|===
+| Teil | Beschreibung
+
+| Teil 8
+| Anforderungen an Farbdarstellungen
+
+| Teil 9
+| Anforderungen an Eingabegeräte – außer Tastaturen
+
+| Teil 110
+| Grundsätze der Dialoggestaltung (ersetzt den bisherigen Teil 10)
+
+| Teil 11
+| Anforderungen an die Gebrauchstauglichkeit – Leitsätze
+
+| Teil 12
+| Informationsdarstellung
+
+| Teil 13
+| Benutzerführung
+
+| Teil 14
+| Dialogführung mittels Menüs
+
+| Teil 15
+| Dialogführung mittels Kommandosprachen
+
+| Teil 16
+| Dialogführung mittels direkter Manipulation
+
+| Teil 17
+| Dialogführung mittels Bildschirmformularen
+
+| Teil 171
+| Leitlinien für die Zugänglichkeit von Software
+|===
+
+=== BITV 2.0
+
+Für die Entwicklung eines barrierefreien Frontend des Versicherten ist insbesondere die Verordnung zur barrierefreien Gestaltung von Informationstechnik zu beachten.
+
+https://www.gesetze-im-internet.de/bitv_2_0/[BITV 2.0 - Barrierefreie Informationstechnik-Verordnung]
+
+NOTE: Die Versionsnummern der aufgeführten Normen und Richtlinien spiegeln den Stand zum Zeitpunkt der Erstellung dieses Dokumentes wider.
+
+Die seit 2018 bestehende umfassende Forderung nach Umsetzung von Barrierefreiheit in der Informationstechnik erwächst aus der EU Richtlinie 2016/2102 zur „Barrierefreiheit von Webseiten und mobiler Anwendungen öffentlicher Stellen". Diese Richtlinie musste im Jahr 2018 in Bundes- und Landesrecht übertragen werden. – Diese Gesetze verweisen jeweils auf die Barrierefreie Informationstechnik-Verordnung mit Ausgabe vom 21. Mai 2019 (BITV 2.0).
+
+Zur Erfüllung der BITV 2.0 § 3 Abs. 2 ist die durch die Veröffentlichung im europäischen Amtsblatt harmonisierte EN 301549 „Barrierefreiheitsanforderungen für IKT-Produkte und -Dienstleistungen" (V 2.1.2 von 2018-08) anzuwenden. Diese liegt in der Fassung von 2020-02 als DIN EN 301549 als deutsche Übersetzung vor. Die DIN EN 301549 ist eine Beschaffungsnorm. Die darin aufgeführten und für den Anwendungsfall des FdV des E-Rezepts anzuwendenden Erfolgskriterien sind in Kapitel 9 (Web mit 50 Erfolgskriterien), Kapitel 10 (Dokumente mit 46 Erfolgskriterien) und Kapitel 11 (Nicht webbasierte Software mit 44 Erfolgskriterien) aufgeführt. Sie entsprechen den Erfolgskriterien von Level AA der 2.1. WCAG 2.1 (Web Content Accessibility Guidelines).
+
+Der sachliche Geltungsbereich der BITV 2.0 umfasst folgende relevanten Anwendungsbereiche für diese Spezifikation:
+
+* Webseiten,
+* nicht webbasierte Software mit mobilen Anwendungen.
+
+Folgende Gestaltungsmerkmale der Anwendungen stellen die Barrierefreiheit sicher:
+
+* wahrnehmbar,
+* bedienbar,
+* verständlich und
+* robust.
+
+In den genannten Normen und Standards werden nebeneinander die Belange von in der Handmotorik eingeschränkter, blinder, sehbehinderter, gehörloser, schwerhöriger, geistig und lernbehinderter Menschen berücksichtigt.
+
+Nach BITV 2.0 müssen Dokumente, die über dem FdV angezeigt werden, die gleichen Anforderungen an die Barrierefreiheit erfüllen, wie sie an die Anwendung gestellt werden. Sämtliche bereitgestellten Dokumente müssen als barrierefreie Formate angeboten werden, die mit dem Screenreader lesbar und navigierbar sind. Hierbei müssen die behinderungsspezifischen Standardsoftwares zur Herstellung von Zugänglichkeit berücksichtigt werden.

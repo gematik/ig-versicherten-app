@@ -117,6 +117,21 @@ jobs:
             -e 's/\.adoc<\/a>/\.html<\/a>/g' \
             {} +
 
+      # --- Inject docinfo.html (CSS/JS) into all generated HTML files ---
+      - name: Inject docinfo
+        run: |
+          if [ -f docinfo.html ]; then
+            for htmlfile in $(find _site -name "*.html"); do
+              awk -v docinfo="docinfo.html" '
+                /<\/head>/ {
+                  while ((getline line < docinfo) > 0) print line
+                  close(docinfo)
+                }
+                { print }
+              ' "$htmlfile" > "${htmlfile}.tmp" && mv "${htmlfile}.tmp" "$htmlfile"
+            done
+          fi
+
       # --- Upload the built site as a Pages artifact ---
       - name: Setup Pages
         uses: actions/configure-pages@v4

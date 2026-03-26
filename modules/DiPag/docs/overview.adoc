@@ -3,8 +3,7 @@
 :sectanchors:
 :toc: left
 
-Diese Übersicht listet alle Anwendungsfälle der Digitalen Patientenrechnung (DiPag) gemäß gemF_DiPag V1.1.1, Kapitel 6,
-die den Versicherten und sein FDV involvieren, auf. Sie ist in die folgenden Bereiche unterteilt:
+Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.
 
 == App Prototype
 
@@ -21,42 +20,197 @@ link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnu
 </iframe>
 ++++
 
-== Empfang von Rechnungen
+== User Flow
 
-include::AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.adoc[leveloffset=+2]
+=== 0. Ersteinrichtung
 
-include::AF_10186_Benachrichtigung_empfangen.adoc[leveloffset=+2]
+Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und ist in der initialen App und der Versicherungsapp bereits angemeldet.
 
-== Verwaltung von empfangenen Rechnungen
+[cols="2,3,4",options="header"]
+|===
+| Use Case | Beschreibung | Anforderungen
 
-include::AF_10245_Manuelles_Ändern_des_Bearbeitungsstatus_von_Rechnungen.adoc[leveloffset=+2]
+| DiPAG Fachdienst berechtigen
+| In der Versicherungsapp erscheint eine Abfrage
+a|
+* In der initialen App wird ein Absprung in die Versicherungsapp angeboten
+* Der Versicherte ist in der Versicherungsapp mit GesundheitsID angemeldet
+* Übertragende Inhalte werden angezeigt:
+** Vor- & Nachname
+** KVNR
+** Geburtsdatum
+** E-Mail Adresse
 
-include::AF_10160_Manuelles_Markieren_von_Rechnungen_und_Dokumenten.adoc[leveloffset=+2]
+| Rechnungen digital empfangen
+| In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen
+a|
+* Die Entscheidung muss zu einem späteren Zeitpunkt geändert werden können
 
-include::AF_10261_Automatisches_Markieren_als_gelesen.adoc[leveloffset=+2]
+| E-Mail verifizieren
+| In der initialen App erscheint eine E-Mail-Abfrage
+a|
+* Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus
 
-== Einreichung von Rechnungen
+|
+| In der initialen App erscheint eine Eingabemaske für das OTP
+a|
+* Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden
 
-include::AF_10260_Einreichung_per_Frontend.adoc[leveloffset=+2]
+| Abschluss
+| Der Versicherte sieht die Übersicht seiner Rechnungen
+a|
+* Siehe Rechnungsübersicht
+|===
 
-== Einrichtung und Verwaltung von Versicherten-Nutzerkonten
 
-include::AF_10187_Einrichten_eines_Kontos_für_Versicherte.adoc[leveloffset=+2]
+=== 1. Rechnungsübersicht
 
-include::AF_10263_Bearbeitung_von_Einstellungen_des_Nutzerkontos.adoc[leveloffset=+2]
+[cols="2,3,4",options="header"]
+|===
+| Use Case | Beschreibung | Anforderungen
 
-include::AF_10267_Bearbeitung_von_Identitätsdaten_des_Nutzerkontos_Namensänderung.adoc[leveloffset=+2]
+| Rechnungen empfangen
+| Rechnungen werden automatisch in das Frontend geladen
+a|
+* Rechnungen werden mit einer Push-Nachricht angekündigt
 
-include::AF_10191_Löschen_seines_Nutzerkontos_durch_den_Versicherten.adoc[leveloffset=+2]
+| Rechnungen anzeigen
+| Liste aller Rechnungen
+a| Die Liste muss je Rechnung mindestens enthalten:
 
-include::AF_10270_Hinweis_auf_anstehende_Konto-Löschung_bei_Inaktivität.adoc[leveloffset=+2]
+* Ausstellende LEI
+* Status der Rechnung, falls dieser bezahlt oder eingereicht ist
+* Datum der Rechnungserstellung
 
-include::AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.adoc[leveloffset=+2]
+Rechnungen können sich auch im Archiv befinden.
 
-include::AF_10265_Bearbeitung_von_Berechtigungen.adoc[leveloffset=+2]
+Lade-States und verständliche Fehlermeldungen implementieren.
 
-== Nutzerprotokolle
+| Suchfunktion
+| Rechnungen nach Kriterien durchsuchen
+a| Suchleiste muss mindestens nach folgenden Kriterien suchen können:
 
-include::AF_10203_Nutzerprotokoll_einsehen.adoc[leveloffset=+2]
+* Rechnungsnummer
+* Leistungserbringer
 
-include::AF_10194_Nutzerprotokoll_exportieren.adoc[leveloffset=+2]
+Ideal: Volltextsuche
+
+| Sortierfunktion
+| Rechnungsliste sortieren
+a| Mindestens:
+
+* Rechnungsdatum
+* Zahlungszieldatum
+* Gesamtbetrag
+
+| Filterfunktion
+| Rechnungen nach Status filtern
+a| Mindestens:
+
+* Eingereicht
+* Nicht eingereicht
+* Bezahlt
+* Nicht bezahlt
+
+| Auswahlfunktion mit Aktion
+| Mehrere Rechnungen gleichzeitig auswählen und verwalten
+a| Mindestens:
+
+* Einreichen
+* Löschen
+
+| Rechnungsdetails anzeigen
+| Klick auf eine Rechnung zeigt mehr Details
+a|
+* Siehe Rechnungsdetails
+
+| Optional: Statistiken/Übersicht
+| Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres
+| keine
+|===
+
+
+=== 2. Rechnungsdetails
+
+[cols="2,3,4",options="header"]
+|===
+| Use Case | Beschreibung | Anforderungen
+
+| Detail-Ansicht öffnen
+| Detailinformationen durch Klick auf eine Rechnung anzeigen
+a| Mindestens:
+
+* Rechnungsnummer
+* Leistungsdatum
+* Betrag
+* Status
+* Leistungserbringer
+* Behandelte Person, insbesondere wenn diese Person nicht identisch ist mit dem Rechnungsempfänger
+* Zahlungsdaten, falls die Rechnung noch nicht bezahlt ist
+* Mögliche Aktionen wie einreichen, als bezahlt markieren, als eingereicht markieren, archivieren, löschen
+* Eine Rechnung soll auch nach einer Einreichung erneut eingereicht werden können
+
+| PDF-Download
+| Rechnung als PDF herunterladen
+a|
+* PDF enthält alle Rechnungsdetails
+
+| Zahlungsunterstützung
+| Rechnung digital bezahlen
+a|
+* Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können
+
+|
+| Möglichkeit die Rechnung als bezahlt zu markieren
+a|
+* Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen
+|===
+
+
+=== 3. Rechnungen einreichen
+
+[cols="2,3,4",options="header"]
+|===
+| Use Case | Beschreibung | Anforderungen
+
+| Rechnung auswählen
+| Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können
+|
+
+| Rechnung teilen
+| Sharesheet mit Rechnung als Anhang
+a|
+* Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
+* Das Format der Rechnung soll PDF/strukturiert sein
+|===
+
+
+=== 4. Push-Benachrichtigungen
+
+[cols="2,3,4",options="header"]
+|===
+| Use Case | Beschreibung | Anforderungen
+
+| Neue Rechnung
+| Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist
+a| Leistungserbringer und Use Case
+
+Beispiel: _„[Leistungserbringer] hat Ihnen eine Rechnung zugestellt."_
+
+| Erinnerung an baldiges Fälligkeitsdatum
+| Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit
+a| Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum
+
+Beispiel: _„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."_
+
+| Überfällige Rechnung
+| Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde
+a| Leistungserbringer und Use Case
+
+Beispiel: _„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begleichen Sie diese zeitnah."_
+
+| Anstehende Löschung
+| Erinnerung, wenn eine Rechnung gelöscht wird
+a|
+* Gilt nur, wenn es keine automatische Speicherung im App-Speicher gibt
+|===
