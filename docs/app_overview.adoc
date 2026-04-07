@@ -61,78 +61,48 @@ image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 * Für jeden Usertest sind die durch den Test veranlassten und tatsächlich umgesetzten Verbesserungen nachvollziehbar zu dokumentieren (inkl. Bezug zum jeweiligen Finding aus dem Usertest). Ebenfalls sollen die Findings der Usertests dokumentiert und ausgewertet werden, auch wenn diese nicht umgesetzt werden.
 
 
-== Barrierefreiheit
+== Barrierefreiheit und User Experience
 
-Die Entwicklung einer barrierefreien Anwendung unterliegt einem sich fortlaufend weiterentwickelnden Prozess. Die Umsetzung der Anforderungen sollte in der Weiterentwicklung der App stets beachtet werden. Dafür sollte die Barrierefreiheitserklärung mindestens einmal pro Jahr auf Richtigkeit geprüft werden und ggf. angepasst werden.
+Die Entwicklung einer barrierefreien und gebrauchstauglichen Anwendung ist ein kontinuierlicher Prozess, der während der gesamten Lebensdauer der App berücksichtigt werden muss. Die Barrierefreiheitserklärung ist mindestens einmal jährlich zu überprüfen und bei Bedarf zu aktualisieren.
 
-Zusätzlich zu den in diesem Kapitel aufgeführten Anforderungen zur Benutzerführung sollen auch die in der ISO 9241 aufgeführten Qualitätsrichtlinien zur Sicherstellung der Ergonomie interaktiver Systeme und Anforderungen aus der Verordnung zur Schaffung barrierefreier Informationstechnik nach dem Behindertengleichstellungsgesetz (Barrierefreie-Informationstechnik-Verordnung – BITV 2.0) beachtet werden.
+Barrierefreiheit basiert auf den vier internationalen WCAG‑Grundprinzipien - wahrnehmbar, bedienbar, verständlich und robust - die in allen relevanten Regelwerken verankert sind.
 
-=== DIN EN ISO 9241 – Teile mit Bezug zur Software-Ergonomie
 
-Insbesondere sollen die nachfolgend aufgeführten Teile der ISO 9241 berücksichtigt werden:
 
-[cols="1,3",options="header"]
-|===
-| Teil | Beschreibung
+=== 1. Gesetzliche Anforderungen
 
-| Teil 8
-| Anforderungen an Farbdarstellungen
+* BITV 2.0: regelt die Barrierefreiheit in Deutschland für Webseiten und Apps öffentlicher Stellen.
 
-| Teil 9
-| Anforderungen an Eingabegeräte – außer Tastaturen
+* Barrierefreiheitsstärkungsgesetz: Verpflichtet seit 28. Juni 2025 private Unternehmen, ausgewählte digitale Produkte und Dienstleistungen – einschließlich Webseiten und Apps – barrierefrei zu gestalten.
+Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act“) um.
 
-| Teil 110
-| Grundsätze der Dialoggestaltung (ersetzt den bisherigen Teil 10)
+* EN 301 549: konkretisiert die technischen Anforderungen und verweist auf die WCAG 2.1 Level AA als Mindeststandard.
 
-| Teil 11
-| Anforderungen an die Gebrauchstauglichkeit – Leitsätze
+=== 2. Relevante Normen
 
-| Teil 12
-| Informationsdarstellung
+* ISO 9241‑110 (Dialogprinzipien)
 
-| Teil 13
-| Benutzerführung
+* ISO 9241‑11 (Gebrauchstauglichkeit)
 
-| Teil 14
-| Dialogführung mittels Menüs
+* ISO 9241‑210 (Menschzentrierte Gestaltung)
 
-| Teil 15
-| Dialogführung mittels Kommandosprachen
+* ISO 9241‑171 (Barrierefreie Software)
 
-| Teil 16
-| Dialogführung mittels direkter Manipulation
+Diese Normen der ISO‑Normenreihe 9241 sind für ergonomische und barrierefreie Software maßgeblich und definieren wesentliche ergonomische und barrierefreie Anforderungen an interaktive Systeme.
 
-| Teil 17
-| Dialogführung mittels Bildschirmformularen
 
-| Teil 171
-| Leitlinien für die Zugänglichkeit von Software
-|===
+=== 3. Umsetzung
 
-=== BITV 2.0
+Wir empfehlen
 
-Für die Entwicklung eines barrierefreien Frontend des Versicherten ist insbesondere die Verordnung zur barrierefreien Gestaltung von Informationstechnik zu beachten.
+* einen individuellen Standardanforderungskatalog über die link:https://www.barrierefreiheit-dienstekonsolidierung.bund.de/Webs/PB/DE/standardanforderungskatalog/standardanforderungskatalog-node.html[Webseite des Bundesministeriums für Digitales und Staatsmodernisierung] zu erstellen, um einen vollständigen Überblick relevanter Anforderungen zu erhalten.
 
-https://www.gesetze-im-internet.de/bitv_2_0/[BITV 2.0 - Barrierefreie Informationstechnik-Verordnung]
+* die Barrierefreiheitsprüfung als festen Bestandteil in die Entwicklungs‑ und Testprozesse zu integrieren.
 
-NOTE: Die Versionsnummern der aufgeführten Normen und Richtlinien spiegeln den Stand zum Zeitpunkt der Erstellung dieses Dokumentes wider.
+Empfohlene Testverfahren:
 
-Die seit 2018 bestehende umfassende Forderung nach Umsetzung von Barrierefreiheit in der Informationstechnik erwächst aus der EU Richtlinie 2016/2102 zur „Barrierefreiheit von Webseiten und mobiler Anwendungen öffentlicher Stellen". Diese Richtlinie musste im Jahr 2018 in Bundes- und Landesrecht übertragen werden. – Diese Gesetze verweisen jeweils auf die Barrierefreie Informationstechnik-Verordnung mit Ausgabe vom 21. Mai 2019 (BITV 2.0).
+* Screenshottests für mindestens vergrößerte Schriftgrößen
 
-Zur Erfüllung der BITV 2.0 § 3 Abs. 2 ist die durch die Veröffentlichung im europäischen Amtsblatt harmonisierte EN 301549 „Barrierefreiheitsanforderungen für IKT-Produkte und -Dienstleistungen" (V 2.1.2 von 2018-08) anzuwenden. Diese liegt in der Fassung von 2020-02 als DIN EN 301549 als deutsche Übersetzung vor. Die DIN EN 301549 ist eine Beschaffungsnorm. Die darin aufgeführten und für den Anwendungsfall des FdV des E-Rezepts anzuwendenden Erfolgskriterien sind in Kapitel 9 (Web mit 50 Erfolgskriterien), Kapitel 10 (Dokumente mit 46 Erfolgskriterien) und Kapitel 11 (Nicht webbasierte Software mit 44 Erfolgskriterien) aufgeführt. Sie entsprechen den Erfolgskriterien von Level AA der 2.1. WCAG 2.1 (Web Content Accessibility Guidelines).
+* Manuelle Tests mit Screenreader‑Technologien (VoiceOver, TalkBack)
 
-Der sachliche Geltungsbereich der BITV 2.0 umfasst folgende relevanten Anwendungsbereiche für diese Spezifikation:
-
-* Webseiten,
-* nicht webbasierte Software mit mobilen Anwendungen.
-
-Folgende Gestaltungsmerkmale der Anwendungen stellen die Barrierefreiheit sicher:
-
-* wahrnehmbar,
-* bedienbar,
-* verständlich und
-* robust.
-
-In den genannten Normen und Standards werden nebeneinander die Belange von in der Handmotorik eingeschränkter, blinder, sehbehinderter, gehörloser, schwerhöriger, geistig und lernbehinderter Menschen berücksichtigt.
-
-Nach BITV 2.0 müssen Dokumente, die über dem FdV angezeigt werden, die gleichen Anforderungen an die Barrierefreiheit erfüllen, wie sie an die Anwendung gestellt werden. Sämtliche bereitgestellten Dokumente müssen als barrierefreie Formate angeboten werden, die mit dem Screenreader lesbar und navigierbar sind. Hierbei müssen die behinderungsspezifischen Standardsoftwares zur Herstellung von Zugänglichkeit berücksichtigt werden.
+* Interaktionstests für alternative Eingabemethoden (z. B. Tastaturbedienung)
