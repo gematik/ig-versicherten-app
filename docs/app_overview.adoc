@@ -33,34 +33,6 @@ Der Prozess umfasst die Authentifizierung über den sektoralen Identity Provider
 image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 
 
-== User Tests
-
-=== Anforderungen an Usertests
-
-* Der Anbieter muss Usertests in mindestens zwei unterschiedlichen Entwicklungsphasen durchführen (z. B. frühe Prototyp-/Beta-Phase und Pre-Release-/Release-Candidate-Phase).
-* Mindestens einer der zwei Usertests (idealerweise der zweite) muss in einer Realnutzungsumgebung stattfinden, d. h. auf realen Endgeräten. Falls für die Nutzung mehrere Endgeräte oder mehrere Apps erforderlich sind, ist ein vollständiger Ende-zu-Ende-Test über alle benötigten Komponenten hinweg durchzuführen.
-* Je Usertest sind mindestens 5 Testpersonen einzubeziehen.
-
-=== Anforderungen an Testpersonen (Zielgruppe)
-
-* Testpersonen dürfen nicht dem Unternehmen des Anbieters angehören (keine Mitarbeitenden, keine Werkstudierenden, keine abhängigen Beschäftigungsverhältnisse).
-* Testpersonen müssen in Deutschland krankenversichert sein.
-* Testpersonen sollen bereits Erfahrung mit Apps haben bzw. regelmäßig Apps nutzen.
-* In mindestens einem Usertest ist mindestens eine blinde Person als Testteilnehmende einzubeziehen. Dieser Usertest muss auf einem realen Endgerät stattfinden, damit das Betriebssystem (inkl. Assistive Technologien wie Screenreader) im Zusammenspiel mit der App realitätsnah geprüft werden kann.
-
-=== Durchführungs- und Qualifikationsanforderungen
-
-* Planung, Moderation und Auswertung der Usertests erfolgen durch fachlich qualifizierte Personen; dies kann intern oder durch entsprechend qualifizierte externe Dienstleister erfolgen.
-
-=== Testinhalte und -abdeckung
-
-* Die Usertests müssen den vollständigen Prozess der implementieren Use Cases einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps abdecken.
-
-=== Dokumentation und Nachweisführung
-
-* Für jeden Usertest sind die durch den Test veranlassten und tatsächlich umgesetzten Verbesserungen nachvollziehbar zu dokumentieren (inkl. Bezug zum jeweiligen Finding aus dem Usertest). Ebenfalls sollen die Findings der Usertests dokumentiert und ausgewertet werden, auch wenn diese nicht umgesetzt werden.
-
-
 == Barrierefreiheit und User Experience
 
 Die Entwicklung einer barrierefreien und gebrauchstauglichen Anwendung ist ein kontinuierlicher Prozess, der während der gesamten Lebensdauer der App berücksichtigt werden muss. Die Barrierefreiheitserklärung ist mindestens einmal jährlich zu überprüfen und bei Bedarf zu aktualisieren.
@@ -73,8 +45,8 @@ Barrierefreiheit basiert auf den vier internationalen WCAG‑Grundprinzipien - w
 
 * BITV 2.0: regelt die Barrierefreiheit in Deutschland für Webseiten und Apps öffentlicher Stellen.
 
-* Barrierefreiheitsstärkungsgesetz: Verpflichtet seit 28. Juni 2025 private Unternehmen, ausgewählte digitale Produkte und Dienstleistungen – einschließlich Webseiten und Apps – barrierefrei zu gestalten.
-Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act“) um.
+* Barrierefreiheitsstärkungsgesetz: Verpflichtet seit 28. Juni 2025 private Unternehmen, ausgewählte digitale Produkte und Dienstleistungen – einschließlich Webseiten und Apps – barrierefrei zu gestalten.
+Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act") um.
 
 * EN 301 549: konkretisiert die technischen Anforderungen und verweist auf die WCAG 2.1 Level AA als Mindeststandard.
 
@@ -88,7 +60,7 @@ Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act“) um.
 
 * ISO 9241‑171 (Barrierefreie Software)
 
-Diese Normen der ISO‑Normenreihe 9241 sind für ergonomische und barrierefreie Software maßgeblich und definieren wesentliche ergonomische und barrierefreie Anforderungen an interaktive Systeme.
+Diese Normen der ISO‑Normenreihe 9241 sind für ergonomische und barrierefreie Software maßgeblich und definieren wesentliche ergonomische und barrierefreie Anforderungen an interaktive Systeme.
 
 
 === 3. Umsetzung
@@ -105,4 +77,33 @@ Empfohlene Testverfahren:
 
 * Manuelle Tests mit Screenreader‑Technologien (VoiceOver, TalkBack)
 
-* Interaktionstests für alternative Eingabemethoden (z. B. Tastaturbedienung)
+* Interaktionstests für alternative Eingabemethoden (z. B. Tastaturbedienung)
+
+* Usertests
+
+==== 3.1 User Tests
+
+===== Anforderungen an Usertests
+
+* Der Anbieter muss Usertests in mindestens zwei unterschiedlichen Entwicklungsphasen durchführen (z. B. frühe Prototyp-/Beta-Phase und Pre-Release-/Release-Candidate-Phase).
+* Mindestens einer der zwei Usertests (idealerweise der zweite) muss in einer Realnutzungsumgebung stattfinden, d. h. auf realen Endgeräten. Falls für die Nutzung mehrere Endgeräte oder mehrere Apps erforderlich sind, ist ein vollständiger Ende-zu-Ende-Test über alle benötigten Komponenten hinweg durchzuführen.
+* Je Usertest sind mindestens 5 Testpersonen einzubeziehen.
+
+===== Anforderungen an Testpersonen (Zielgruppe)
+
+* Testpersonen dürfen nicht dem Unternehmen des Anbieters angehören (keine Mitarbeitenden, keine Werkstudierenden, keine abhängigen Beschäftigungsverhältnisse).
+* Testpersonen müssen in Deutschland krankenversichert sein.
+* Testpersonen sollen bereits Erfahrung mit Apps haben bzw. regelmäßig Apps nutzen.
+* In mindestens einem Usertest ist mindestens eine blinde Person als Testteilnehmende einzubeziehen. Dieser Usertest muss auf einem realen Endgerät stattfinden, damit das Betriebssystem (inkl. Assistive Technologien wie Screenreader) im Zusammenspiel mit der App realitätsnah geprüft werden kann.
+
+===== Durchführungs- und Qualifikationsanforderungen
+
+* Planung, Moderation und Auswertung der Usertests erfolgen durch fachlich qualifizierte Personen; dies kann intern oder durch entsprechend qualifizierte externe Dienstleister erfolgen.
+
+===== Testinhalte und -abdeckung
+
+* Die Usertests müssen den vollständigen Prozess des INHALT einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps.
+
+===== Dokumentation und Nachweisführung
+
+* Für jeden Usertest sind die durch den Test veranlassten und tatsächlich umgesetzten Verbesserungen nachvollziehbar zu dokumentieren (inkl. Bezug zum jeweiligen Finding aus dem Usertest). Ebenfalls sollen die Findings der Usertests dokumentiert und ausgewertet werden, auch wenn diese nicht umgesetzt werden.
