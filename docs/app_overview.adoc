@@ -34,19 +34,20 @@ image::register.png[Sequenzdiagramm: Registrierung eines Versicherten]
 
 
 == Barrierefreiheit und User Experience
-
-Die Entwicklung einer barrierefreien und gebrauchstauglichen Anwendung ist ein kontinuierlicher Prozess, der während der gesamten Lebensdauer der App berücksichtigt werden muss. Die Barrierefreiheitserklärung ist mindestens einmal jährlich zu überprüfen und bei Bedarf zu aktualisieren.
+Die Entwicklung einer barrierefreien und gebrauchstauglichen Anwendung ist ein kontinuierlicher Prozess, der während der gesamten Lebensdauer der App berücksichtigt werden muss. Die Barrierefreiheitserklärung sollte mindestens einmal jährlich und bei jeder wesentlichen Änderung der mobilen Anwendung aktualisiert werden.
 
 Barrierefreiheit basiert auf den vier internationalen WCAG‑Grundprinzipien - wahrnehmbar, bedienbar, verständlich und robust - die in allen relevanten Regelwerken verankert sind.
 
-
-
 === 1. Gesetzliche Anforderungen
 
-* BITV 2.0: regelt die Barrierefreiheit in Deutschland für Webseiten und Apps öffentlicher Stellen.
+* Behindertengleichstellungsgesetz (BGG): Soll die Benachteiligung von Menschen mit Behinderungen beseitigen und verhindern und enthält spezifische Regelungen für barrierefreie Informationstechnik öffentlicher Stellen des Bundes
 
-* Barrierefreiheitsstärkungsgesetz: Verpflichtet seit 28. Juni 2025 private Unternehmen, ausgewählte digitale Produkte und Dienstleistungen – einschließlich Webseiten und Apps – barrierefrei zu gestalten.
-Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act") um.
+* BITV 2.0: regelt die konkrete Ausgestaltung der Barrierefreiheit in Deutschland für Webseiten und Apps öffentlicher Stellen gemäß dem BGG.
+
+* Barrierefreiheitsstärkungsgesetz (BFSG): Verpflichtet seit 28. Juni 2025 private Unternehmen, ausgewählte digitale Produkte und Dienstleistungen – einschließlich Webseiten und Apps – barrierefrei zu gestalten.
+Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act“) um.
+
+* Verordnung zum Barrierefreiheitsstärkungsgesetz (BFSGV): Konkretisiert die Vorgaben des BFSG und beinhaltet unter anderem die Anforderungen an die barrierefreie Gestaltung von Benutzerschnittstellen und die Barrierefreiheitsanforderungen an Dienstleistungen im elektronischen Geschäftsverkehr (Onlineshops und Websites).
 
 * EN 301 549: konkretisiert die technischen Anforderungen und verweist auf die WCAG 2.1 Level AA als Mindeststandard.
 
