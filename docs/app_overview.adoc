@@ -103,7 +103,7 @@ Empfohlene Testverfahren:
 
 ===== Testinhalte und -abdeckung
 
-* Die Usertests müssen den vollständigen Prozess des INHALT einschließlich – und falls für die Implementierung erforderlich – dem Zusammenspiel mit mehreren Endgeräten oder Apps.
+* Die Usertests müssen mindestens den vollständigen End‑to‑End‑Ablauf des Hauptanwendungsfalls des jeweiligen Moduls abdecken. Dabei ist gegebenenfalls auch das Zusammenspiel mit weiteren Endgeräten und/oder angebundenen Apps zu berücksichtigen.
 
 ===== Dokumentation und Nachweisführung
 
