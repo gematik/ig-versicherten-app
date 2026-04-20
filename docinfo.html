@@ -48,6 +48,10 @@ html {
   width: 100%;
   z-index: 2000;
   color: rgba(255,255,255,.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 #breadcrumb-bar a {
   color: #fff;
@@ -62,6 +66,33 @@ html {
 }
 #breadcrumb-bar .current {
   color: rgba(255,255,255,.85);
+}
+
+/* ── Versions-Switcher ─────────────────────────────────────────────────────── */
+#version-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  white-space: nowrap;
+}
+#version-switcher select {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+}
+#version-switcher select:hover {
+  background: rgba(255,255,255,.25);
+}
+#version-switcher select option {
+  background: #000E52;
+  color: #fff;
 }
 </style>
 <script>
@@ -86,21 +117,30 @@ document.addEventListener('DOMContentLoaded', function() {
   // Unterstützt sowohl /repo/_site/docs/foo.html als auch /docs/foo.html
   var segments = path.replace(/^\//, '').split('/');
 
-  // Finde den Index des Site-Einstiegspunkts (hinter _site)
+  // ── Site-Root erkennen ──────────────────────────────────────────────────
+  // Lokaler _site-Ordner
   var siteStart = 0;
   for (var s = 0; s < segments.length; s++) {
     if (segments[s] === '_site') { siteStart = s + 1; break; }
   }
-
-  // GitHub Pages Project-Sites haben i.d.R. /<repo>/... im Pfad.
-  // Falls kein _site-Segment vorhanden ist, das repo-Präfix ausblenden.
+  // GitHub Pages Project-Site: /<repo>/...
   if (siteStart === 0 && /\.github\.io$/i.test(window.location.hostname) && segments.length > 1) {
     siteStart = 1;
   }
 
   var relSegments = segments.slice(siteStart);
 
-  // Modul-Overview: /modules/<modul>/docs/overview.html
+  // ── Versionssegment erkennen ────────────────────────────────────────────
+  // Erstes Segment nach Site-Root ist die Version, wenn es "v..." oder "dev" ist
+  var currentVersion = '';
+  var versionSegmentIndex = -1;
+  if (relSegments.length > 0 && (/^v\d/.test(relSegments[0]) || relSegments[0] === 'dev')) {
+    currentVersion = relSegments[0];
+    versionSegmentIndex = 0;
+    relSegments = relSegments.slice(1);  // Rest ist der Pfad innerhalb der Version
+  }
+
+  // Modul-Overview: modules/<modul>/docs/overview.html
   var isModuleOverview = (
     relSegments.length === 4 &&
     relSegments[0] === 'modules' &&
@@ -108,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     relSegments[3] === 'overview.html'
   );
 
-  // Tiefe berechnen für relative Links
+  // Tiefe berechnen für relative Links (innerhalb der Version)
   var depth = relSegments.length - 1;
   var prefix = '';
   for (var i = 0; i < depth; i++) prefix += '../';
@@ -164,7 +204,54 @@ document.addEventListener('DOMContentLoaded', function() {
   var sep = '<span class="separator">\u203A</span>';
   var bar = document.createElement('div');
   bar.id = 'breadcrumb-bar';
-  bar.innerHTML = crumbs.join(sep);
+
+  // Breadcrumbs links
+  var breadcrumbSpan = document.createElement('span');
+  breadcrumbSpan.innerHTML = crumbs.join(sep);
+  bar.appendChild(breadcrumbSpan);
+
   document.body.insertBefore(bar, document.body.firstChild);
+
+  // ── Versions-Switcher laden ─────────────────────────────────────────────
+  // versions.json liegt im Root der gh-pages Site (eine Ebene über der Version)
+  if (currentVersion) {
+    var versionsJsonUrl = prefix + '../versions.json';
+    // Unterpfad innerhalb der Version (für Seitenwechsel)
+    var subPath = relSegments.join('/') || 'index.html';
+
+    fetch(versionsJsonUrl).then(function(res) {
+      if (!res.ok) return;
+      return res.json();
+    }).then(function(versions) {
+      if (!Array.isArray(versions) || versions.length < 1) return;
+
+      var switcher = document.createElement('div');
+      switcher.id = 'version-switcher';
+
+      var label = document.createElement('span');
+      label.textContent = 'Version:';
+      switcher.appendChild(label);
+
+      var select = document.createElement('select');
+      versions.forEach(function(v) {
+        var opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.id === 'dev' ? 'dev (Entwicklung)' : v.id;
+        if (v.id === currentVersion) opt.selected = true;
+        select.appendChild(opt);
+      });
+
+      select.addEventListener('change', function() {
+        // Zum gleichen Pfad in der anderen Version navigieren
+        var newBase = prefix + '../' + select.value + '/';
+        window.location.href = newBase + subPath;
+      });
+
+      switcher.appendChild(select);
+      bar.appendChild(switcher);
+    }).catch(function() {
+      // versions.json nicht verfügbar (z.B. lokaler Build) – kein Menü anzeigen
+    });
+  }
 });
 </script>

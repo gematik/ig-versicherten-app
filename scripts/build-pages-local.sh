@@ -1,11 +1,12 @@
 #!/bin/zsh
 # ============================================================================
 # Lokaler Build des GitHub Pages Inhalts
-# Bildet den deploy-pages.yml Workflow nach und startet einen lokalen Server.
+# Bildet den deploy-versioned-pages.yml Workflow nach und startet einen lokalen Server.
 #
 # Nutzung:
-#   ./scripts/build-pages-local.sh          # Baut und startet Server auf Port 8000
-#   ./scripts/build-pages-local.sh --build  # Nur bauen, kein Server
+#   ./scripts/build-pages-local.sh                  # Baut und startet Server auf Port 8000
+#   ./scripts/build-pages-local.sh --build           # Nur bauen, kein Server
+#   ./scripts/build-pages-local.sh --versioned v1.0  # Baut als versioniertes Verzeichnis
 # ============================================================================
 
 set -euo pipefail
@@ -15,7 +16,18 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 BUILD_ONLY=false
-[[ "${1:-}" == "--build" ]] && BUILD_ONLY=true
+VERSION=""
+
+# --- Argumente parsen ---
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --build) BUILD_ONLY=true; shift ;;
+    --versioned)
+      VERSION="${2:-v0.0.0-local}"
+      shift; shift 2>/dev/null || true ;;
+    *) shift ;;
+  esac
+done
 
 echo "🧹 Räume vorherige Builds auf..."
 rm -rf _site _generated_index.adoc
@@ -118,6 +130,34 @@ fi
 
 # --- Aufräumen ---
 rm -f _generated_index.adoc
+
+# --- Versionierte Struktur aufbauen (optional) ---
+if [[ -n "$VERSION" ]]; then
+  echo "📦 Baue versionierte Struktur für: $VERSION"
+  mkdir -p "_versioned_site/${VERSION}"
+  cp -r _site/* "_versioned_site/${VERSION}/"
+
+  # versions.json erzeugen
+  echo "[{\"id\":\"${VERSION}\"}]" > _versioned_site/versions.json
+
+  # Root-Redirect
+  cat > _versioned_site/index.html <<EOF
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=./${VERSION}/index.html">
+  <title>Weiterleitung…</title>
+</head>
+<body>
+  <p><a href="./${VERSION}/index.html">Weiter zur aktuellen Version (${VERSION})</a></p>
+</body>
+</html>
+EOF
+
+  rm -rf _site
+  mv _versioned_site _site
+fi
 
 # --- Übersicht ---
 echo ""
