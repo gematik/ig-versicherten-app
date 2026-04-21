@@ -2,6 +2,11 @@
 ifndef::imagesdir[:imagesdir: ../images]
 :toc: left
 
+[IMPORTANT]
+====
+🚧 **Dieser Implementierungsleitfaden befindet sich aktuell noch im Aufbau!** 🚧
+====
+
 == Architekturübersicht: Smartphone App mit Backend Services
 
 Die folgende Abbildung zeigt den Aufbau der Smartphone App und deren Anbindung an die zugehörigen Backend Services.

@@ -3,6 +3,11 @@
 :sectanchors:
 :toc: left
 
+[IMPORTANT]
+====
+🚧 **Dieser Implementierungsleitfaden befindet sich aktuell noch im Aufbau!** 🚧
+====
+
 Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.
 
 == App Prototype
