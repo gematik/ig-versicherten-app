@@ -2,6 +2,12 @@
 :sectlinks:
 :sectanchors:
 :toc: left
+:icon-app-path: ../images/icon_app_red.svg
+:icon-fachdienst-path: ../images/icon_fachdienst_blue.svg
+:app-icon-inline: image:{icon-app-path}[App, width=20]
+:fachdienst-icon-inline: image:{icon-fachdienst-path}[Fachdienst, width=20]
+:app-icon-legend: image:{icon-app-path}[App, width=120]
+:fachdienst-icon-legend: image:{icon-fachdienst-path}[Fachdienst, width=150]
 
 [IMPORTANT]
 ====
@@ -26,6 +32,23 @@ link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnu
 ++++
 
 == User Flow
+
+=== Legende zur Verantwortlichkeit
+
+Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
+Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt werden muss oder durch den Fachdienst bereitgestellt wird.
+
+[cols="1,4",options="header"]
+|===
+| Symbol | Bedeutung
+
+| {app-icon-legend}
+| *App* - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).
+
+| {fachdienst-icon-legend}
+| *Fachdienst* - Die Funktionalität wird serverseitig durch den Fachdienst bereitgestellt (z. B. Datenbereitstellung, fachliche Verarbeitung, Ereignisse).
+|===
+
 
 === 0. Ersteinrichtung
 
@@ -52,12 +75,11 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
  a|
 * Die Entscheidung muss zu einem späteren Zeitpunkt geändert werden können
 | link
-| E-Mail verifizieren
+.2+| E-Mail verifizieren
 | In der initialen App erscheint eine E-Mail-Abfrage
  a|
 * Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus
 | link:
-|
 | In der initialen App erscheint eine Eingabemaske für das OTP
  a|
 * Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden
@@ -173,16 +195,22 @@ Ideal: Volltextsuche
 * PDF enthält alle Rechnungsdetails
 | link:
 
-| Zahlungsunterstützung
+.2+| Zahlungsunterstützung
 | Rechnung digital bezahlen
  a|
 * Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können
 | link:
 
-|
 | Möglichkeit die Rechnung als bezahlt zu markieren
  a|
 * Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen
+| link:
+
+| Anhang zur Rechnung hinzufügen
+| Möglichkeit einer Rechnung einen eigenen Anhang hinzuzufügen, z. B. ein Foto eines Kassenbons
+ a|
+* wählbar aus Dateien oder der Fotomediathek
+* Möglichkeit der Umbenennung des neu hinzugefügten Anhangs
 | link:
 |===
 
@@ -195,7 +223,7 @@ Ideal: Volltextsuche
 
 | Rechnung auswählen
 | Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können
-|
+| Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden
 | link
 
 | Rechnung teilen
@@ -204,39 +232,85 @@ Ideal: Volltextsuche
 * Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
 * Das Format der Rechnung soll PDF/strukturiert sein
 | link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
+
+
+| Markierungen
+| Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
+| Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
+| link
 |===
-
-
 === 4. Push-Benachrichtigungen
 
 [cols="2,3,4,3",options="header"]
 |===
 | Use Case | Beschreibung | Anforderungen | weitere Quellen
 
-| Neue Rechnung
+| Neue Rechnung {fachdienst-icon-legend}
 | Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist
  a| Leistungserbringer und Use Case
 
 Beispiel: _„[Leistungserbringer] hat Ihnen eine Rechnung zugestellt."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
-| Erinnerung an baldiges Fälligkeitsdatum
+| Erinnerung an baldiges Fälligkeitsdatum {app-icon-legend}
 | Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit
  a| Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum
 
 Beispiel: _„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
-| Überfällige Rechnung
+| Überfällige Rechnung {app-icon-legend}
 | Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde
  a| Leistungserbringer und Use Case
 
 Beispiel: _„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begleichen Sie diese zeitnah."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
-| Anstehende Löschung
-| Erinnerung, wenn eine Rechnung gelöscht wird
- a|
-* Gilt nur, wenn es keine automatische Speicherung im App-Speicher gibt
+| Baldige Löschung einer Rechnung{fachdienst-icon-legend}
+| Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
+a| Wichtige Infos für die Push Nachricht:
+
+* Leistungserbringer
+* Datum der Rechnung
+* Datum der Löschung
+
+Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
+
+| Baldige Löschung mehrerer Rechnungen{fachdienst-icon-legend}
+| Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
+a| Wichtige Infos für die Push Nachricht:
+
+* Anzahl Rechnungen
+* IDs der Rechnungen
+* Datum der Löschung
+
+Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
+
+link:https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3[Löschfristen]
+
+| Verwalten von Push Nachrichten {app-icon-legend}
+| Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.
+a|
+Mindestens folgende Optionen sollten angeboten werden:
+
+* Sollen Push-Benachrichtigungen über das Smartphone empfangen werden
+* Anzeige an welche Mailadresse Benachrichtigungen gesendet werden
+* Bei aktivierten Push Nachrichten soll eingestellt werden können für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.
+
+Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.
+| link:
+
+| Anstehende Löschung des Kontos {fachdienst-icon-legend}
+| Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll
+a|
+Die Notification sollte mindestens folgende Angaben enthalten:
+
+* den Namen des Kontoinhabers
+* das Datum der bevorstehenden Löschung
+
+Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.
+| link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
+
 |===
