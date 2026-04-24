@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="72" viewBox="0 0 220 72" role="img" aria-label="Fachdienst Icon">
+  <rect x="1" y="1" width="218" height="70" rx="10" fill="#ffffff" stroke="#0b6abf" stroke-width="2"/>
+
+  <!-- Server stack -->
+  <rect x="16" y="16" width="44" height="12" rx="3" fill="#0b6abf"/>
+  <rect x="16" y="30" width="44" height="12" rx="3" fill="#0b6abf" opacity="0.9"/>
+  <rect x="16" y="44" width="44" height="12" rx="3" fill="#0b6abf" opacity="0.8"/>
+  <circle cx="22" cy="22" r="2" fill="#ffffff"/>
+  <circle cx="22" cy="36" r="2" fill="#ffffff"/>
+  <circle cx="22" cy="50" r="2" fill="#ffffff"/>
+
+  <text x="78" y="41" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#0b6abf">Fachdienst</text>
+</svg>
+

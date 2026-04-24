@@ -699,6 +699,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#_app_prototype">App Prototype</a></li>
 <li><a href="#_user_flow">User Flow</a>
 <ul class="sectlevel2">
+<li><a href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></li>
 <li><a href="#_0_ersteinrichtung">0. Ersteinrichtung</a></li>
 <li><a href="#_1_rechnungsübersicht">1. Rechnungsübersicht</a></li>
 <li><a href="#_2_rechnungsdetails">2. Rechnungsdetails</a></li>
@@ -751,6 +752,35 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="sect1">
 <h2 id="_user_flow"><a class="anchor" href="#_user_flow"></a><a class="link" href="#_user_flow">User Flow</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_legende_zur_verantwortlichkeit"><a class="anchor" href="#_legende_zur_verantwortlichkeit"></a><a class="link" href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></h3>
+<div class="paragraph">
+<p>Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
+Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt werden muss oder durch den Fachdienst bereitgestellt wird.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>App</strong> - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fachdienst</strong> - Die Funktionalität wird serverseitig durch den Fachdienst bereitgestellt (z. B. Datenbereitstellung, fachliche Verarbeitung, Ereignisse).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="sect2">
 <h3 id="_0_ersteinrichtung"><a class="anchor" href="#_0_ersteinrichtung"></a><a class="link" href="#_0_ersteinrichtung">0. Ersteinrichtung</a></h3>
 <div class="paragraph">
@@ -819,7 +849,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E-Mail verifizieren</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">E-Mail verifizieren</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine E-Mail-Abfrage</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -831,7 +861,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Eingabemaske für das OTP</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1089,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Zahlungsunterstützung</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Zahlungsunterstützung</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung digital bezahlen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1101,12 +1130,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit die Rechnung als bezahlt zu markieren</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p>Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anhang zur Rechnung hinzufügen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit einer Rechnung einen eigenen Anhang hinzuzufügen, z. B. ein Foto eines Kassenbons</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>wählbar aus Dateien oder der Fotomediathek</p>
+</li>
+<li>
+<p>Möglichkeit der Umbenennung des neu hinzugefügten Anhangs</p>
 </li>
 </ul>
 </div></div></td>
@@ -1136,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung auswählen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 </tr>
 <tr>
@@ -1153,6 +1196,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10260_Einreichung_per_Frontend.html">AF_10260 - Einreichung per Frontend</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 </tr>
 </tbody>
 </table>
@@ -1176,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Neue Rechnung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Neue Rechnung <span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Use Case</p>
@@ -1187,7 +1236,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung an baldiges Fälligkeitsdatum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung an baldiges Fälligkeitsdatum <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum</p>
@@ -1198,7 +1247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überfällige Rechnung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überfällige Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Use Case</p>
@@ -1209,14 +1258,96 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn eine Rechnung gelöscht wird</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung einer Rechnung<span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Wichtige Infos für die Push Nachricht:</p>
+</div>
+<div class="ulist">
 <ul>
 <li>
-<p>Gilt nur, wenn es keine automatische Speicherung im App-Speicher gibt</p>
+<p>Leistungserbringer</p>
+</li>
+<li>
+<p>Datum der Rechnung</p>
+</li>
+<li>
+<p>Datum der Löschung</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung mehrerer Rechnungen<span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Wichtige Infos für die Push Nachricht:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Anzahl Rechnungen</p>
+</li>
+<li>
+<p>IDs der Rechnungen</p>
+</li>
+<li>
+<p>Datum der Löschung</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p>
+<p class="tableblock"><a href="https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3">Löschfristen</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mindestens folgende Optionen sollten angeboten werden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sollen Push-Benachrichtigungen über das Smartphone empfangen werden</p>
+</li>
+<li>
+<p>Anzeige an welche Mailadresse Benachrichtigungen gesendet werden</p>
+</li>
+<li>
+<p>Bei aktivierten Push Nachrichten soll eingestellt werden können für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung des Kontos <span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Die Notification sollte mindestens folgende Angaben enthalten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>den Namen des Kontoinhabers</p>
+</li>
+<li>
+<p>das Datum der bevorstehenden Löschung</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
 </tr>
@@ -1228,7 +1359,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-04-21 07:08:03 UTC
+Last updated 2026-04-24 13:36:26 UTC
 </div>
 </div>
 </body>
