@@ -832,6 +832,9 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </ul>
 </div>
 </li>
+<li>
+<p>Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID. Die vorhandenen Abfragen bleiben jedoch bestehen.</p>
+</li>
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10187_Einrichten_eines_Kontos_für_Versicherte.html">AF_10187 - Einrichten eines Kontos für Versicherte</a></p></td>
@@ -914,7 +917,8 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html">AF_10138 - Abruf von Rechnungen</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html">AF_10138 - Abruf von Rechnungen</a></p>
+<p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138">FHIR-Rechnungen abrufen</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen anzeigen</p></td>
@@ -1201,7 +1205,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160">FHIR - Markierung setzen</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1307,6 +1311,37 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <p class="tableblock"><a href="https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3">Löschfristen</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung einer Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Leistungserbringer, Datum der Rechnung, Datum der Löschung, Use Case</p>
+</div>
+<div class="paragraph">
+<p>Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.</p>
+</div>
+<div class="paragraph">
+<p>Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung mehrerer Rechnungen <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Anzahl Rechnungen, Datum der Löschung, Use Case</p>
+</div>
+<div class="paragraph">
+<p>Das Filtern nach diesen Rechnungen soll dann in der App möglich sein.</p>
+</div>
+<div class="paragraph">
+<p>Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.</p>
+</div>
+<div class="paragraph">
+<p>Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1359,7 +1394,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-04-24 13:36:26 UTC
+Last updated 2026-04-28 16:01:50 UTC
 </div>
 </div>
 </body>
