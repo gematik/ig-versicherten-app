@@ -68,6 +68,8 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
 ** KVNR
 ** Geburtsdatum
 ** E-Mail Adresse
+
+* Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID. Die vorhandenen Abfragen bleiben jedoch bestehen.
 | link:AF_10187_Einrichten_eines_Kontos_für_Versicherte.html[AF_10187 - Einrichten eines Kontos für Versicherte]
 
 | Rechnungen digital empfangen
@@ -105,6 +107,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
 * Rechnungen werden mit einer Push-Nachricht angekündigt
 | link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
+link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138[FHIR-Rechnungen abrufen]
 | Rechnungen anzeigen
 | Liste aller Rechnungen
  a| Die Liste muss je Rechnung mindestens enthalten:
@@ -216,7 +219,6 @@ Ideal: Volltextsuche
 
 
 === 3. Rechnungen einreichen
-
 [cols="2,3,4,3",options="header"]
 |===
 | Use Case | Beschreibung | Anforderungen | weitere Quellen
@@ -237,10 +239,10 @@ Ideal: Volltextsuche
 | Markierungen
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
 | Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
-| link
+| link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160[FHIR - Markierung setzen]
 |===
-=== 4. Push-Benachrichtigungen
 
+=== 4. Push-Benachrichtigungen
 [cols="2,3,4,3",options="header"]
 |===
 | Use Case | Beschreibung | Anforderungen | weitere Quellen
@@ -289,6 +291,28 @@ Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möch
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 link:https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3[Löschfristen]
+
+| Anstehende Löschung einer Rechnung {app-icon-legend}
+| 7 Tage vor dem Löschdatum
+a|Leistungserbringer, Datum der Rechnung, Datum der Löschung, Use Case
+
+Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.
+
+Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
+| link:
+
+| Anstehende Löschung mehrerer Rechnungen {app-icon-legend}
+| 7 Tage vor dem Löschdatum
+a|Anzahl Rechnungen, Datum der Löschung, Use Case
+
+
+Das Filtern nach diesen Rechnungen soll dann in der App möglich sein.
+
+Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.
+
+
+Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
+| link:
 
 | Verwalten von Push Nachrichten {app-icon-legend}
 | Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.
