@@ -36,7 +36,7 @@ link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnu
 === Legende zur Verantwortlichkeit
 
 Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
-Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt werden muss oder durch den Fachdienst bereitgestellt wird.
+Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.
 
 [cols="1,4",options="header"]
 |===
@@ -45,20 +45,19 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 | {app-icon-legend}
 | *App* - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).
 
-| {fachdienst-icon-legend}
-| *Fachdienst* - Die Funktionalität wird serverseitig durch den Fachdienst bereitgestellt (z. B. Datenbereitstellung, fachliche Verarbeitung, Ereignisse).
 |===
 
 
 === 0. Ersteinrichtung
 
-Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und ist in der initialen App und der Versicherungsapp bereits angemeldet.
+Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und möchte in einer App die DiPag Funktionalität nutzen.
 
-[cols="2,3,4,3",options="header"]
+[cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | DiPAG Fachdienst berechtigen
+| -
 | In der Versicherungsapp erscheint eine Abfrage
  a|
 * In der initialen App wird ein Absprung in die Versicherungsapp angeboten
@@ -69,25 +68,29 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
 ** Geburtsdatum
 ** E-Mail Adresse
 
-* Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID. Die vorhandenen Abfragen bleiben jedoch bestehen.
+* Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID.
 | link:AF_10187_Einrichten_eines_Kontos_für_Versicherte.html[AF_10187 - Einrichten eines Kontos für Versicherte]
 
 | Rechnungen digital empfangen
+| -
 | In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen
  a|
 * Die Entscheidung muss zu einem späteren Zeitpunkt geändert werden können
 | link
 .2+| E-Mail verifizieren
+| -
 | In der initialen App erscheint eine E-Mail-Abfrage
  a|
 * Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus
 | link:
+| -
 | In der initialen App erscheint eine Eingabemaske für das OTP
  a|
 * Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden
 | link:
 
 | Abschluss
+| -
 | Der Versicherte sieht die Übersicht seiner Rechnungen
  a|
 * Siehe Rechnungsübersicht
@@ -97,11 +100,12 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
 
 === 1. Rechnungsübersicht
 
-[cols="2,3,4,3",options="header"]
+[cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | Rechnungen empfangen
+| -
 | Rechnungen werden automatisch in das Frontend geladen
  a|
 * Rechnungen werden mit einer Push-Nachricht angekündigt
@@ -109,6 +113,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und i
 
 link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138[FHIR-Rechnungen abrufen]
 | Rechnungen anzeigen
+| image:../images/Rechnung.svg[Rechnungsansicht, width=140, link=../images/Rechnung.svg]
 | Liste aller Rechnungen
  a| Die Liste muss je Rechnung mindestens enthalten:
 
@@ -122,6 +127,7 @@ Lade-States und verständliche Fehlermeldungen implementieren.
 | link:
 
 | Suchfunktion
+| -
 | Rechnungen nach Kriterien durchsuchen
  a| Suchleiste muss mindestens nach folgenden Kriterien suchen können:
 
@@ -132,6 +138,7 @@ Ideal: Volltextsuche
 | link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
 | Sortierfunktion
+| -
 | Rechnungsliste sortieren
  a| Mindestens:
 
@@ -141,6 +148,7 @@ Ideal: Volltextsuche
 | link:
 
 | Filterfunktion
+| -
 | Rechnungen nach Status filtern
  a| Mindestens:
 
@@ -151,6 +159,7 @@ Ideal: Volltextsuche
 | link:
 
 | Auswahlfunktion mit Aktion
+| -
 | Mehrere Rechnungen gleichzeitig auswählen und verwalten
  a| Mindestens:
 
@@ -159,12 +168,14 @@ Ideal: Volltextsuche
 | link:
 
 | Rechnungsdetails anzeigen
+| -
 | Klick auf eine Rechnung zeigt mehr Details
  a|
 * Siehe Rechnungsdetails
 | link:
 
 | Optional: Statistiken/Übersicht
+| -
 | Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres
 | keine
 | keine
@@ -173,11 +184,12 @@ Ideal: Volltextsuche
 
 === 2. Rechnungsdetails
 
-[cols="2,3,4,3",options="header"]
+[cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | Detail-Ansicht öffnen
+| -
 | Detailinformationen durch Klick auf eine Rechnung anzeigen
  a| Mindestens:
 
@@ -193,23 +205,27 @@ Ideal: Volltextsuche
 | link:
 
 | PDF-Download
+| -
 | Rechnung als PDF herunterladen
  a|
 * PDF enthält alle Rechnungsdetails
 | link:
 
 .2+| Zahlungsunterstützung
+| -
 | Rechnung digital bezahlen
  a|
 * Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können
 | link:
 
+| -
 | Möglichkeit die Rechnung als bezahlt zu markieren
  a|
 * Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen
 | link:
 
 | Anhang zur Rechnung hinzufügen
+| -
 | Möglichkeit einer Rechnung einen eigenen Anhang hinzuzufügen, z. B. ein Foto eines Kassenbons
  a|
 * wählbar aus Dateien oder der Fotomediathek
@@ -219,16 +235,18 @@ Ideal: Volltextsuche
 
 
 === 3. Rechnungen einreichen
-[cols="2,3,4,3",options="header"]
+[cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | Rechnung auswählen
+| -
 | Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können
 | Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden
 | link
 
 | Rechnung teilen
+| -
 | Sharesheet mit Rechnung als Anhang
  a|
 * Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
@@ -237,17 +255,19 @@ Ideal: Volltextsuche
 
 
 | Markierungen
+| -
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
 | Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
 | link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160[FHIR - Markierung setzen]
 |===
 
 === 4. Push-Benachrichtigungen
-[cols="2,3,4,3",options="header"]
+[cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | Neue Rechnung {fachdienst-icon-legend}
+| -
 | Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist
  a| Leistungserbringer und Use Case
 
@@ -255,6 +275,7 @@ Beispiel: _„[Leistungserbringer] hat Ihnen eine Rechnung zugestellt."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Erinnerung an baldiges Fälligkeitsdatum {app-icon-legend}
+| -
 | Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit
  a| Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum
 
@@ -262,6 +283,7 @@ Beispiel: _„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Überfällige Rechnung {app-icon-legend}
+| -
 | Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde
  a| Leistungserbringer und Use Case
 
@@ -269,6 +291,7 @@ Beispiel: _„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begl
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Baldige Löschung einer Rechnung{fachdienst-icon-legend}
+| -
 | Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
 a| Wichtige Infos für die Push Nachricht:
 
@@ -280,6 +303,7 @@ Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gel
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Baldige Löschung mehrerer Rechnungen{fachdienst-icon-legend}
+| -
 | Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
 a| Wichtige Infos für die Push Nachricht:
 
@@ -293,6 +317,7 @@ Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möch
 link:https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3[Löschfristen]
 
 | Anstehende Löschung einer Rechnung {app-icon-legend}
+| -
 | 7 Tage vor dem Löschdatum
 a|Leistungserbringer, Datum der Rechnung, Datum der Löschung, Use Case
 
@@ -302,6 +327,7 @@ Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gel
 | link:
 
 | Anstehende Löschung mehrerer Rechnungen {app-icon-legend}
+| -
 | 7 Tage vor dem Löschdatum
 a|Anzahl Rechnungen, Datum der Löschung, Use Case
 
@@ -315,6 +341,7 @@ Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möch
 | link:
 
 | Verwalten von Push Nachrichten {app-icon-legend}
+| -
 | Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.
 a|
 Mindestens folgende Optionen sollten angeboten werden:
@@ -327,6 +354,7 @@ Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Fa
 | link:
 
 | Anstehende Löschung des Kontos {fachdienst-icon-legend}
+| -
 | Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll
 a|
 Die Notification sollte mindestens folgende Angaben enthalten:
