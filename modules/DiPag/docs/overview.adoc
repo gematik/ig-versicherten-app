@@ -3,11 +3,8 @@
 :sectanchors:
 :toc: left
 :icon-app-path: ../images/icon_app_red.svg
-:icon-fachdienst-path: ../images/icon_fachdienst_blue.svg
 :app-icon-inline: image:{icon-app-path}[App, width=20]
-:fachdienst-icon-inline: image:{icon-fachdienst-path}[Fachdienst, width=20]
 :app-icon-legend: image:{icon-app-path}[App, width=120]
-:fachdienst-icon-legend: image:{icon-fachdienst-path}[Fachdienst, width=150]
 
 [IMPORTANT]
 ====
@@ -246,7 +243,7 @@ Ideal: Volltextsuche
 | link
 
 | Rechnung teilen
-| -
+| image:../images/Teilen.svg[Teilen, width=140, link=../images/Teilen.svg]
 | Sharesheet mit Rechnung als Anhang
  a|
 * Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
@@ -266,7 +263,7 @@ Ideal: Volltextsuche
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
-| Neue Rechnung {fachdienst-icon-legend}
+| Neue Rechnung
 | -
 | Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist
  a| Leistungserbringer und Use Case
@@ -290,7 +287,7 @@ Beispiel: _„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."_
 Beispiel: _„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begleichen Sie diese zeitnah."_
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
-| Baldige Löschung einer Rechnung{fachdienst-icon-legend}
+| Baldige Löschung einer Rechnung
 | -
 | Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
 a| Wichtige Infos für die Push Nachricht:
@@ -302,7 +299,7 @@ a| Wichtige Infos für die Push Nachricht:
 Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
-| Baldige Löschung mehrerer Rechnungen{fachdienst-icon-legend}
+| Baldige Löschung mehrerer Rechnungen
 | -
 | Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
 a| Wichtige Infos für die Push Nachricht:
@@ -353,7 +350,7 @@ Mindestens folgende Optionen sollten angeboten werden:
 Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.
 | link:
 
-| Anstehende Löschung des Kontos {fachdienst-icon-legend}
+| Anstehende Löschung des Kontos
 | -
 | Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll
 a|
