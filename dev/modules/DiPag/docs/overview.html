@@ -528,6 +528,43 @@ html {
   background: #000E52;
   color: #fff;
 }
+
+/* ── Lightbox für klickbare SVG-Mockups ───────────────────────────────────── */
+#mockup-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 24px;
+  box-sizing: border-box;
+}
+#mockup-lightbox.open {
+  display: flex;
+}
+#mockup-lightbox img {
+  max-width: min(96vw, 1400px);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+#mockup-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #fff;
+  color: #000E52;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -687,6 +724,51 @@ document.addEventListener('DOMContentLoaded', function() {
       // versions.json nicht verfügbar (z.B. lokaler Build) – kein Menü anzeigen
     });
   }
+
+  // ── Klickbare SVG-Mockups als Overlay anzeigen ───────────────────────────
+  var lightbox = document.createElement('div');
+  lightbox.id = 'mockup-lightbox';
+  lightbox.setAttribute('aria-hidden', 'true');
+
+  var closeBtn = document.createElement('button');
+  closeBtn.id = 'mockup-lightbox-close';
+  closeBtn.type = 'button';
+  closeBtn.setAttribute('aria-label', 'Overlay schließen');
+  closeBtn.textContent = 'Schließen';
+
+  var lightboxImg = document.createElement('img');
+  lightboxImg.alt = 'Mockup Vorschau';
+
+  lightbox.appendChild(closeBtn);
+  lightbox.appendChild(lightboxImg);
+  document.body.appendChild(lightbox);
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImg.removeAttribute('src');
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  document.addEventListener('click', function(e) {
+    var trigger = e.target.closest('td a[href$=".svg"], td a[href$=".svg?"]');
+    if (!trigger || !trigger.querySelector('img')) return;
+    e.preventDefault();
+
+    var href = trigger.getAttribute('href');
+    if (!href) return;
+
+    lightboxImg.src = href;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  });
 });
 </script>
 </head>
@@ -756,7 +838,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 id="_legende_zur_verantwortlichkeit"><a class="anchor" href="#_legende_zur_verantwortlichkeit"></a><a class="link" href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></h3>
 <div class="paragraph">
 <p>Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
-Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt werden muss oder durch den Fachdienst bereitgestellt wird.</p>
+Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -774,28 +856,26 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>App</strong> - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fachdienst</strong> - Die Funktionalität wird serverseitig durch den Fachdienst bereitgestellt (z. B. Datenbereitstellung, fachliche Verarbeitung, Ereignisse).</p></td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
 <h3 id="_0_ersteinrichtung"><a class="anchor" href="#_0_ersteinrichtung"></a><a class="link" href="#_0_ersteinrichtung">0. Ersteinrichtung</a></h3>
 <div class="paragraph">
-<p>Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und ist in der initialen App und der Versicherungsapp bereits angemeldet.</p>
+<p>Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und möchte in einer App die DiPag Funktionalität nutzen.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 33.3333%;">
-<col style="width: 25.0001%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
 <th class="tableblock halign-left valign-top">Beschreibung</th>
 <th class="tableblock halign-left valign-top">Anforderungen</th>
 <th class="tableblock halign-left valign-top">weitere Quellen</th>
@@ -804,6 +884,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DiPAG Fachdienst berechtigen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der Versicherungsapp erscheint eine Abfrage</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -833,7 +914,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </div>
 </li>
 <li>
-<p>Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID. Die vorhandenen Abfragen bleiben jedoch bestehen.</p>
+<p>Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID.</p>
 </li>
 </ul>
 </div></div></td>
@@ -841,6 +922,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen digital empfangen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -853,6 +935,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">E-Mail verifizieren</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine E-Mail-Abfrage</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -864,6 +947,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Eingabemaske für das OTP</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -876,6 +960,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Abschluss</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Der Versicherte sieht die Übersicht seiner Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -893,14 +978,16 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <h3 id="_1_rechnungsübersicht"><a class="anchor" href="#_1_rechnungsübersicht"></a><a class="link" href="#_1_rechnungsübersicht">1. Rechnungsübersicht</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 33.3333%;">
-<col style="width: 25.0001%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
 <th class="tableblock halign-left valign-top">Beschreibung</th>
 <th class="tableblock halign-left valign-top">Anforderungen</th>
 <th class="tableblock halign-left valign-top">weitere Quellen</th>
@@ -909,6 +996,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen empfangen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen werden automatisch in das Frontend geladen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -922,6 +1010,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen anzeigen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Rechnung.svg"><img src="../images/Rechnung.svg" alt="Rechnungsansicht" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Liste aller Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Die Liste muss je Rechnung mindestens enthalten:</p>
@@ -949,6 +1038,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Suchfunktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Kriterien durchsuchen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Suchleiste muss mindestens nach folgenden Kriterien suchen können:</p>
@@ -970,6 +1060,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sortierfunktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungsliste sortieren</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -991,6 +1082,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Filterfunktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Status filtern</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -1015,6 +1107,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Auswahlfunktion mit Aktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mehrere Rechnungen gleichzeitig auswählen und verwalten</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -1033,6 +1126,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungsdetails anzeigen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Klick auf eine Rechnung zeigt mehr Details</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1045,6 +1139,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Statistiken/Übersicht</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keine</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keine</p></td>
@@ -1056,14 +1151,16 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <h3 id="_2_rechnungsdetails"><a class="anchor" href="#_2_rechnungsdetails"></a><a class="link" href="#_2_rechnungsdetails">2. Rechnungsdetails</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 33.3333%;">
-<col style="width: 25.0001%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
 <th class="tableblock halign-left valign-top">Beschreibung</th>
 <th class="tableblock halign-left valign-top">Anforderungen</th>
 <th class="tableblock halign-left valign-top">weitere Quellen</th>
@@ -1072,6 +1169,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Detail-Ansicht öffnen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Detailinformationen durch Klick auf eine Rechnung anzeigen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -1111,6 +1209,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PDF-Download</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung als PDF herunterladen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1123,6 +1222,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Zahlungsunterstützung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung digital bezahlen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1134,6 +1234,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit die Rechnung als bezahlt zu markieren</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1146,6 +1247,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anhang zur Rechnung hinzufügen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit einer Rechnung einen eigenen Anhang hinzuzufügen, z. B. ein Foto eines Kassenbons</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1166,14 +1268,16 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <h3 id="_3_rechnungen_einreichen"><a class="anchor" href="#_3_rechnungen_einreichen"></a><a class="link" href="#_3_rechnungen_einreichen">3. Rechnungen einreichen</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 33.3333%;">
-<col style="width: 25.0001%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
 <th class="tableblock halign-left valign-top">Beschreibung</th>
 <th class="tableblock halign-left valign-top">Anforderungen</th>
 <th class="tableblock halign-left valign-top">weitere Quellen</th>
@@ -1182,12 +1286,14 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung auswählen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung teilen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sharesheet mit Rechnung als Anhang</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1203,6 +1309,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160">FHIR - Markierung setzen</a></p></td>
@@ -1214,14 +1321,16 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <h3 id="_4_push_benachrichtigungen"><a class="anchor" href="#_4_push_benachrichtigungen"></a><a class="link" href="#_4_push_benachrichtigungen">4. Push-Benachrichtigungen</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 25%;">
-<col style="width: 33.3333%;">
-<col style="width: 25.0001%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
 <th class="tableblock halign-left valign-top">Beschreibung</th>
 <th class="tableblock halign-left valign-top">Anforderungen</th>
 <th class="tableblock halign-left valign-top">weitere Quellen</th>
@@ -1230,6 +1339,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Neue Rechnung <span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Use Case</p>
@@ -1241,6 +1351,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung an baldiges Fälligkeitsdatum <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum</p>
@@ -1252,6 +1363,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Überfällige Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer und Use Case</p>
@@ -1263,6 +1375,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung einer Rechnung<span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Wichtige Infos für die Push Nachricht:</p>
@@ -1287,6 +1400,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung mehrerer Rechnungen<span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Wichtige Infos für die Push Nachricht:</p>
@@ -1312,6 +1426,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung einer Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Leistungserbringer, Datum der Rechnung, Datum der Löschung, Use Case</p>
@@ -1326,6 +1441,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung mehrerer Rechnungen <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Anzahl Rechnungen, Datum der Löschung, Use Case</p>
@@ -1343,6 +1459,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens folgende Optionen sollten angeboten werden:</p>
@@ -1367,6 +1484,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung des Kontos <span class="image"><img src="../images/icon_fachdienst_blue.svg" alt="Fachdienst" width="150"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Die Notification sollte mindestens folgende Angaben enthalten:</p>
@@ -1394,7 +1512,7 @@ Die folgenden Icons kennzeichnen, ob eine Funktionalität in der App umgesetzt w
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-04-28 16:01:50 UTC
+Last updated 2026-05-21 08:14:28 UTC
 </div>
 </div>
 </body>
