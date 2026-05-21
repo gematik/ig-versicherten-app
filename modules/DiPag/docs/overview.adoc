@@ -148,7 +148,7 @@ Ideal: Volltextsuche
 | link:
 
 | Filterfunktion
-| -
+| image:../images/Filter.svg[Filterfunktion, width=140, link=../images/Filter.svg]
 | Rechnungen nach Status filtern
  a| Mindestens:
 
@@ -159,7 +159,7 @@ Ideal: Volltextsuche
 | link:
 
 | Auswahlfunktion mit Aktion
-| -
+| image:../images/Auswahl.svg[Auswahl, width=140, link=../images/Auswahl.svg]
 | Mehrere Rechnungen gleichzeitig auswählen und verwalten
  a| Mindestens:
 
