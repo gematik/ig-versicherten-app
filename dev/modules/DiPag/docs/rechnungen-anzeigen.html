@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Modul DiPag</title>
+<title>Use Case - Rechnungen anzeigen</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -774,778 +774,110 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>Modul DiPag</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_app_prototype">App Prototype</a></li>
-<li><a href="#_user_flow">User Flow</a>
-<ul class="sectlevel2">
-<li><a href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></li>
-<li><a href="#_0_ersteinrichtung">0. Ersteinrichtung</a></li>
-<li><a href="#_1_anmeldung">1. Anmeldung</a></li>
-<li><a href="#_2_rechnungsübersicht">2. Rechnungsübersicht</a></li>
-<li><a href="#_3_rechnungsdetails">3. Rechnungsdetails</a></li>
-<li><a href="#_4_rechnungen_einreichen">4. Rechnungen einreichen</a></li>
-<li><a href="#_5_push_benachrichtigungen">5. Push-Benachrichtigungen</a></li>
-</ul>
-</li>
-</ul>
-</div>
+<h1>Use Case - Rechnungen anzeigen</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="admonitionblock important">
-<table>
+<div class="paragraph">
+<p><a href="overview.html">Zurück zur Übersicht</a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>🚧 <strong>Dieser Implementierungsleitfaden befindet sich aktuell noch im Aufbau!</strong> 🚧</p>
-</div>
-</td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">ID</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UC_RECHNUNGEN_ANZEIGEN</p></td>
 </tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Verbindlichkeit</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MUSS</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Letzte Aktualisierung</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2026-05-22</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Kurzbeschreibung</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Der Use Case beschreibt, wie Versicherte ihre Rechnungen in der App als Liste einsehen, durchsuchen und in die Detailansicht wechseln.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Akteure</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Vorbedingungen</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Der Versicherte ist in der App angemeldet (online oder offline mit lokal verfugbaren Daten).<br></p>
+</li>
+<li>
+<p>Es liegen Rechnungsdaten vor (vom Fachdienst geladen oder lokal gespeichert).</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Auslöser/Trigger</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Der Versicherte offnet die App.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Hauptablauf</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Die App zeigt die Liste der Rechnungen an.<br></p>
+</li>
+<li>
+<p>Pro Rechnung werden mindestens angezeigt: ausstellende LEI, Status (z. B. bezahlt/eingereicht), Rechnungsdatum.<br></p>
+</li>
+<li>
+<p>Der Versicherte kann suchen, sortieren und filtern.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Alternativ-/Fehlerablaufe</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Keine Internet-Verbindung: Die App zeigt lokal vorhandene Rechnungen und einen Offline-Hinweis.<br></p>
+</li>
+<li>
+<p>Ladefehler: App zeigt einen verständlichen Fehlerzustand mit erneuter Ladeoption.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Nachbedingungen/Ergebnis</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Die Rechnungsubersicht ist fur den Versicherten sichtbar.<br></p>
+</li>
+<li>
+<p>Bei Auswahl einer Rechnung wird die zugehörige Detailansicht geöffnet <a href="detail-ansicht.html">UC_DETAIL_ANSICHT</a>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="paragraph">
-<p>Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_app_prototype"><a class="anchor" href="#_app_prototype"></a><a class="link" href="#_app_prototype">App Prototype</a></h2>
+<h2 id="_mockup">Mockup</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechnung.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&amp;viewport=413%2C84%2C0.21&amp;t=VDTNXGzXntk7fu6p-9&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=8615%3A4392&amp;show-proto-sidebar=1&amp;page-id=8615%3A3953" target="_blank" rel="noopener">Figma Prototyp in neuem Tab öffnen</a></p>
-</div>
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
-        width="100%"
-        height="1000"
-        src=https://embed.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?content-scaling=fixed&kind=proto&node-id=8615-4392&page-id=8615%3A3953&scaling=min-zoom&starting-point-node-id=8615%3A4392&show-proto-sidebar=0&embed-host=share%22
-        allowfullscreen>
-</iframe>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_user_flow"><a class="anchor" href="#_user_flow"></a><a class="link" href="#_user_flow">User Flow</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_legende_zur_verantwortlichkeit"><a class="anchor" href="#_legende_zur_verantwortlichkeit"></a><a class="link" href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></h3>
-<div class="paragraph">
-<p>Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
-Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Symbol</th>
-<th class="tableblock halign-left valign-top">Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>App</strong> - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_0_ersteinrichtung"><a class="anchor" href="#_0_ersteinrichtung"></a><a class="link" href="#_0_ersteinrichtung">0. Ersteinrichtung</a></h3>
-<div class="paragraph">
-<p>Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und möchte in einer App die DiPag Funktionalität nutzen.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DiPAG Fachdienst berechtigen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In der Versicherungsapp erscheint eine Abfrage</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>In der initialen App wird ein Absprung in die Versicherungsapp angeboten</p>
-</li>
-<li>
-<p>Der Versicherte ist in der Versicherungsapp mit GesundheitsID angemeldet</p>
-</li>
-<li>
-<p>Übertragende Inhalte werden angezeigt:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Vor- &amp; Nachname</p>
-</li>
-<li>
-<p>KVNR</p>
-</li>
-<li>
-<p>Geburtsdatum</p>
-</li>
-<li>
-<p>E-Mail Adresse</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID.</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10187_Einrichten_eines_Kontos_für_Versicherte.html">AF_10187 - Einrichten eines Kontos für Versicherte</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen digital empfangen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Die Entscheidung muss zu einem späteren Zeitpunkt geändert werden können</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">E-Mail verifizieren</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine E-Mail-Abfrage</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Als Default wird die im sektoralen IDP hinterlegte E-Mail-Adresse vorgeschlagen</p>
-</li>
-<li>
-<p>Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Eingabemaske für das OTP</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_1_anmeldung"><a class="anchor" href="#_1_anmeldung"></a><a class="link" href="#_1_anmeldung">1. Anmeldung</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden an der App (Online Fall)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmeldung bei bestehender Internetverbindung</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>TODO</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden an der App (Offline-Fall)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmeldung ohne bestehende Internetverbindung</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert werden und angezeigt werden</p>
-</li>
-<li>
-<p>Es soll einen Hinweis geben, dass der Versicherte nicht mehr angemeldet ist</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_2_rechnungsübersicht"><a class="anchor" href="#_2_rechnungsübersicht"></a><a class="link" href="#_2_rechnungsübersicht">2. Rechnungsübersicht</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen empfangen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen werden automatisch in das Frontend geladen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Rechnungen werden mit einer Push-Nachricht angekündigt</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html">AF_10138 - Abruf von Rechnungen</a></p>
-<p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138">FHIR-Rechnungen abrufen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rechnungen-anzeigen.html">UC_RECHNUNGEN_ANZEIGEN</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Rechnung.svg"><img src="../images/Rechnung.svg" alt="Rechnungsansicht" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Liste aller Rechnungen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Die Liste muss je Rechnung mindestens enthalten:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ausstellende LEI</p>
-</li>
-<li>
-<p>Status der Rechnung, falls dieser bezahlt oder eingereicht ist</p>
-</li>
-<li>
-<p>Datum der Rechnungserstellung</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Rechnungen können sich auch im Archiv befinden.</p>
-</div>
-<div class="paragraph">
-<p>Lade-States und verständliche Fehlermeldungen implementieren.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suchfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Kriterien durchsuchen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Suchleiste muss mindestens nach folgenden Kriterien suchen können:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Rechnungsnummer</p>
-</li>
-<li>
-<p>Leistungserbringer</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Ideal: Volltextsuche</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html">AF_10138 - Abruf von Rechnungen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sortierfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungsliste sortieren</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Rechnungsdatum</p>
-</li>
-<li>
-<p>Zahlungszieldatum</p>
-</li>
-<li>
-<p>Gesamtbetrag</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filterfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Filter.svg"><img src="../images/Filter.svg" alt="Filterfunktion" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Status filtern</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Eingereicht</p>
-</li>
-<li>
-<p>Nicht eingereicht</p>
-</li>
-<li>
-<p>Bezahlt</p>
-</li>
-<li>
-<p>Nicht bezahlt</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Auswahlfunktion mit Aktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Auswahl.svg"><img src="../images/Auswahl.svg" alt="Auswahl" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mehrere Rechnungen gleichzeitig auswählen und verwalten</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Einreichen</p>
-</li>
-<li>
-<p>Löschen</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional: Statistiken/Übersicht</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keine</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keine</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_3_rechnungsdetails"><a class="anchor" href="#_3_rechnungsdetails"></a><a class="link" href="#_3_rechnungsdetails">3. Rechnungsdetails</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="detail-ansicht.html">UC_DETAIL_ANSICHT</a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="image"><a class="image" href="../images/Detail.svg"><img src="../images/Detail.svg" alt="Detailansicht" width="140"></a></span></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><a class="image" href="../images/Detail-1.svg"><img src="../images/Detail-1.svg" alt="Detailansicht erweitert" width="140"></a></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Detailinformationen durch Klick auf eine Rechnung anzeigen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Rechnungsnummer</p>
-</li>
-<li>
-<p>Leistungsdatum</p>
-</li>
-<li>
-<p>Betrag</p>
-</li>
-<li>
-<p>Status</p>
-</li>
-<li>
-<p>Leistungserbringer</p>
-</li>
-<li>
-<p>Behandelte Person, insbesondere wenn diese Person nicht identisch ist mit dem Rechnungsempfänger</p>
-</li>
-<li>
-<p>Zahlungsdaten, falls die Rechnung noch nicht bezahlt ist</p>
-</li>
-<li>
-<p>Mögliche Aktionen wie einreichen, als bezahlt markieren, als eingereicht markieren, archivieren, löschen</p>
-</li>
-<li>
-<p>Eine Rechnung soll auch nach einer Einreichung erneut eingereicht werden können</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PDF-Download</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung als PDF herunterladen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>PDF enthält alle Rechnungsdetails</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Zahlungsunterstützung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung digital bezahlen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit die Rechnung als bezahlt zu markieren</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anhang zur Rechnung hinzufügen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Möglichkeit einer Rechnung einen eigenen Anhang hinzuzufügen, z. B. ein Foto eines Kassenbons</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>wählbar aus Dateien oder der Fotomediathek</p>
-</li>
-<li>
-<p>Möglichkeit der Umbenennung des neu hinzugefügten Anhangs</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_4_rechnungen_einreichen"><a class="anchor" href="#_4_rechnungen_einreichen"></a><a class="link" href="#_4_rechnungen_einreichen">4. Rechnungen einreichen</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung auswählen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung teilen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Teilen.svg"><img src="../images/Teilen.svg" alt="Teilen" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sharesheet mit Rechnung als Anhang</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden</p>
-</li>
-<li>
-<p>Das Format der Rechnung soll PDF/strukturiert sein</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10260_Einreichung_per_Frontend.html">AF_10260 - Einreichung per Frontend</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
-* Bezahlt
-* Eingereicht
-* Persönlich (für angehangene Dokumente)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160">FHIR - Markierung setzen</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_5_push_benachrichtigungen"><a class="anchor" href="#_5_push_benachrichtigungen"></a><a class="link" href="#_5_push_benachrichtigungen">5. Push-Benachrichtigungen</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4287%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Use Case</th>
-<th class="tableblock halign-left valign-top">MockUp</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Anforderungen</th>
-<th class="tableblock halign-left valign-top">weitere Quellen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Neue Rechnung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Benachrichtigung, sobald eine neue Rechnung in der Übersicht verfügbar ist</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Leistungserbringer und Use Case</p>
-</div>
-<div class="paragraph">
-<p>Beispiel: <em>„[Leistungserbringer] hat Ihnen eine Rechnung zugestellt."</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung an baldiges Fälligkeitsdatum <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Frühzeitige Erinnerung, z. B. 7 Tage vor Fälligkeit</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Leistungserbringer und Anzahl der Tage bis zum Fälligkeitsdatum</p>
-</div>
-<div class="paragraph">
-<p>Beispiel: <em>„Die Rechnung von [Leistungserbringer] wird in 7 Tagen fällig."</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überfällige Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn eine Rechnung über das Fälligkeitsdatum hinaus noch nicht bezahlt wurde</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Leistungserbringer und Use Case</p>
-</div>
-<div class="paragraph">
-<p>Beispiel: <em>„Die Rechnung von [Leistungserbringer] ist überfällig. Bitte begleichen Sie diese zeitnah."</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung einer Rechnung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Wichtige Infos für die Push Nachricht:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Leistungserbringer</p>
-</li>
-<li>
-<p>Datum der Rechnung</p>
-</li>
-<li>
-<p>Datum der Löschung</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Baldige Löschung mehrerer Rechnungen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Wichtige Infos für die Push Nachricht:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Anzahl Rechnungen</p>
-</li>
-<li>
-<p>IDs der Rechnungen</p>
-</li>
-<li>
-<p>Datum der Löschung</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p>
-<p class="tableblock"><a href="https://gemspec.gematik.de/docs/gemF/gemF_DiPag/latest/#5.5.6.3">Löschfristen</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung einer Rechnung <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Leistungserbringer, Datum der Rechnung, Datum der Löschung, Use Case</p>
-</div>
-<div class="paragraph">
-<p>Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.</p>
-</div>
-<div class="paragraph">
-<p>Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung mehrerer Rechnungen <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7 Tage vor dem Löschdatum</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Anzahl Rechnungen, Datum der Löschung, Use Case</p>
-</div>
-<div class="paragraph">
-<p>Das Filtern nach diesen Rechnungen soll dann in der App möglich sein.</p>
-</div>
-<div class="paragraph">
-<p>Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.</p>
-</div>
-<div class="paragraph">
-<p>Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Push.svg"><img src="../images/Push.svg" alt="Push" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens folgende Optionen sollten angeboten werden:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Sollen Push-Benachrichtigungen über das Smartphone empfangen werden</p>
-</li>
-<li>
-<p>Anzeige an welche Mailadresse Benachrichtigungen gesendet werden</p>
-</li>
-<li>
-<p>Bei aktivierten Push Nachrichten soll eingestellt werden können für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anstehende Löschung des Kontos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Erinnerung, wenn ein Konto aufgrund zu langer Inaktivität gelöscht werden soll</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Die Notification sollte mindestens folgende Angaben enthalten:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>den Namen des Kontoinhabers</p>
-</li>
-<li>
-<p>das Datum der bevorstehenden Löschung</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
-</tr>
-</tbody>
-</table>
+<p><span class="image"><img src="../images/Rechnung.svg" alt="Rechnungsansicht" width="900"></span></p>
 </div>
 </div>
 </div>
