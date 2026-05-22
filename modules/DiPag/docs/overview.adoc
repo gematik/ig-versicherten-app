@@ -127,7 +127,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 | link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
 link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138[FHIR-Rechnungen abrufen]
-| link:rechnungen-anzeigen.adoc[UC_RECHNUNGEN_ANZEIGEN]
+| link:UC_RECHNUNGEN_ANZEIGEN.adoc[UC_RECHNUNGEN_ANZEIGEN]
 | image:../images/Rechnung.svg[Rechnungsansicht, width=140, link=../images/Rechnung.svg]
 | Liste aller Rechnungen
  a| Die Liste muss je Rechnung mindestens enthalten:
@@ -196,7 +196,7 @@ Ideal: Volltextsuche
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
-| link:detail-ansicht.adoc[UC_DETAIL_ANSICHT]
+| link:UC_DETAIL_ANSICHT.adoc[UC_DETAIL_ANSICHT]
  a|
 image:../images/Detail.svg[Detailansicht, width=140, link=../images/Detail.svg]
 

@@ -12,7 +12,7 @@ link:overview.adoc[Zurueck zur Uebersicht]
 | Vorbedingungen
  a| * Der Versicherte ist in der App angemeldet. +
 * Eine Rechnung ist in der Uebersicht sichtbar.
-| Ausloeser/Trigger | Der Versicherte waehlt in link:rechnungen-anzeigen.adoc[UC_RECHNUNGEN_ANZEIGEN] eine Rechnung aus.
+| Ausloeser/Trigger | Der Versicherte waehlt in link:UC_RECHNUNGEN_ANZEIGEN.adoc[UC_RECHNUNGEN_ANZEIGEN] eine Rechnung aus.
 | Hauptablauf
  a| * Die App oeffnet die Detail-Ansicht zur gewaehlten Rechnung. +
 * Die App zeigt mindestens: Rechnungsnummer, Leistungsdatum, Betrag, Status, Leistungserbringer. +
@@ -27,8 +27,12 @@ link:overview.adoc[Zurueck zur Uebersicht]
 
 == Mockup
 
-image:../images/Detail.svg[Detailansicht, width=900]
+[cols="1,1"]
+|===
+| image:../images/Detail.svg[Detailansicht, width=900]
+| image:../images/Detail-1.svg[Detailansicht erweitert, width=900]
+|===
 
-image:../images/Detail-1.svg[Detailansicht erweitert, width=900]
+
 
 

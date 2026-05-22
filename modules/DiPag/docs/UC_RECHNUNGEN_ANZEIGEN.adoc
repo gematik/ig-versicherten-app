@@ -22,12 +22,13 @@ link:overview.adoc[Zurück zur Übersicht]
 * Ladefehler: App zeigt einen verständlichen Fehlerzustand mit erneuter Ladeoption.
 | Nachbedingungen/Ergebnis
  a| * Die Rechnungsubersicht ist fur den Versicherten sichtbar. +
-* Bei Auswahl einer Rechnung wird die zugehörige Detailansicht geöffnet link:detail-ansicht.adoc[UC_DETAIL_ANSICHT].
+* Bei Auswahl einer Rechnung wird die zugehörige Detailansicht geöffnet link:UC_DETAIL_ANSICHT.adoc[UC_DETAIL_ANSICHT].
 |===
 
 == Mockup
 
 image:../images/Rechnung.svg[Rechnungsansicht, width=900]
+
 
 
 
