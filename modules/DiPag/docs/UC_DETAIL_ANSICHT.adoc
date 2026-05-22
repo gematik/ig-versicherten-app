@@ -11,7 +11,7 @@ link:overview.adoc[Zurueck zur Uebersicht]
 | Akteure | Versicherter
 | Vorbedingungen
  a| * Der Versicherte ist in der App angemeldet. +
-* Eine Rechnung ist in der Uebersicht sichtbar.
+* Es existieren Rechnungen für den Versicherten.
 | Ausloeser/Trigger | Der Versicherte waehlt in link:UC_RECHNUNGEN_ANZEIGEN.adoc[UC_RECHNUNGEN_ANZEIGEN] eine Rechnung aus.
 | Hauptablauf
  a| * Die App oeffnet die Detail-Ansicht zur gewaehlten Rechnung. +
