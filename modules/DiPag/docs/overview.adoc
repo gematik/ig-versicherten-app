@@ -17,7 +17,7 @@ Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten u
 
 Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechnung.
 
-link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&viewport=413%2C84%2C0.21&t=VDTNXGzXntk7fu6p-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8615%3A4392&show-proto-sidebar=1&page-id=8615%3A3953[Figma Prototyp in neuem Tab öffnen]
+link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&viewport=413%2C84%2C0.21&t=VDTNXGzXntk7fu6p-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8615%3A4392&show-proto-sidebar=1&page-id=8615%3A3953[Figma Prototyp in neuem Tab öffnen^]
 
 ++++
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);"
@@ -78,6 +78,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 | -
 | In der initialen App erscheint eine E-Mail-Abfrage
  a|
+* Als Default wird die im sektoralen IDP hinterlegte E-Mail-Adresse vorgeschlagen
 * Bestätigen der Mailadresse durch den Versicherten löst das Senden des One-Time-Passwords (OTP) aus
 | link:
 | -
@@ -86,16 +87,33 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 * Bei fehlerhafter Eingabe soll die Möglichkeit geboten werden, die Mail erneut zu versenden
 | link:
 
-| Abschluss
-| -
-| Der Versicherte sieht die Übersicht seiner Rechnungen
- a|
-* Siehe Rechnungsübersicht
-| link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 |===
 
 
-=== 1. Rechnungsübersicht
+=== 1. Anmeldung
+
+[cols="2,2,3,4,3",options="header"]
+|===
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+
+| Anmelden an der App (Online Fall)
+| -
+| Anmeldung bei bestehender Internetverbindung
+ a|
+* TODO
+| link:
+
+| Anmelden an der App (Offline-Fall)
+| -
+| Anmeldung ohne bestehende Internetverbindung
+ a|
+* Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert werden und angezeigt werden
+* Es soll einen Hinweis geben, dass der Versicherte nicht mehr angemeldet ist
+| link:
+|===
+
+
+=== 2. Rechnungsübersicht
 
 [cols="2,2,3,4,3",options="header"]
 |===
@@ -109,7 +127,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 | link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
 link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138[FHIR-Rechnungen abrufen]
-| Rechnungen anzeigen
+| link:rechnungen-anzeigen.adoc[UC_RECHNUNGEN_ANZEIGEN]
 | image:../images/Rechnung.svg[Rechnungsansicht, width=140, link=../images/Rechnung.svg]
 | Liste aller Rechnungen
  a| Die Liste muss je Rechnung mindestens enthalten:
@@ -164,13 +182,6 @@ Ideal: Volltextsuche
 * Löschen
 | link:
 
-| Rechnungsdetails anzeigen
-| -
-| Klick auf eine Rechnung zeigt mehr Details
- a|
-* Siehe Rechnungsdetails
-| link:
-
 | Optional: Statistiken/Übersicht
 | -
 | Gesamtbetrag pro Jahr, Verrechnung mit Pauschalsatz des Jahres
@@ -179,14 +190,17 @@ Ideal: Volltextsuche
 |===
 
 
-=== 2. Rechnungsdetails
+=== 3. Rechnungsdetails
 
 [cols="2,2,3,4,3",options="header"]
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
-| Detail-Ansicht öffnen
-| -
+| link:detail-ansicht.adoc[UC_DETAIL_ANSICHT]
+ a|
+image:../images/Detail.svg[Detailansicht, width=140, link=../images/Detail.svg]
+
+image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/Detail-1.svg]
 | Detailinformationen durch Klick auf eine Rechnung anzeigen
  a| Mindestens:
 
@@ -231,7 +245,7 @@ Ideal: Volltextsuche
 |===
 
 
-=== 3. Rechnungen einreichen
+=== 4. Rechnungen einreichen
 [cols="2,2,3,4,3",options="header"]
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
@@ -255,10 +269,13 @@ Ideal: Volltextsuche
 | -
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
 | Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
+* Bezahlt
+* Eingereicht
+* Persönlich (für angehangene Dokumente)
 | link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160[FHIR - Markierung setzen]
 |===
 
-=== 4. Push-Benachrichtigungen
+=== 5. Push-Benachrichtigungen
 [cols="2,2,3,4,3",options="header"]
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
@@ -338,7 +355,7 @@ Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möch
 | link:
 
 | Verwalten von Push Nachrichten {app-icon-legend}
-| -
+| image:../images/Push.svg[Push, width=140, link=../images/Push.svg]
 | Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.
 a|
 Mindestens folgende Optionen sollten angeboten werden:
