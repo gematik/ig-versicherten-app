@@ -783,7 +783,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#_app_prototype">App Prototype</a></li>
 <li><a href="#_user_flow">User Flow</a>
 <ul class="sectlevel2">
-<li><a href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></li>
 <li><a href="#_0_ersteinrichtung">0. Ersteinrichtung</a></li>
 <li><a href="#_1_anmeldung">1. Anmeldung</a></li>
 <li><a href="#_2_rechnungsübersicht">2. Rechnungsübersicht</a></li>
@@ -821,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2 id="_app_prototype"><a class="anchor" href="#_app_prototype"></a><a class="link" href="#_app_prototype">App Prototype</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechnung.</p>
+<p>Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren <a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&amp;node-id=9010-24853&amp;p=f&amp;viewport=-4234%2C2334%2C1.16&amp;t=gybV775YVyR8AYBr-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=9010%3A24853&amp;show-proto-sidebar=1">Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien</a>.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&amp;viewport=413%2C84%2C0.21&amp;t=VDTNXGzXntk7fu6p-9&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=8615%3A4392&amp;show-proto-sidebar=1&amp;page-id=8615%3A3953" target="_blank" rel="noopener">Figma Prototyp in neuem Tab öffnen</a></p>
@@ -837,31 +836,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="sect1">
 <h2 id="_user_flow"><a class="anchor" href="#_user_flow"></a><a class="link" href="#_user_flow">User Flow</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_legende_zur_verantwortlichkeit"><a class="anchor" href="#_legende_zur_verantwortlichkeit"></a><a class="link" href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></h3>
-<div class="paragraph">
-<p>Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
-Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Symbol</th>
-<th class="tableblock halign-left valign-top">Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>App</strong> - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="sect2">
 <h3 id="_0_ersteinrichtung"><a class="anchor" href="#_0_ersteinrichtung"></a><a class="link" href="#_0_ersteinrichtung">0. Ersteinrichtung</a></h3>
 <div class="paragraph">
@@ -887,7 +861,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DiPAG Fachdienst berechtigen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Einwilligung.svg"><img src="../images/Einwilligung.svg" alt="Einwilligung zur Nutzung digitaler Rechnungen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der Versicherungsapp erscheint eine Abfrage</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -988,29 +962,45 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden an der App (Online Fall)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erneuter Zugang zu Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmeldung bei bestehender Internetverbindung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden ohne erneute Authentisierung</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>TODO</p>
+<p>Der Versicherte muss einen aktiven Zugang via GesundheitsID haben.</p>
 </li>
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden an der App (Offline-Fall)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Anmeldung ohne bestehende Internetverbindung</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erneuter Zugang zu Rechnungen nach einiger Zeit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Nicht mehr angemeldet.svg"><img src="../images/Nicht%20mehr%20angemeldet.svg" alt="Hinweis auf abgelaufene Anmeldung" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anmelden mit Biometrie oder Code</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert werden und angezeigt werden</p>
+<p>Der Versicherte hat keinen aktiven Zugang zum Fachdienst, kann den GesundheitsID-Zugang aber mittels Biometrie oder Code erneuern</p>
+</li>
+<li>
+<p>Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert und angezeigt werden</p>
 </li>
 <li>
 <p>Es soll einen Hinweis geben, dass der Versicherte nicht mehr angemeldet ist</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erneuter Zugang ohne Internet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anzeigen von bereits heruntergeladenen Rechnungen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Muss über das Frontend implementiert werden (oder über den App-Chip)</p>
 </li>
 </ul>
 </div></div></td>
@@ -1055,7 +1045,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="UC_RECHNUNGEN_ANZEIGEN.html">UC_RECHNUNGEN_ANZEIGEN</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Rechnung.svg"><img src="../images/Rechnung.svg" alt="Rechnungsansicht" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Liste der Rechnungen.svg"><img src="../images/Liste%20der%20Rechnungen.svg" alt="Liste der Rechnungen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Liste aller Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Die Liste muss je Rechnung mindestens enthalten:</p>
@@ -1127,7 +1117,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Filterfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Filter.svg"><img src="../images/Filter.svg" alt="Filterfunktion" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Filter.svg"><img src="../images/Filter.svg" alt="Filter für Rechnungen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Status filtern</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -1152,7 +1142,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Auswahlfunktion mit Aktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Auswahl.svg"><img src="../images/Auswahl.svg" alt="Auswahl" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Auswahl.svg"><img src="../images/Auswahl.svg" alt="Auswahl mehrerer Rechnungen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mehrere Rechnungen gleichzeitig auswählen und verwalten</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens:</p>
@@ -1202,10 +1192,10 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="UC_DETAIL_ANSICHT.html">UC_DETAIL_ANSICHT</a></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="image"><a class="image" href="../images/Detail.svg"><img src="../images/Detail.svg" alt="Detailansicht" width="140"></a></span></p>
+<p><span class="image"><a class="image" href="../images/Detail.svg"><img src="../images/Detail.svg" alt="Detailansicht einer Rechnung" width="140"></a></span></p>
 </div>
 <div class="paragraph">
-<p><span class="image"><a class="image" href="../images/Detail-1.svg"><img src="../images/Detail-1.svg" alt="Detailansicht erweitert" width="140"></a></span></p>
+<p><span class="image"><a class="image" href="../images/Detail-1.svg"><img src="../images/Detail-1.svg" alt="Erweiterte Detailansicht einer Rechnung" width="140"></a></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Detailinformationen durch Klick auf eine Rechnung anzeigen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1246,7 +1236,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PDF-Download</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Beispiel PDF.svg"><img src="../images/Beispiel%20PDF.svg" alt="Beispiel einer Rechnungs-PDF" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung als PDF herunterladen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1264,7 +1254,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können</p>
+<p>Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können</p>
 </li>
 </ul>
 </div></div></td>
@@ -1276,7 +1266,7 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen</p>
+<p>Bei Rückkehr in die App nach der Weiterleitung zum Online-Banking soll eine Abfrage zur Markierung erscheinen</p>
 </li>
 </ul>
 </div></div></td>
@@ -1323,14 +1313,14 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung auswählen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Einreichen-1.svg"><img src="../images/Einreichen-1.svg" alt="Auswahl von Rechnungen zum Einreichen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung teilen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Teilen.svg"><img src="../images/Teilen.svg" alt="Teilen" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung einreichen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Einreichen.svg"><img src="../images/Einreichen.svg" alt="Rechnung über Teilen-Funktion einreichen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sharesheet mit Rechnung als Anhang</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
@@ -1346,7 +1336,8 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Privat.svg"><img src="../images/Privat.svg" alt="Markierung Privat" width="140"></a></span></p>
+<p class="tableblock"><span class="image"><a class="image" href="../images/Notiz.svg"><img src="../images/Notiz.svg" alt="Notiz zu einer Rechnung" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
 * Bezahlt
@@ -1359,6 +1350,30 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </div>
 <div class="sect2">
 <h3 id="_5_push_benachrichtigungen"><a class="anchor" href="#_5_push_benachrichtigungen"></a><a class="link" href="#_5_push_benachrichtigungen">5. Push-Benachrichtigungen</a></h3>
+<div class="sect3">
+<h4 id="_legende_zur_verantwortlichkeit"><a class="anchor" href="#_legende_zur_verantwortlichkeit"></a><a class="link" href="#_legende_zur_verantwortlichkeit">Legende zur Verantwortlichkeit</a></h4>
+<div class="paragraph">
+<p>Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
+Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>App</strong> - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).</p></td>
+</tr>
+</tbody>
+</table>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 14.2857%;">
@@ -1498,8 +1513,8 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Push.svg"><img src="../images/Push.svg" alt="Push" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verwalten von Push-Nachrichten <span class="image"><img src="../images/icon_app_red.svg" alt="App" width="120"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Push.svg"><img src="../images/Push.svg" alt="Einstellungen für Push-Benachrichtigungen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Mindestens folgende Optionen sollten angeboten werden:</p>
@@ -1510,10 +1525,10 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <p>Sollen Push-Benachrichtigungen über das Smartphone empfangen werden</p>
 </li>
 <li>
-<p>Anzeige an welche Mailadresse Benachrichtigungen gesendet werden</p>
+<p>Anzeige, an welche Mailadresse Benachrichtigungen gesendet werden</p>
 </li>
 <li>
-<p>Bei aktivierten Push Nachrichten soll eingestellt werden können für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.</p>
+<p>Bei aktivierten Push-Nachrichten soll eingestellt werden können, für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an ein baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.</p>
 </li>
 </ul>
 </div>
@@ -1550,9 +1565,10 @@ Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-05-22 15:18:31 UTC
+Last updated 2026-06-03 15:14:38 UTC
 </div>
 </div>
 </body>
