@@ -14,8 +14,7 @@
 Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.
 
 == App Prototype
-
-Der interaktive Figma-Prototyp zeigt die Wireframes der Digitalen Patientenrechnung.
+Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&node-id=9010-24853&p=f&viewport=-4234%2C2334%2C1.16&t=gybV775YVyR8AYBr-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9010%3A24853&show-proto-sidebar=1[Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien].
 
 link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&viewport=413%2C84%2C0.21&t=VDTNXGzXntk7fu6p-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8615%3A4392&show-proto-sidebar=1&page-id=8615%3A3953[Figma Prototyp in neuem Tab öffnen^]
 
@@ -30,21 +29,6 @@ link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnu
 
 == User Flow
 
-=== Legende zur Verantwortlichkeit
-
-Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
-Aus diesem Grund wird im folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.
-
-[cols="1,4",options="header"]
-|===
-| Symbol | Bedeutung
-
-| {app-icon-legend}
-| *App* - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).
-
-|===
-
-
 === 0. Ersteinrichtung
 
 Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und möchte in einer App die DiPag Funktionalität nutzen.
@@ -54,7 +38,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | DiPAG Fachdienst berechtigen
-| -
+| image:../images/Einwilligung.svg[Einwilligung zur Nutzung digitaler Rechnungen, width=140, link=../images/Einwilligung.svg]
 | In der Versicherungsapp erscheint eine Abfrage
  a|
 * In der initialen App wird ein Absprung in die Versicherungsapp angeboten
@@ -96,19 +80,27 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
-| Anmelden an der App (Online Fall)
+| Erneuter Zugang zu Rechnungen
 | -
-| Anmeldung bei bestehender Internetverbindung
+| Anmelden ohne erneute Authentisierung
  a|
-* TODO
+* Der Versicherte muss einen aktiven Zugang via GesundheitsID haben.
 | link:
 
-| Anmelden an der App (Offline-Fall)
-| -
-| Anmeldung ohne bestehende Internetverbindung
+| Erneuter Zugang zu Rechnungen nach einiger Zeit
+| image:../images/Nicht mehr angemeldet.svg[Hinweis auf abgelaufene Anmeldung, width=140, link=../images/Nicht mehr angemeldet.svg]
+| Anmelden mit Biometrie oder Code
  a|
-* Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert werden und angezeigt werden
+* Der Versicherte hat keinen aktiven Zugang zum Fachdienst, kann den GesundheitsID-Zugang aber mittels Biometrie oder Code erneuern
+* Bereits heruntergeladene Rechnungen können im Vorfeld gespeichert und angezeigt werden
 * Es soll einen Hinweis geben, dass der Versicherte nicht mehr angemeldet ist
+| link:
+
+| Erneuter Zugang ohne Internet
+| -
+| Anzeigen von bereits heruntergeladenen Rechnungen
+ a|
+* Muss über das Frontend implementiert werden (oder über den App-Chip)
 | link:
 |===
 
@@ -128,7 +120,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 
 link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10138[FHIR-Rechnungen abrufen]
 | link:UC_RECHNUNGEN_ANZEIGEN.adoc[UC_RECHNUNGEN_ANZEIGEN]
-| image:../images/Rechnung.svg[Rechnungsansicht, width=140, link=../images/Rechnung.svg]
+| image:../images/Liste der Rechnungen.svg[Liste der Rechnungen, width=140, link=../images/Liste der Rechnungen.svg]
 | Liste aller Rechnungen
  a| Die Liste muss je Rechnung mindestens enthalten:
 
@@ -163,7 +155,7 @@ Ideal: Volltextsuche
 | link:
 
 | Filterfunktion
-| image:../images/Filter.svg[Filterfunktion, width=140, link=../images/Filter.svg]
+| image:../images/Filter.svg[Filter für Rechnungen, width=140, link=../images/Filter.svg]
 | Rechnungen nach Status filtern
  a| Mindestens:
 
@@ -174,7 +166,7 @@ Ideal: Volltextsuche
 | link:
 
 | Auswahlfunktion mit Aktion
-| image:../images/Auswahl.svg[Auswahl, width=140, link=../images/Auswahl.svg]
+| image:../images/Auswahl.svg[Auswahl mehrerer Rechnungen, width=140, link=../images/Auswahl.svg]
 | Mehrere Rechnungen gleichzeitig auswählen und verwalten
  a| Mindestens:
 
@@ -198,9 +190,9 @@ Ideal: Volltextsuche
 
 | link:UC_DETAIL_ANSICHT.adoc[UC_DETAIL_ANSICHT]
  a|
-image:../images/Detail.svg[Detailansicht, width=140, link=../images/Detail.svg]
+image:../images/Detail.svg[Detailansicht einer Rechnung, width=140, link=../images/Detail.svg]
 
-image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/Detail-1.svg]
+image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140, link=../images/Detail-1.svg]
 | Detailinformationen durch Klick auf eine Rechnung anzeigen
  a| Mindestens:
 
@@ -216,7 +208,7 @@ image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/
 | link:
 
 | PDF-Download
-| -
+| image:../images/Beispiel PDF.svg[Beispiel einer Rechnungs-PDF, width=140, link=../images/Beispiel PDF.svg]
 | Rechnung als PDF herunterladen
  a|
 * PDF enthält alle Rechnungsdetails
@@ -226,13 +218,13 @@ image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/
 | -
 | Rechnung digital bezahlen
  a|
-* Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online Banking stattfinden können
+* Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können
 | link:
 
 | -
 | Möglichkeit die Rechnung als bezahlt zu markieren
  a|
-* Bei Rückkehr in die App nach der Weiterleitung zum Online Banking soll eine Abfrage zur Markierung erscheinen
+* Bei Rückkehr in die App nach der Weiterleitung zum Online-Banking soll eine Abfrage zur Markierung erscheinen
 | link:
 
 | Anhang zur Rechnung hinzufügen
@@ -251,13 +243,14 @@ image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
 
 | Rechnung auswählen
-| -
+| image:../images/Einreichen-1.svg[Auswahl von Rechnungen zum Einreichen, width=140, link=../images/Einreichen-1.svg]
+
 | Es sollen eine oder mehrere Rechnungen gleichzeitig zum Einreichen gewählt werden können
 | Bei der Auswahl mehrerer Rechnungen soll die Summe aller markierten Rechnungen angezeigt werden
 | link
 
-| Rechnung teilen
-| image:../images/Teilen.svg[Teilen, width=140, link=../images/Teilen.svg]
+| Rechnung einreichen
+| image:../images/Einreichen.svg[Rechnung über Teilen-Funktion einreichen, width=140, link=../images/Einreichen.svg]
 | Sharesheet mit Rechnung als Anhang
  a|
 * Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
@@ -266,7 +259,9 @@ image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/
 
 
 | Markierungen
-| -
+| image:../images/Privat.svg[Markierung Privat, width=140, link=../images/Privat.svg]
+
+image:../images/Notiz.svg[Notiz zu einer Rechnung, width=140, link=../images/Notiz.svg]
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
 | Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
 * Bezahlt
@@ -276,6 +271,21 @@ image:../images/Detail-1.svg[Detailansicht erweitert, width=140, link=../images/
 |===
 
 === 5. Push-Benachrichtigungen
+
+==== Legende zur Verantwortlichkeit
+
+Bei einigen Anwendungsfällen ist nicht immer ganz eindeutig, ob eine bestimmte Funktionalität vom Fachdienst ausgelöst wird oder in der App selbst implementiert werden muss.
+Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisieren, dass die Funktionalität allein von der App bereitgestellt werden muss.
+
+[cols="1,4",options="header"]
+|===
+| Symbol | Bedeutung
+
+| {app-icon-legend}
+| *App* - Die Funktionalität wird im App Client umgesetzt und liegt in der Verantwortung des App-Herstellers (z. B. UI, Interaktion, lokale Verarbeitung).
+
+|===
+
 [cols="2,2,3,4,3",options="header"]
 |===
 | Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
@@ -354,15 +364,15 @@ Hinweis: Diese Push muss selbst erstellt werden und kommt nicht vom Fachdienst.
 Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möchten, können Sie das in der App anpassen.
 | link:
 
-| Verwalten von Push Nachrichten {app-icon-legend}
-| image:../images/Push.svg[Push, width=140, link=../images/Push.svg]
+| Verwalten von Push-Nachrichten {app-icon-legend}
+| image:../images/Push.svg[Einstellungen für Push-Benachrichtigungen, width=140, link=../images/Push.svg]
 | Einstellmöglichkeiten für den Nutzer, um den Empfang von Benachrichtigungen zu steuern.
 a|
 Mindestens folgende Optionen sollten angeboten werden:
 
 * Sollen Push-Benachrichtigungen über das Smartphone empfangen werden
-* Anzeige an welche Mailadresse Benachrichtigungen gesendet werden
-* Bei aktivierten Push Nachrichten soll eingestellt werden können für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.
+* Anzeige, an welche Mailadresse Benachrichtigungen gesendet werden
+* Bei aktivierten Push-Nachrichten soll eingestellt werden können, für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an ein baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.
 
 Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.
 | link:
