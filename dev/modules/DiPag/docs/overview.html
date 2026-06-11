@@ -789,6 +789,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#_3_rechnungsdetails">3. Rechnungsdetails</a></li>
 <li><a href="#_4_rechnungen_einreichen">4. Rechnungen einreichen</a></li>
 <li><a href="#_5_push_benachrichtigungen">5. Push-Benachrichtigungen</a></li>
+<li><a href="#_6_kontoeinstellungen">6. Kontoeinstellungen</a></li>
 </ul>
 </li>
 </ul>
@@ -820,7 +821,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2 id="_app_prototype"><a class="anchor" href="#_app_prototype"></a><a class="link" href="#_app_prototype">App Prototype</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren <a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&amp;node-id=9010-24853&amp;p=f&amp;viewport=-4234%2C2334%2C1.16&amp;t=gybV775YVyR8AYBr-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=9010%3A24853&amp;show-proto-sidebar=1">Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien</a>.</p>
+<p>Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Eine 2-App Strategie bedeutet, dass das DiPAG Modul und das Authenticator Modul in getrennten Apps bereitgestellt werden. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren <a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&amp;node-id=9010-24853&amp;p=f&amp;viewport=-4234%2C2334%2C1.16&amp;t=gybV775YVyR8AYBr-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=9010%3A24853&amp;show-proto-sidebar=1">Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien</a>.</p>
 </div>
 <div class="paragraph">
 <p><a href="https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&amp;viewport=413%2C84%2C0.21&amp;t=VDTNXGzXntk7fu6p-9&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=8615%3A4392&amp;show-proto-sidebar=1&amp;page-id=8615%3A3953" target="_blank" rel="noopener">Figma Prototyp in neuem Tab öffnen</a></p>
@@ -898,7 +899,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10187_Einrichten_eines_Kontos_für_Versicherte.html">AF_10187 - Einrichten eines Kontos für Versicherte</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen digital empfangen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Digitalen Rechnungsempfang bestätigen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
@@ -1056,7 +1057,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Ausstellende LEI</p>
 </li>
 <li>
-<p>Status der Rechnung, falls dieser bezahlt oder eingereicht ist</p>
+<p>Markierung der Rechnung, falls diese bezahlt oder eingereicht ist</p>
 </li>
 <li>
 <p>Datum der Rechnungserstellung</p>
@@ -1064,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 </div>
 <div class="paragraph">
-<p>Rechnungen können sich auch im Archiv befinden.</p>
+<p>Rechnungen können sich auch im Archiv befinden. Ein Archiv sollte von der APP umgesetzt werden, da der Fachdienste keine Archivierungsfunktionalität bereitstellt.</p>
 </div>
 <div class="paragraph">
 <p>Lade-States und verständliche Fehlermeldungen implementieren.</p>
@@ -1213,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Betrag</p>
 </li>
 <li>
-<p>Status</p>
+<p>Markierung</p>
 </li>
 <li>
 <p>Leistungserbringer</p>
@@ -1251,13 +1252,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Zahlungsunterstützung</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung digital bezahlen</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können</p>
-</li>
-</ul>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können</p>
+<p class="tableblock">Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten medizinischen Informationen mit der Banking App zu teilen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
 </tr>
 <tr>
@@ -1287,6 +1283,44 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bearbeitungsstatus ändern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manuelles Ändern des Workflow-Status einer Rechnung</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Der Versicherte kann den Status einer Rechnung manuell anpassen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OFFEN → ERLEDIGT (z. B. nach Bezahlung)</p>
+</li>
+<li>
+<p>ERLEDIGT → PAPIERKORB (archivieren)</p>
+</li>
+<li>
+<p>PAPIERKORB → OFFEN oder ERLEDIGT (wiederherstellen)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10245_Manuelles_Ändern_des_Bearbeitungsstatus_von_Rechnungen.html">AF_10245 - Manuelles Ändern des Bearbeitungsstatus</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Automatisches Markieren als gelesen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung wird beim Öffnen automatisch als gelesen markiert</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Sobald ein Versicherter eine ungelesene Rechnung oder ein ungelesenes Dokument öffnet, wird diese automatisch als gelesen markiert.</p>
+</li>
+<li>
+<p>Ungelesene Rechnungen sollen in der Liste visuell hervorgehoben werden (z. B. durch einen Badge oder Fettschrift).</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10261_Automatisches_Markieren_als_gelesen.html">AF_10261 - Automatisches Markieren als gelesen</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1322,28 +1356,44 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung einreichen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Einreichen.svg"><img src="../images/Einreichen.svg" alt="Rechnung über Teilen-Funktion einreichen" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sharesheet mit Rechnung als Anhang</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden</p>
-</li>
-<li>
-<p>Das Format der Rechnung soll PDF/strukturiert sein</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10260_Einreichung_per_Frontend.html">AF_10260 - Einreichung per Frontend</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden.</p>
+<p class="tableblock">  Bei einem zu großen Anhang soll eine Fehlermeldung erscheinen.</p>
+<p class="tableblock">  Das Format der angereicherten Rechnung muss ein PDF/A3 mit eingebetteten strukturierten Daten sein</p>
+<p class="tableblock">  Beispiel:</p>
+<p class="tableblock">  Titel: Zu viele Dokumente</p>
+<p class="tableblock">  Text: Bitte beschränken Sie die Auswahl auf 10 Dokumente.</p>
+<p class="tableblock">  Buttons: Abbrechen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dokumente überprüfen</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10260_Einreichung_per_Frontend.html">AF_10260 - Einreichung per Frontend</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Privat.svg"><img src="../images/Privat.svg" alt="Markierung Privat" width="140"></a></span></p>
-<p class="tableblock"><span class="image"><a class="image" href="../images/Notiz.svg"><img src="../images/Notiz.svg" alt="Notiz zu einer Rechnung" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Privat.svg"><img src="../images/Privat.svg" alt="Markierung Privat" width="140"></a></span>
+  <span class="image"><a class="image" href="../images/Notiz.svg"><img src="../images/Notiz.svg" alt="Notiz zu einer Rechnung" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
-* Bezahlt
-* Eingereicht
-* Persönlich (für angehangene Dokumente)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160">FHIR - Markierung setzen</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bezahlt</p>
+</li>
+<li>
+<p>Gelesen</p>
+</li>
+<li>
+<p>Eingereicht</p>
+</li>
+<li>
+<p>Persönlich (für angehangene Dokumente)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Hinweis: Neben den Markierungen existiert auch noch ein Status am Rechnungsbundle.
+Die Status Offen und Erledigt müssen nicht angezeigt werden. Der Staus Papierkorb sollte angezeigt werden in Verbindung mit der Push Nachricht in den Use Cases der automatischen anstehenden Löschung.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1522,7 +1572,7 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <div class="ulist">
 <ul>
 <li>
-<p>Sollen Push-Benachrichtigungen über das Smartphone empfangen werden</p>
+<p>Sollen Push-Benachrichtigungen über das Smartphone empfangen werden (Abfrage der App sollte automatisch bei Appstart kommen)</p>
 </li>
 <li>
 <p>Anzeige, an welche Mailadresse Benachrichtigungen gesendet werden</p>
@@ -1557,7 +1607,151 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <div class="paragraph">
 <p>Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10186_Benachrichtigung_empfangen.html">AF_10186 - Benachrichtigung empfangen</a></p>
+<p class="tableblock"><a href="AF_10270_Hinweis_auf_anstehende_Konto-Löschung_bei_Inaktivität.html">AF_10270 - Hinweis auf anstehende Konto-Löschung</a></p>
+<p class="tableblock"><a href="AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html">AF_10269 - Nutzerkonto löschen bei Inaktivität</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_kontoeinstellungen"><a class="anchor" href="#_6_kontoeinstellungen"></a><a class="link" href="#_6_kontoeinstellungen">6. Kontoeinstellungen</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4287%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Use Case</th>
+<th class="tableblock halign-left valign-top">MockUp</th>
+<th class="tableblock halign-left valign-top">Beschreibung</th>
+<th class="tableblock halign-left valign-top">Anforderungen</th>
+<th class="tableblock halign-left valign-top">weitere Quellen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Berechtigungen verwalten</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter verwaltet Berechtigungen einzelner Rechnungsersteller</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Der Versicherte kann im FdV die Liste der Rechnungsersteller einsehen, die eine individuelle Berechtigung zum Rechnungsversand haben.</p>
+</li>
+<li>
+<p>Bestehende Berechtigungen können widerrufen werden.</p>
+</li>
+<li>
+<p>Widerrufene Berechtigungen können erneut erteilt werden.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10265_Bearbeitung_von_Berechtigungen.html">AF_10265 - Bearbeitung von Berechtigungen</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kontoeinstellungen bearbeiten</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzer-Einstellungen im Konto anpassen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Der Versicherte kann Einstellungen seines Nutzerkontos anpassen, z. B.:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>E-Mail-Adresse für Benachrichtigungen</p>
+</li>
+<li>
+<p>Präferenzen für Push-Benachrichtigungen</p>
+</li>
+<li>
+<p>Sprache und weitere App-Einstellungen</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10263_Bearbeitung_von_Einstellungen_des_Nutzerkontos.html">AF_10263 - Bearbeitung von Einstellungen des Nutzerkontos</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identitätsdaten aktualisieren</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geänderten Namen aus der GesundheitsID ins Nutzerkonto übernehmen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Nach einer Namensänderung (z. B. durch Heirat) werden die aktualisierten Identitätsdaten aus dem sektoralen IDP in das Nutzerkonto übernommen.</p>
+</li>
+<li>
+<p>Der Versicherte soll über die Aktualisierung informiert werden.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10267_Bearbeitung_von_Identitätsdaten_des_Nutzerkontos_Namensänderung.html">AF_10267 - Bearbeitung von Identitätsdaten (Namensänderung)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzerkonto löschen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter löscht selbst sein Nutzerkonto</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Der Versicherte kann sein Nutzerkonto im FdV eigenständig löschen.</p>
+</li>
+<li>
+<p>Vor der Löschung soll eine Bestätigung eingeholt werden.</p>
+</li>
+<li>
+<p>Mit der Löschung werden alle gespeicherten Rechnungen, Dokumente und Protokolldaten unwiderruflich entfernt.</p>
+</li>
+<li>
+<p>Der Versicherter soll auf die Möglichkeit hingewiesen werden, das Nutzerprotokoll vor der Löschung zu exportieren.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10191_Löschen_seines_Nutzerkontos_durch_den_Versicherten.html">AF_10191 - Löschen seines Nutzerkontos durch den Versicherten</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzerprotokoll einsehen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter sieht sein Nutzerprotokoll ein</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Das Nutzerprotokoll dokumentiert alle relevanten Aktionen, die im Zusammenhang mit dem Nutzerkonto durchgeführt wurden.</p>
+</li>
+<li>
+<p>Das Protokoll soll übersichtlich und chronologisch dargestellt werden.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10203_Nutzerprotokoll_einsehen.html">AF_10203 - Nutzerprotokoll einsehen</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzerprotokoll exportieren</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter exportiert sein Nutzerprotokoll</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Der Versicherte kann sein Nutzerprotokoll exportieren, um es außerhalb des Fachdienstes aufzubewahren.</p>
+</li>
+<li>
+<p>Insbesondere empfohlen vor einer Kontolöschung, da das Protokoll mit dem Konto gelöscht wird.</p>
+</li>
+<li>
+<p>Das Exportformat soll maschinenlesbar und/oder als PDF verfügbar sein.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10194_Nutzerprotokoll_exportieren.html">AF_10194 - Nutzerprotokoll exportieren</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1565,10 +1759,9 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-03 15:21:44 UTC
+Last updated 2026-06-11 13:12:18 UTC
 </div>
 </div>
 </body>
