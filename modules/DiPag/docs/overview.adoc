@@ -14,7 +14,7 @@
 Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.
 
 == App Prototype
-Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&node-id=9010-24853&p=f&viewport=-4234%2C2334%2C1.16&t=gybV775YVyR8AYBr-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9010%3A24853&show-proto-sidebar=1[Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien].
+Der interaktive Klickdummy zeigt eine Beispielanwendung mit digitalen Patientenrechnungen in einer 2-App-Strategie. Eine 2-App Strategie bedeutet, dass das DiPAG Modul und das Authenticator Modul in getrennten Apps bereitgestellt werden. Für die Ersteinrichtung und Folgeanmeldungen für andere App-Strategien gibt es einen weiteren link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?page-id=9010%3A19727&node-id=9010-24853&p=f&viewport=-4234%2C2334%2C1.16&t=gybV775YVyR8AYBr-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=9010%3A24853&show-proto-sidebar=1[Prototyp für Einrichtung und Login bei unterschiedlichen App-Strategien].
 
 link:https://www.figma.com/proto/ptZiaFYvfE1F1rq8BjDPS6/Digitale-Patientenrechnung?node-id=8615-4392&viewport=413%2C84%2C0.21&t=VDTNXGzXntk7fu6p-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8615%3A4392&show-proto-sidebar=1&page-id=8615%3A3953[Figma Prototyp in neuem Tab öffnen^]
 
@@ -52,7 +52,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 * Hinweis: Bei einer One-App-Strategie braucht es keinen Appwechsel, sondern nur eine Abfrage der GesundheitsID.
 | link:AF_10187_Einrichten_eines_Kontos_für_Versicherte.html[AF_10187 - Einrichten eines Kontos für Versicherte]
 
-| Rechnungen digital empfangen
+| Digitalen Rechnungsempfang bestätigen
 | -
 | In der initialen App erscheint eine Einwilligung zum Empfang digitaler Rechnungen
  a|
@@ -125,10 +125,10 @@ link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleit
  a| Die Liste muss je Rechnung mindestens enthalten:
 
 * Ausstellende LEI
-* Status der Rechnung, falls dieser bezahlt oder eingereicht ist
+* Markierung der Rechnung, falls diese bezahlt oder eingereicht ist
 * Datum der Rechnungserstellung
 
-Rechnungen können sich auch im Archiv befinden.
+Rechnungen können sich auch im Archiv befinden. Ein Archiv sollte von der APP umgesetzt werden, da der Fachdienste keine Archivierungsfunktionalität bereitstellt.
 
 Lade-States und verständliche Fehlermeldungen implementieren.
 | link:
@@ -199,7 +199,7 @@ image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140,
 * Rechnungsnummer
 * Leistungsdatum
 * Betrag
-* Status
+* Markierung
 * Leistungserbringer
 * Behandelte Person, insbesondere wenn diese Person nicht identisch ist mit dem Rechnungsempfänger
 * Zahlungsdaten, falls die Rechnung noch nicht bezahlt ist
@@ -217,8 +217,10 @@ image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140,
 .2+| Zahlungsunterstützung
 | -
 | Rechnung digital bezahlen
- a|
-* Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können
+|
+Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können
+
+Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten medizinischen Informationen mit der Banking App zu teilen
 | link:
 
 | -
@@ -234,6 +236,25 @@ image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140,
 * wählbar aus Dateien oder der Fotomediathek
 * Möglichkeit der Umbenennung des neu hinzugefügten Anhangs
 | link:
+
+| Bearbeitungsstatus ändern
+| -
+| Manuelles Ändern des Workflow-Status einer Rechnung
+ a| Der Versicherte kann den Status einer Rechnung manuell anpassen:
+
+* OFFEN → ERLEDIGT (z. B. nach Bezahlung)
+* ERLEDIGT → PAPIERKORB (archivieren)
+* PAPIERKORB → OFFEN oder ERLEDIGT (wiederherstellen)
+| link:AF_10245_Manuelles_Ändern_des_Bearbeitungsstatus_von_Rechnungen.html[AF_10245 - Manuelles Ändern des Bearbeitungsstatus]
+
+| Automatisches Markieren als gelesen
+| -
+| Rechnung wird beim Öffnen automatisch als gelesen markiert
+ a|
+* Sobald ein Versicherter eine ungelesene Rechnung oder ein ungelesenes Dokument öffnet, wird diese automatisch als gelesen markiert.
+* Ungelesene Rechnungen sollen in der Liste visuell hervorgehoben werden (z. B. durch einen Badge oder Fettschrift).
+| link:AF_10261_Automatisches_Markieren_als_gelesen.html[AF_10261 - Automatisches Markieren als gelesen]
+
 |===
 
 
@@ -252,22 +273,36 @@ image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140,
 | Rechnung einreichen
 | image:../images/Einreichen.svg[Rechnung über Teilen-Funktion einreichen, width=140, link=../images/Einreichen.svg]
 | Sharesheet mit Rechnung als Anhang
- a|
-* Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden
-* Das Format der Rechnung soll PDF/strukturiert sein
-| link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
+| Die Rechnung kann über die Teilen-Option des Smartphones mit einer Versicherungsapp oder ähnlichem geteilt werden.
 
+  Bei einem zu großen Anhang soll eine Fehlermeldung erscheinen.
+
+  Das Format der angereicherten Rechnung muss ein PDF/A3 mit eingebetteten strukturierten Daten sein
+
+  Beispiel:
+
+  Titel: Zu viele Dokumente
+
+  Text: Bitte beschränken Sie die Auswahl auf 10 Dokumente.
+
+  Buttons: Abbrechen | Dokumente überprüfen
+| link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
 
 | Markierungen
 | image:../images/Privat.svg[Markierung Privat, width=140, link=../images/Privat.svg]
-
-image:../images/Notiz.svg[Notiz zu einer Rechnung, width=140, link=../images/Notiz.svg]
+  image:../images/Notiz.svg[Notiz zu einer Rechnung, width=140, link=../images/Notiz.svg]
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
-| Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
-* Bezahlt
-* Eingereicht
-* Persönlich (für angehangene Dokumente)
+ a| Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
+
+  * Bezahlt
+  * Gelesen
+  * Eingereicht
+  * Persönlich (für angehangene Dokumente)
+
+Hinweis: Neben den Markierungen existiert auch noch ein Status am Rechnungsbundle.
+Die Status Offen und Erledigt müssen nicht angezeigt werden. Der Staus Papierkorb sollte angezeigt werden in Verbindung mit der Push Nachricht in den Use Cases der automatischen anstehenden Löschung.
 | link:https://simplifier.net/guide/digitalepatientenrechnung-implementierungsleitfaden/Startseite/Szenarien/DiPag-FdV-als-Akteur?version=1.0.3#AF_10160[FHIR - Markierung setzen]
+
 |===
 
 === 5. Push-Benachrichtigungen
@@ -370,7 +405,7 @@ Beispiel: "[N] Rechnungen werden am [Datum] gelöscht. Falls Sie das nicht möch
 a|
 Mindestens folgende Optionen sollten angeboten werden:
 
-* Sollen Push-Benachrichtigungen über das Smartphone empfangen werden
+* Sollen Push-Benachrichtigungen über das Smartphone empfangen werden (Abfrage der App sollte automatisch bei Appstart kommen)
 * Anzeige, an welche Mailadresse Benachrichtigungen gesendet werden
 * Bei aktivierten Push-Nachrichten soll eingestellt werden können, für welche Ereignisse Benachrichtigungen empfangen werden sollen, z. B. neue Rechnung, Erinnerung an ein baldiges Fälligkeitsdatum, überfällige Rechnung, anstehende Löschung des Kontos.
 
@@ -388,5 +423,71 @@ Die Notification sollte mindestens folgende Angaben enthalten:
 
 Beispiel: "Das Konto für digitale Rechnungen von [Name] war zu lang inaktiv. Falls Sie das Konto nicht zeitnah nutzen, wird es zum [Datum] gelöscht.
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
+
+link:AF_10270_Hinweis_auf_anstehende_Konto-Löschung_bei_Inaktivität.html[AF_10270 - Hinweis auf anstehende Konto-Löschung]
+
+link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html[AF_10269 - Nutzerkonto löschen bei Inaktivität]
+
+|===
+
+=== 6. Kontoeinstellungen
+
+[cols="2,2,3,4,3",options="header"]
+|===
+| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+
+| Berechtigungen verwalten
+| -
+| Versicherter verwaltet Berechtigungen einzelner Rechnungsersteller
+ a|
+* Der Versicherte kann im FdV die Liste der Rechnungsersteller einsehen, die eine individuelle Berechtigung zum Rechnungsversand haben.
+* Bestehende Berechtigungen können widerrufen werden.
+* Widerrufene Berechtigungen können erneut erteilt werden.
+| link:AF_10265_Bearbeitung_von_Berechtigungen.html[AF_10265 - Bearbeitung von Berechtigungen]
+
+| Kontoeinstellungen bearbeiten
+| -
+| Nutzer-Einstellungen im Konto anpassen
+ a|
+* Der Versicherte kann Einstellungen seines Nutzerkontos anpassen, z. B.:
+** E-Mail-Adresse für Benachrichtigungen
+** Präferenzen für Push-Benachrichtigungen
+** Sprache und weitere App-Einstellungen
+| link:AF_10263_Bearbeitung_von_Einstellungen_des_Nutzerkontos.html[AF_10263 - Bearbeitung von Einstellungen des Nutzerkontos]
+
+| Identitätsdaten aktualisieren
+| -
+| Geänderten Namen aus der GesundheitsID ins Nutzerkonto übernehmen
+ a|
+* Nach einer Namensänderung (z. B. durch Heirat) werden die aktualisierten Identitätsdaten aus dem sektoralen IDP in das Nutzerkonto übernommen.
+* Der Versicherte soll über die Aktualisierung informiert werden.
+| link:AF_10267_Bearbeitung_von_Identitätsdaten_des_Nutzerkontos_Namensänderung.html[AF_10267 - Bearbeitung von Identitätsdaten (Namensänderung)]
+
+| Nutzerkonto löschen
+| -
+| Versicherter löscht selbst sein Nutzerkonto
+ a|
+* Der Versicherte kann sein Nutzerkonto im FdV eigenständig löschen.
+* Vor der Löschung soll eine Bestätigung eingeholt werden.
+* Mit der Löschung werden alle gespeicherten Rechnungen, Dokumente und Protokolldaten unwiderruflich entfernt.
+* Der Versicherter soll auf die Möglichkeit hingewiesen werden, das Nutzerprotokoll vor der Löschung zu exportieren.
+| link:AF_10191_Löschen_seines_Nutzerkontos_durch_den_Versicherten.html[AF_10191 - Löschen seines Nutzerkontos durch den Versicherten]
+
+| Nutzerprotokoll einsehen
+| -
+| Versicherter sieht sein Nutzerprotokoll ein
+ a|
+* Das Nutzerprotokoll dokumentiert alle relevanten Aktionen, die im Zusammenhang mit dem Nutzerkonto durchgeführt wurden.
+* Das Protokoll soll übersichtlich und chronologisch dargestellt werden.
+| link:AF_10203_Nutzerprotokoll_einsehen.html[AF_10203 - Nutzerprotokoll einsehen]
+
+| Nutzerprotokoll exportieren
+| -
+| Versicherter exportiert sein Nutzerprotokoll
+ a|
+* Der Versicherte kann sein Nutzerprotokoll exportieren, um es außerhalb des Fachdienstes aufzubewahren.
+* Insbesondere empfohlen vor einer Kontolöschung, da das Protokoll mit dem Konto gelöscht wird.
+* Das Exportformat soll maschinenlesbar und/oder als PDF verfügbar sein.
+| link:AF_10194_Nutzerprotokoll_exportieren.html[AF_10194 - Nutzerprotokoll exportieren]
 
 |===
