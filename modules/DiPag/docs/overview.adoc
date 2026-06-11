@@ -237,16 +237,6 @@ Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten mediz
 * Möglichkeit der Umbenennung des neu hinzugefügten Anhangs
 | link:
 
-| Bearbeitungsstatus ändern
-| -
-| Manuelles Ändern des Workflow-Status einer Rechnung
- a| Der Versicherte kann den Status einer Rechnung manuell anpassen:
-
-* OFFEN → ERLEDIGT (z. B. nach Bezahlung)
-* ERLEDIGT → PAPIERKORB (archivieren)
-* PAPIERKORB → OFFEN oder ERLEDIGT (wiederherstellen)
-| link:AF_10245_Manuelles_Ändern_des_Bearbeitungsstatus_von_Rechnungen.html[AF_10245 - Manuelles Ändern des Bearbeitungsstatus]
-
 | Automatisches Markieren als gelesen
 | -
 | Rechnung wird beim Öffnen automatisch als gelesen markiert
@@ -285,7 +275,7 @@ Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten mediz
 
   Text: Bitte beschränken Sie die Auswahl auf 10 Dokumente.
 
-  Buttons: Abbrechen | Dokumente überprüfen
+  Buttons: Abbrechen
 | link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
 
 | Markierungen
@@ -362,7 +352,7 @@ Beispiel: "Die Rechnung von [Leistungserbringer] vom [Datum] wird am [Datum] gel
 | link:AF_10186_Benachrichtigung_empfangen.html[AF_10186 - Benachrichtigung empfangen]
 
 | Baldige Löschung mehrerer Rechnungen
-| -
+| image:../images/gelöscht.svg[Markierung Löschung, width=140, link=../images/gelöscht.svg]
 | Erinnerung, dass der Fachdienst eine Rechnung in den Papierkorb verschoben hat und diese in n-Wochen gelöscht wird
 a| Wichtige Infos für die Push Nachricht:
 
