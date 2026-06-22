@@ -1,14 +1,5 @@
 = App des Versicherten
 
-[IMPORTANT]
-====
-🚧 **Dieses Repository befindet sich im Aufbau!** 🚧
-
-Die hier bereitgestellten Inhalte sind vorläufig und werden sich in hoher Frequenz ändern.
-Struktur, Texte und Diagramme können jederzeit ohne Vorankündigung angepasst, erweitert oder entfernt werden.
-Dieses Repository stellt daher **keine verbindliche Referenz** dar.
-====
-
 == Über dieses Projekt
 
 Dieses Repository enthält einen Implementierungsleitfaden für Hersteller von Apps für Versicherte.
