@@ -12,20 +12,11 @@ image::https://raw.githubusercontent.com/gematik/gematik.github.io/master/Gemati
     <li>
       <a href="#about-the-project">Über dieses Projekt</a>
        <ul>
+        <li><a href="#getting-started">Getting Started</a></li>
         <li><a href="#release-notes">Release Notes</a></li>
+        <li><a href="#license">License</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 ++++
@@ -34,14 +25,14 @@ image::https://raw.githubusercontent.com/gematik/gematik.github.io/master/Gemati
 Dieses Repository enthält einen Implementierungsleitfaden für Hersteller von Apps für Versicherte.
 Da eine App für die genannte Zielgruppe verschiedenen Fachmodule inkludieren kann, die jeweils mit eigenen Backend-Services kommunizieren, werden diese von dieser Dokumentation als eigene Module aufgegriffen.
 
-=== Release Notes
-`link:ReleaseNotes.md[ReleaseNotes]` für alle Informationen zum aktuellen Release.
-
-== Getting Started
+=== Getting Started
 Die versionierte Dokumentation ist in Form von github-pages unter https://gematik.github.io/ig-versicherten-app/ einsehbar.
 Diese enthält allgemeine Hinweise zur Einbindung des Zero-Trust SDKs und zur generellen Umsetzung von z.B. Barrierefreiheit und User Experience.
 
-== License
+=== Release Notes
+`link:ReleaseNotes.md[ReleaseNotes]` für alle Informationen zum aktuellen Release und den Anpassungen.
+
+=== License
 
 Copyright 2026 gematik GmbH
 
@@ -49,7 +40,7 @@ Apache License, Version 2.0
 
 See the `link:./LICENSE[LICENSE]` for the specific language governing permissions and limitations under the License
 
-== Additional Notes and Disclaimer from gematik GmbH
+=== Additional Notes and Disclaimer from gematik GmbH
 
 . Copyright notice: Each published work result is accompanied by an explicit statement of the license conditions for use. These are regularly typical conditions in connection with open source or free software. Programs described/provided/linked here are free software, unless otherwise stated.
 . Permission notice: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
