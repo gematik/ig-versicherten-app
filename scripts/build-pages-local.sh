@@ -44,6 +44,7 @@ printf '%s\n' \
   'include::docs/app_overview.adoc[leveloffset=+1]' \
   '' \
   '== Module' \
+  '' \
   > _generated_index.adoc
 
 # --- Dynamisch alle Module unter modules/ auflisten ---
@@ -64,8 +65,13 @@ for module_dir in modules/*/; do
       echo "</svg>"
     } > "$icon_file"
 
-    echo "" >> _generated_index.adoc
-    echo "image:module_${module_name}.svg[link=modules/${module_name}/docs/overview.html,title=${module_name}]" >> _generated_index.adoc
+    {
+      echo ""
+      echo "=== ${module_name}"
+      echo "link:modules/${module_name}/docs/overview.html[Zur Modulübersicht]"
+      echo ""
+      echo "image:module_${module_name}.svg[link=modules/${module_name}/docs/overview.html,title=${module_name}]"
+    } >> _generated_index.adoc
   fi
 done
 

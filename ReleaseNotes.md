@@ -2,7 +2,7 @@
 
 # Release Notes ig-versicherten-app
 
-## Release 1.0.0 (2026-06-29)
+## Release 1.0.0 (2026-07-09)
 
 ### added
 First Version of the Implementierungsleitfaden für Versicherten Apps.

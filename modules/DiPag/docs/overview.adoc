@@ -6,11 +6,6 @@
 :app-icon-inline: image:{icon-app-path}[App, width=20]
 :app-icon-legend: image:{icon-app-path}[App, width=120]
 
-[IMPORTANT]
-====
-🚧 **Dieser Implementierungsleitfaden befindet sich aktuell noch im Aufbau!** 🚧
-====
-
 Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.
 
 == App Prototype
@@ -144,20 +139,16 @@ Lade-States und verständliche Fehlermeldungen implementieren.
 Ideal: Volltextsuche
 | link:AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html[AF_10138 - Abruf von Rechnungen]
 
-| Sortierfunktion
-| -
-| Rechnungsliste sortieren
- a| Mindestens:
+| Sortier-/Filterfunktion
+| image:../images/Filter.svg[Filter für Rechnungen, width=140, link=../images/Filter.svg]
+| Rechnungsliste sortieren/filtern
+ a| Mindestens sortieren nach:
 
 * Rechnungsdatum
 * Zahlungszieldatum
 * Gesamtbetrag
-| link:
 
-| Filterfunktion
-| image:../images/Filter.svg[Filter für Rechnungen, width=140, link=../images/Filter.svg]
-| Rechnungen nach Status filtern
- a| Mindestens:
+Mindestens filtern nach:
 
 * Eingereicht
 * Nicht eingereicht
@@ -215,7 +206,7 @@ image:../images/Detail-1.svg[Erweiterte Detailansicht einer Rechnung, width=140,
 | link:
 
 .2+| Zahlungsunterstützung
-| -
+| image:../images/Zahlungsunterstuetzung.svg[Zahlungsunterstuetzung, width=140, link=../images/Zahlungsunterstuetzung.svg]
 | Rechnung digital bezahlen
 |
 Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können
@@ -279,15 +270,16 @@ Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten mediz
 | link:AF_10260_Einreichung_per_Frontend.html[AF_10260 - Einreichung per Frontend]
 
 | Markierungen
-| image:../images/Privat.svg[Markierung Privat, width=140, link=../images/Privat.svg]
+| image:../images/Persoenlich.svg[Markierung Persoenlich, width=140, link=../images/Persoenlich.svg]
   image:../images/Notiz.svg[Notiz zu einer Rechnung, width=140, link=../images/Notiz.svg]
 | Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.
  a| Die App sollte den User mindestens unterstützen die folgenden Markierungen zu setzen:
 
   * Bezahlt
   * Gelesen
-  * Eingereicht
-  * Persönlich (für angehangene Dokumente)
+  * Eingereicht (per Frontend / per Post)
+  * Geteilt
+  * Archiviert
 
 Hinweis: Neben den Markierungen existiert auch noch ein Status am Rechnungsbundle.
 Die Status Offen und Erledigt müssen nicht angezeigt werden. Der Staus Papierkorb sollte angezeigt werden in Verbindung mit der Push Nachricht in den Use Cases der automatischen anstehenden Löschung.
@@ -437,9 +429,9 @@ link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html[AF_1
 
 | Kontoeinstellungen bearbeiten
 | -
-| Nutzer-Einstellungen im Konto anpassen
+| Versicherten-Einstellungen im Konto anpassen
  a|
-* Der Versicherte kann Einstellungen seines Nutzerkontos anpassen, z. B.:
+* Der Versicherte kann Einstellungen seines Kontos anpassen, z. B.:
 ** E-Mail-Adresse für Benachrichtigungen
 ** Präferenzen für Push-Benachrichtigungen
 ** Sprache und weitere App-Einstellungen
@@ -447,7 +439,7 @@ link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html[AF_1
 
 | Identitätsdaten aktualisieren
 | -
-| Geänderten Namen aus der GesundheitsID ins Nutzerkonto übernehmen
+| Geänderten Namen aus der GesundheitsID ins Versichertenkonto übernehmen
  a|
 * Nach einer Namensänderung (z. B. durch Heirat) werden die aktualisierten Identitätsdaten aus dem sektoralen IDP in das Nutzerkonto übernommen.
 * Der Versicherte soll über die Aktualisierung informiert werden.
@@ -455,9 +447,9 @@ link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html[AF_1
 
 | Nutzerkonto löschen
 | -
-| Versicherter löscht selbst sein Nutzerkonto
+| Versicherter löscht selbst sein Versichertenkonto
  a|
-* Der Versicherte kann sein Nutzerkonto im FdV eigenständig löschen.
+* Der Versicherte kann sein Versichertenkonto im FdV eigenständig löschen.
 * Vor der Löschung soll eine Bestätigung eingeholt werden.
 * Mit der Löschung werden alle gespeicherten Rechnungen, Dokumente und Protokolldaten unwiderruflich entfernt.
 * Der Versicherter soll auf die Möglichkeit hingewiesen werden, das Nutzerprotokoll vor der Löschung zu exportieren.
