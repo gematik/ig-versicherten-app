@@ -30,7 +30,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | DiPAG Fachdienst berechtigen
 | image:../images/Einwilligung.svg[Einwilligung zur Nutzung digitaler Rechnungen, width=140, link=../images/Einwilligung.svg]
@@ -73,7 +73,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | Erneuter Zugang zu Rechnungen
 | -
@@ -104,7 +104,7 @@ Voraussetzung: Der Versicherte hat bereits eine GesundheitsID eingerichtet und m
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | Rechnungen empfangen
 | -
@@ -177,7 +177,7 @@ Mindestens filtern nach:
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | link:UC_DETAIL_ANSICHT.adoc[UC_DETAIL_ANSICHT]
  a|
@@ -242,7 +242,7 @@ Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten mediz
 === 4. Rechnungen einreichen
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | Rechnung auswählen
 | image:../images/Einreichen-1.svg[Auswahl von Rechnungen zum Einreichen, width=140, link=../images/Einreichen-1.svg]
@@ -305,7 +305,7 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung  | weitere Quellen
 
 | Neue Rechnung
 | -
@@ -416,7 +416,7 @@ link:AF_10269_Nutzerkonto_eines_Versicherten_löschen_bei_Inaktivität.html[AF_1
 
 [cols="2,2,3,4,3",options="header"]
 |===
-| Use Case | MockUp | Beschreibung | Anforderungen | weitere Quellen
+| Use Case | MockUp | Beschreibung | Empfehlung zur Umsetzung | weitere Quellen
 
 | Berechtigungen verwalten
 | -

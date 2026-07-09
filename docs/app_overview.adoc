@@ -38,7 +38,7 @@ Die Entwicklung einer barrierefreien und gebrauchstauglichen Anwendung ist ein k
 
 Barrierefreiheit basiert auf den vier internationalen WCAG‑Grundprinzipien - wahrnehmbar, bedienbar, verständlich und robust - die in allen relevanten Regelwerken verankert sind.
 
-=== 1. Gesetzliche Anforderungen
+=== 1. Gesetzliche Vorgaben
 
 * Behindertengleichstellungsgesetz (BGG): Soll die Benachteiligung von Menschen mit Behinderungen beseitigen und verhindern und enthält spezifische Regelungen für barrierefreie Informationstechnik öffentlicher Stellen des Bundes
 
@@ -61,7 +61,7 @@ Es setzt die EU‑Richtlinie 2019/882 („European Accessibility Act“) um.
 
 * ISO 9241‑171 (Barrierefreie Software)
 
-Diese Normen der ISO‑Normenreihe 9241 sind für ergonomische und barrierefreie Software maßgeblich und definieren wesentliche ergonomische und barrierefreie Anforderungen an interaktive Systeme.
+Diese Normen der ISO‑Normenreihe 9241 sind für ergonomische und barrierefreie Software maßgeblich und definieren wesentliche ergonomische und barrierefreie Vorgaben an interaktive Systeme.
 
 
 === 3. Umsetzung
@@ -84,20 +84,20 @@ Empfohlene Testverfahren:
 
 ==== 3.1 User Tests
 
-===== Anforderungen an Usertests
+===== Empfehlungen zu Usertests
 
 * Der Anbieter muss Usertests in mindestens zwei unterschiedlichen Entwicklungsphasen durchführen (z. B. frühe Prototyp-/Beta-Phase und Pre-Release-/Release-Candidate-Phase).
 * Mindestens einer der zwei Usertests (idealerweise der zweite) muss in einer Realnutzungsumgebung stattfinden, d. h. auf realen Endgeräten. Falls für die Nutzung mehrere Endgeräte oder mehrere Apps erforderlich sind, ist ein vollständiger Ende-zu-Ende-Test über alle benötigten Komponenten hinweg durchzuführen.
 * Je Usertest sind mindestens 5 Testpersonen einzubeziehen.
 
-===== Anforderungen an Testpersonen (Zielgruppe)
+===== Empfehlungen zu Testpersonen (Zielgruppe)
 
 * Testpersonen dürfen nicht dem Unternehmen des Anbieters angehören (keine Mitarbeitenden, keine Werkstudierenden, keine abhängigen Beschäftigungsverhältnisse).
 * Testpersonen müssen in Deutschland krankenversichert sein.
 * Testpersonen sollen bereits Erfahrung mit Apps haben bzw. regelmäßig Apps nutzen.
 * In mindestens einem Usertest ist mindestens eine blinde Person als Testteilnehmende einzubeziehen. Dieser Usertest muss auf einem realen Endgerät stattfinden, damit das Betriebssystem (inkl. Assistive Technologien wie Screenreader) im Zusammenspiel mit der App realitätsnah geprüft werden kann.
 
-===== Durchführungs- und Qualifikationsanforderungen
+===== Durchführungs- und Qualifikationsempfehlungen
 
 * Planung, Moderation und Auswertung der Usertests erfolgen durch fachlich qualifizierte Personen; dies kann intern oder durch entsprechend qualifizierte externe Dienstleister erfolgen.
 
