@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="72" viewBox="0 0 180 72" role="img" aria-label="App Icon">
+  <rect x="1" y="1" width="178" height="70" rx="10" fill="#ffffff" stroke="#c62828" stroke-width="2"/>
+
+  <!-- Smartphone -->
+  <rect x="16" y="12" width="36" height="48" rx="6" fill="none" stroke="#c62828" stroke-width="3"/>
+  <rect x="21" y="19" width="26" height="30" rx="2" fill="#c62828" opacity="0.2"/>
+  <circle cx="34" cy="54" r="2.5" fill="#c62828"/>
+
+  <text x="70" y="41" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#c62828">App</text>
+</svg>
+
