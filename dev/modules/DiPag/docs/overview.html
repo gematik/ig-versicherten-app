@@ -798,20 +798,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Important</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>🚧 <strong>Dieser Implementierungsleitfaden befindet sich aktuell noch im Aufbau!</strong> 🚧</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Der folgende Inhalt enthält eine Beispielanwendung aus Sicht des Versicherten und Empfehlungen der Gematik zur Umsetzung für eine gute User Experience. Es handelt sich dabei um eine fiktive App, die auf den Anwendungsfällen der DiPag basiert. Hersteller von Apps für Versicherte können sich an diesem Beispiel orientieren, müssen es aber nicht 1:1 umsetzen.</p>
 </div>
@@ -1095,11 +1081,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="AF_10138_Abruf_von_Rechnungen_Rechnungsempfänger.html">AF_10138 - Abruf von Rechnungen</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sortierfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungsliste sortieren</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sortier-/Filterfunktion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Filter.svg"><img src="../images/Filter.svg" alt="Filter für Rechnungen" width="140"></a></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungsliste sortieren/filtern</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
+<p>Mindestens sortieren nach:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1113,15 +1099,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Gesamtbetrag</p>
 </li>
 </ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">link:</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filterfunktion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Filter.svg"><img src="../images/Filter.svg" alt="Filter für Rechnungen" width="140"></a></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rechnungen nach Status filtern</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mindestens:</p>
+</div>
+<div class="paragraph">
+<p>Mindestens filtern nach:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1250,7 +1230,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Zahlungsunterstützung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Zahlungsunterstuetzung.svg"><img src="../images/Zahlungsunterstuetzung.svg" alt="Zahlungsunterstuetzung" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Rechnung digital bezahlen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Falls das Frontend keine Bezahlfunktion hat, soll die Überleitung der Rechnungsinformationen zum Online-Banking stattfinden können</p>
 <p class="tableblock">Wir empfehlen dafür ein jpeg oder PDF der Rechnung ohne die eingebetteten medizinischen Informationen mit der Banking App zu teilen</p></td>
@@ -1345,7 +1325,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Privat.svg"><img src="../images/Privat.svg" alt="Markierung Privat" width="140"></a></span>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><a class="image" href="../images/Persoenlich.svg"><img src="../images/Persoenlich.svg" alt="Markierung Persoenlich" width="140"></a></span>
   <span class="image"><a class="image" href="../images/Notiz.svg"><img src="../images/Notiz.svg" alt="Notiz zu einer Rechnung" width="140"></a></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Markierungen können gesetzt und zusätzlich eine Notiz hinterlegt werden.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1360,10 +1340,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Gelesen</p>
 </li>
 <li>
-<p>Eingereicht</p>
+<p>Eingereicht (per Frontend / per Post)</p>
 </li>
 <li>
-<p>Persönlich (für angehangene Dokumente)</p>
+<p>Geteilt</p>
+</li>
+<li>
+<p>Archiviert</p>
 </li>
 </ul>
 </div>
@@ -1635,11 +1618,11 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kontoeinstellungen bearbeiten</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nutzer-Einstellungen im Konto anpassen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherten-Einstellungen im Konto anpassen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Der Versicherte kann Einstellungen seines Nutzerkontos anpassen, z. B.:</p>
+<p>Der Versicherte kann Einstellungen seines Kontos anpassen, z. B.:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1661,7 +1644,7 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Identitätsdaten aktualisieren</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Geänderten Namen aus der GesundheitsID ins Nutzerkonto übernehmen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geänderten Namen aus der GesundheitsID ins Versichertenkonto übernehmen</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
@@ -1677,11 +1660,11 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Nutzerkonto löschen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter löscht selbst sein Nutzerkonto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versicherter löscht selbst sein Versichertenkonto</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Der Versicherte kann sein Nutzerkonto im FdV eigenständig löschen.</p>
+<p>Der Versicherte kann sein Versichertenkonto im FdV eigenständig löschen.</p>
 </li>
 <li>
 <p>Vor der Löschung soll eine Bestätigung eingeholt werden.</p>
@@ -1739,7 +1722,7 @@ Aus diesem Grund wird im Folgenden eine Kennzeichnung verwendet, um zu symbolisi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-06-29 13:18:13 UTC
+Last updated 2026-07-09 08:34:06 UTC
 </div>
 </div>
 </body>
