@@ -51,9 +51,9 @@ component {
 actor Versicherter as v
 artifact "Smartphone App" as app {
   component "ZETA Client" as zc
-  component "Gesundheits-ID Authenticator" as gia
-  component "DiPag Client" as dpc
-  component "Fachmodul X Client" as fxc
+  component "Authenticator Modul" as gia
+  component "DiPag Modul" as dpc
+  component "Fachverfahren X Modul" as fxc
 
   ' Layout: untereinander, ohne inhaltliche Abhängigkeiten darzustellen
   zc -[hidden]down- gia
@@ -66,7 +66,7 @@ Rectangle "Backend Services" as backend {
 component "ZETA Backend" as zeta_backend
 component "Gesundheits-ID Backend" as gid_backend
 component "DiPag Backend" as dipag_backend
-component "Fachmodul X Backend" as fx_backend
+component "Fachverfahren X Backend" as fx_backend
 }
 ' Verbindungen: Komponente -> passender Backend-Service
 zc  -right(0- zeta_backend

@@ -1,0 +1,54 @@
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" modified="2026-09-23T15:58:19.284Z" version="22.1.22" etag="j37YHXdPKInL1ZawuNjL" type="embed">
+  <diagram name="Digitale Patientenrechnung" id="IjYEb5gUOhjAK4EMupZ_">
+    <mxGraphModel dx="2788" dy="1502" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-1" value="Primärsystem&#xa;Rechnungsersteller&#xa;(LEI/ADL)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="210" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-2" value="IT-System&#xa;Kostenträger" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="210" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-3" value="App mit DiPag Modul" style="fillColor=#b7c9e2;whiteSpace=wrap;html=1;strokeColor=#ff3838;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="780" y="210" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-4" value="Digitale Patientenrechnung Fachdienst" style="fillColor=#c8d6ea;strokeWidth=2;whiteSpace=wrap;html=1;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="20" y="370" width="980" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-5" value="Absicherung per Zero Trust" style="fillColor=#d9d2e9;strokeWidth=2;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="20" y="17.77777777777778" width="920" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-6" value="Anwendungsdienst (Backend)" style="fillColor=#dae3f3;strokeWidth=2;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="20" y="124.44444444444446" width="920" height="71.11111111111111" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-7" value="Anwendungsdaten" style="rounded=1;fillColor=#ffffff;strokeWidth=2;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="20" y="222.2222222222222" width="920" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-8" value="Rechnungs-Workflows" style="ellipse;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="40" y="240" width="120" height="44.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-9" value="Rechnungen &amp; Dokumente" style="ellipse;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="220" y="240" width="120" height="44.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-10" value="Nutzerdaten" style="ellipse;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="780" y="240" width="120" height="44.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-11" value="Berechtigungen" style="ellipse;whiteSpace=wrap;html=1;" parent="Hh9viSS5D-6DQ-5nVsiS-4" vertex="1">
+          <mxGeometry x="580" y="240" width="120" height="44.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-13" style="entryX=0.286;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Hh9viSS5D-6DQ-5nVsiS-1" target="Hh9viSS5D-6DQ-5nVsiS-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-14" parent="1" source="Hh9viSS5D-6DQ-5nVsiS-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Hh9viSS5D-6DQ-5nVsiS-15" style="entryX=0.668;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Hh9viSS5D-6DQ-5nVsiS-3" target="Hh9viSS5D-6DQ-5nVsiS-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
