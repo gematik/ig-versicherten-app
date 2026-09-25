@@ -1,6 +1,6 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" modified="2026-09-25T12:30:58.581Z" etag="g__6jjri41uRACwp39uU" version="22.1.22" type="embed">
   <diagram id="vN3Gk7LJolClPz11rkyh" name="Seite-1">
-    <mxGraphModel dx="2474" dy="2108" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3336" dy="2302" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -64,61 +64,61 @@
         <mxCell id="m0v18ZnF8ksvcYgMQZcy-13" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="815" y="-569.95" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-1" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-1" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="-237.5" y="-305" width="95" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-2" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-2" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-235" y="-410" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-4" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-4" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="-232.5" y="-359" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-5" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-5" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="492.5" y="-470" width="95" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-6" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-6" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" parent="1" vertex="1">
           <mxGeometry x="480" y="-290" width="120" height="69" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-8" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-8" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="812.5" y="-179" width="95" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-9" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-9" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="815" y="-281" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-10" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-10" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="817.5" y="-230" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-11" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-11" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="812.5" y="-470" width="95" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-13" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font color=&quot;#ea6b66&quot;&gt;&lt;b&gt;&quot;2 Apps eigene Auth App&quot;&lt;/b&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_on_premise;strokeColor=#999999;fillColor=default;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-13" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font color=&quot;#ea6b66&quot;&gt;&lt;b&gt;&quot;2 Apps eigene Auth App&quot;&lt;/b&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_on_premise;strokeColor=#999999;fillColor=default;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" parent="1" vertex="1">
           <mxGeometry x="60" y="-720" width="270" height="670" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-14" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;" parent="1" vertex="1">
           <mxGeometry x="110" y="-660" width="160" height="570" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-15" value="All-In-One App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-15" value="All-In-One App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="130" y="-600" width="120" height="350" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-16" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-16" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="145" y="-515" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-18" value="ZETA-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-18" value="ZETA-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="145" y="-566" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-19" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-19" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="142.5" y="-359" width="95" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-20" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-20" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="145" y="-460" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-21" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-21" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="145" y="-406" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-22" value="Auth App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-22" value="Auth App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" parent="1" vertex="1">
           <mxGeometry x="135" y="-238" width="120" height="88" as="geometry" />
         </mxCell>
-        <mxCell id="eYmXZywYjuUisyZct5EN-23" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="eYmXZywYjuUisyZct5EN-23" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="150" y="-213" width="90" height="40" as="geometry" />
         </mxCell>
       </root>
