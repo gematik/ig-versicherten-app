@@ -1,67 +1,61 @@
-<mxfile host="drawio-plugin" modified="2026-09-25T12:32:11.567Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" etag="zEzyPRn2RMyVwwVFQyaD" version="22.1.22" type="embed">
+<mxfile host="drawio-plugin" modified="2026-09-25T14:23:12.252Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" etag="42WLFoPKDhxLIHbi5HEj" version="22.1.22" type="embed">
   <diagram id="23iRSUPoRavnBvh4doch" name="Page-1">
-    <mxGraphModel dx="2936" dy="2671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2289" dy="2671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="21" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&quot;Zwei Apps Auth Funktion in der ePA App&quot;&lt;/b&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_on_premise;strokeColor=#999999;fillColor=default;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="430" y="-1110" width="260" height="660" as="geometry" />
-        </mxCell>
-        <mxCell id="22" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;" vertex="1" parent="1">
+        <mxCell id="22" value="&lt;b style=&quot;border-color: rgb(218, 220, 224); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font style=&quot;border-color: rgb(218, 220, 224);&quot; color=&quot;#ea6b66&quot;&gt;&lt;b style=&quot;border-color: rgb(218, 220, 224);&quot;&gt;&quot;Zwei Apps -&lt;br&gt;&amp;nbsp;Auth Funktion in der ePA App&quot;&lt;/b&gt;&lt;/font&gt;" style="verticalLabelPosition=top;verticalAlign=bottom;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;labelPosition=center;align=center;" parent="1" vertex="1">
           <mxGeometry x="480" y="-1050" width="160" height="590" as="geometry" />
         </mxCell>
-        <mxCell id="23" value="&lt;b style=&quot;border-color: var(--border-color); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font style=&quot;border-color: var(--border-color);&quot; color=&quot;#ea6b66&quot;&gt;&lt;b style=&quot;border-color: var(--border-color);&quot;&gt;&quot;Drei Apps eigene Auth App der Versicherung&quot;&lt;/b&gt;&lt;/font&gt;" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_on_premise;strokeColor=#999999;fillColor=default;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="110" y="-1110" width="260" height="570" as="geometry" />
+        <mxCell id="24" value="&lt;b style=&quot;border-color: rgb(218, 220, 224); text-align: left; background-color: rgb(255, 255, 255); color: rgb(234, 107, 102);&quot;&gt;Szenario&amp;nbsp;&lt;/b&gt;&lt;font style=&quot;border-color: rgb(218, 220, 224); text-align: left; background-color: rgb(255, 255, 255);&quot; color=&quot;#ea6b66&quot;&gt;&lt;b style=&quot;border-color: rgb(218, 220, 224);&quot;&gt;&quot;Drei Apps - &lt;br&gt;eigene Auth App der Versicherung&quot;&lt;/b&gt;&lt;/font&gt;" style="verticalLabelPosition=top;verticalAlign=bottom;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;labelPosition=center;align=center;" parent="1" vertex="1">
+          <mxGeometry x="157.5" y="-1050" width="160" height="490" as="geometry" />
         </mxCell>
-        <mxCell id="24" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#999999;" vertex="1" parent="1">
-          <mxGeometry x="160" y="-1050" width="160" height="490" as="geometry" />
-        </mxCell>
-        <mxCell id="25" value="DiPag App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="25" value="DiPag App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="180" y="-990" width="120" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="26" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="26" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="195" y="-910" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="27" value="Auth App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" vertex="1" parent="1">
-          <mxGeometry x="180" y="-796" width="120" height="88" as="geometry" />
+        <mxCell id="27" value="Auth App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" parent="1" vertex="1">
+          <mxGeometry x="180" y="-790" width="120" height="88" as="geometry" />
         </mxCell>
-        <mxCell id="28" value="DiPag App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="28" value="DiPag App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="500" y="-990" width="120" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="29" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="29" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=15;" parent="1" vertex="1">
           <mxGeometry x="500" y="-760" width="120" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="30" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="30" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="515" y="-725" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="31" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="195" y="-771" width="90" height="40" as="geometry" />
+        <mxCell id="31" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="195" y="-760" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="32" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="32" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="195" y="-960" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="33" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="33" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="515" y="-910" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="34" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="34" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="515" y="-959.95" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="35" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="35" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="192.5" y="-860" width="95" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="36" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" vertex="1" parent="1">
+        <mxCell id="36" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" parent="1" vertex="1">
           <mxGeometry x="180" y="-680" width="120" height="69" as="geometry" />
         </mxCell>
-        <mxCell id="37" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="37" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="512.5" y="-569" width="95" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="38" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="38" value="ePA Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="515" y="-671" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="39" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="39" value="TI-M Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="517.5" y="-620" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="40" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+        <mxCell id="40" value="Push-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="512.5" y="-860" width="95" height="35" as="geometry" />
         </mxCell>
       </root>
