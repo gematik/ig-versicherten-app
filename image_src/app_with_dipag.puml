@@ -49,7 +49,7 @@ component {
 </style>
 
 actor Versicherter as v
-artifact "Smartphone App" as app {
+Rectangle "Smartphone App" as app {
   component "Authenticator Modul" as gia #line.dashed
   component "ZETA Client" as zc
   component "Push Modul" as pm
