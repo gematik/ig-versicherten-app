@@ -50,33 +50,30 @@ component {
 
 actor Versicherter as v
 artifact "Smartphone App" as app {
+  component "Authenticator Modul" as gia #line.dashed
   component "ZETA Client" as zc
   component "Push Modul" as pm
-  component "Authenticator Modul" as gia #line.dashed
   component "DiPag Modul" as dpc
 
   ' Layout: untereinander, ohne inhaltliche Abhängigkeiten darzustellen
-  zc -[hidden]down- gia
-  gia -[hidden]down- pm
+  gia -[hidden]down- zc
+  zc -[hidden]down- pm
   pm -[hidden]down- dpc
 }
- v -[hidden]down- zc
+ v -[hidden]down- gia
 ' Backend Services (je Client-Komponente)
 Rectangle "Backend Services" as backend {
 component "ZETA Guard" as zeta_backend
-component "IDP" as gid_backend
 component "Push-Gateway" as push_gateway
 component "DiPag Fachdienst" as dipag_backend
 }
 ' Verbindungen: Komponente -> passender Backend-Service
 zc  -right(0- zeta_backend
-gia -right(0- gid_backend
 dpc -right(0- dipag_backend
 pm  -right(0- push_gateway
 
 ' Layout-Hilfe: Services untereinander rechts ausrichten
-zeta_backend -[hidden]down- gid_backend
-gid_backend -[hidden]down- push_gateway
+zeta_backend -[hidden]down- push_gateway
 push_gateway -[hidden]down- dipag_backend
 
 @enduml
