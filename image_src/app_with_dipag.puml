@@ -1,0 +1,82 @@
+@startuml
+' --- Mermaid-ähnlicher Style ---
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam defaultFontName "Segoe UI, Trebuchet MS, sans-serif"
+skinparam defaultFontSize 13
+
+skinparam component {
+  BorderColor #AAAAAA
+  BackgroundColor #ECECFF
+  FontColor #333333
+  BorderThickness 1.5
+}
+
+skinparam artifact {
+  BorderColor #BBBBBB
+  BackgroundColor #F9F9FF
+  FontColor #666666
+  BorderThickness 1.5
+}
+
+skinparam rectangle {
+  BorderColor #BBBBBB
+  BackgroundColor #F9F9FF
+  FontColor #666666
+  BorderThickness 1.5
+}
+
+skinparam actor {
+  BorderColor #AAAAAA
+  BackgroundColor #ECECFF
+  FontColor #333333
+}
+
+skinparam interface {
+  BorderColor #AAAAAA
+  BackgroundColor #ECECFF
+}
+' --- Ende Style ---
+
+' Einheitliche Größe für alle Komponenten
+<style>
+component {
+  MinimumWidth 200
+  MinimumHeight 40
+  Padding 20
+}
+</style>
+
+actor Versicherter as v
+artifact "Smartphone App" as app {
+  component "ZETA Client" as zc
+  component "Push Modul" as pm
+  component "Authenticator Modul" as gia #line.dashed
+  component "DiPag Modul" as dpc
+
+  ' Layout: untereinander, ohne inhaltliche Abhängigkeiten darzustellen
+  zc -[hidden]down- gia
+  gia -[hidden]down- pm
+  pm -[hidden]down- dpc
+}
+ v -[hidden]down- zc
+' Backend Services (je Client-Komponente)
+Rectangle "Backend Services" as backend {
+component "ZETA Guard" as zeta_backend
+component "IDP" as gid_backend
+component "Push-Gateway" as push_gateway
+component "DiPag Fachdienst" as dipag_backend
+}
+' Verbindungen: Komponente -> passender Backend-Service
+zc  -right(0- zeta_backend
+gia -right(0- gid_backend
+dpc -right(0- dipag_backend
+pm  -right(0- push_gateway
+
+' Layout-Hilfe: Services untereinander rechts ausrichten
+zeta_backend -[hidden]down- gid_backend
+gid_backend -[hidden]down- push_gateway
+push_gateway -[hidden]down- dipag_backend
+
+@enduml
