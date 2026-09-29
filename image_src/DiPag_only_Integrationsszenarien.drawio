@@ -1,4 +1,4 @@
-<mxfile host="drawio-plugin" modified="2026-09-25T14:23:12.252Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" etag="42WLFoPKDhxLIHbi5HEj" version="22.1.22" type="embed">
+<mxfile host="drawio-plugin" modified="2026-09-29T09:26:20.701Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" etag="2BwoJXKHUn4QN0hNxi7J" version="22.1.22" type="embed">
   <diagram id="23iRSUPoRavnBvh4doch" name="Page-1">
     <mxGraphModel dx="2289" dy="2671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -13,7 +13,7 @@
         <mxCell id="25" value="DiPag App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="180" y="-990" width="120" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="26" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="26" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="195" y="-910" width="85" height="40" as="geometry" />
         </mxCell>
         <mxCell id="27" value="Auth App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=21;" parent="1" vertex="1">
@@ -25,16 +25,16 @@
         <mxCell id="29" value="ePA App" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;arcSize=15;" parent="1" vertex="1">
           <mxGeometry x="500" y="-760" width="120" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="30" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="30" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="515" y="-725" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="31" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="31" value="Authenticator-Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="195" y="-760" width="90" height="40" as="geometry" />
         </mxCell>
         <mxCell id="32" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="195" y="-960" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="33" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E8B2;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="33" value="DiPag Modul" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="515" y="-910" width="85" height="40" as="geometry" />
         </mxCell>
         <mxCell id="34" value="Zeta-Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
